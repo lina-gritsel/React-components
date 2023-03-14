@@ -1,3 +1,11 @@
 .container{
-    background-color: rgb(151, 63, 169);
+    background-color: #f4f1e9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
 }
