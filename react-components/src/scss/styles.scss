@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family-roboto);
+  margin: 0;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--gray-color);
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 5px;
+    background-color: var(--gray-color);
+    width: 10px;
+  }
+}
