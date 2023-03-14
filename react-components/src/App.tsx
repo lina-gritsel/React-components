@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC } from 'react'
+import Router from './router'
 
-const App:FC = () => {
-  return <>new project</>
-};
+const App: FC = () => {
+  return <Router />
+}
 
-export default App;
+export default App
