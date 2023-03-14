@@ -1,11 +1,25 @@
-.container{
-    background-color: #f4f1e9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  background-color: #f4f1e9;
 }
 
-.logo{
-    width: 100px;
-    height: 100px;
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.search {
+  background-color: #000;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 20px;
+  min-height: 50px;
+  min-width: 300px;
 }

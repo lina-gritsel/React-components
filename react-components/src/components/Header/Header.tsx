@@ -7,8 +7,11 @@ import styles from './Header.module.scss'
 const Header: FC = () => {
   return (
     <div className={styles.container}>
-      <img className={styles.logo} src={logo} />
-      <Menu />
+      <div className={styles.contentWrapper}>
+        <img className={styles.logo} src={logo} />
+        <Menu />
+        <input className={styles.search} placeholder="Search" />
+      </div>
     </div>
   )
 }
