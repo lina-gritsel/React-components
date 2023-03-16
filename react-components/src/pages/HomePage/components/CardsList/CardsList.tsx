@@ -1,3 +1,4 @@
+import SearchBar from '../SearchBar'
 import React from 'react'
 import Card from '../Card/Card'
 
@@ -22,6 +23,7 @@ interface ResponseProducts {
   error: any
   isLoaded: boolean
   items: Product[]
+  search: string
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,6 +35,7 @@ class CardsList extends React.Component<any, ResponseProducts> {
       error: null,
       isLoaded: false,
       items: [],
+      search: '',
     }
   }
 
@@ -56,16 +59,43 @@ class CardsList extends React.Component<any, ResponseProducts> {
         }
       )
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onInputChange = (event: any) => {
+    localStorage.setItem(
+      'searchValue',
+      JSON.stringify(event.target.value) as string
+    )
+    this.setState({
+      search: JSON.parse(localStorage.getItem('searchValue') as string),
+    })
+  }
+
   render() {
     const { error, isLoaded, items } = this.state
-    if (error) {
-      return <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
-      return <div>Loading...</div>
-    } else {
+    console.log(this.state.search)
+
+    if (error) return <div>Error: {error.message}</div>
+
+    if (!isLoaded) return <div>Loading...</div>
+
+    const filterProducts = items.filter((item) => {
       return (
+        item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
+          -1 ||
+        item.price
+          .toString()
+          .toLowerCase()
+          .indexOf(this.state.search.toLowerCase()) !== -1 ||
+        item.description
+          .toLowerCase()
+          .indexOf(this.state.search.toLowerCase()) !== -1
+      )
+    })
+    return (
+      <>
+        <SearchBar onInputChange={this.onInputChange.bind(this)} />
         <div className={styles.cards}>
-          {items.map(({ title, price, image, description }, index) => (
+          {filterProducts.map(({ title, price, image, description }, index) => (
             <div key={index}>
               <Card
                 title={title}
@@ -76,8 +106,8 @@ class CardsList extends React.Component<any, ResponseProducts> {
             </div>
           ))}
         </div>
-      )
-    }
+      </>
+    )
   }
 }
 
