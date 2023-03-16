@@ -9,7 +9,6 @@ class HomePage extends React.Component {
     return (
       <div>
         <Layout>
-          <div>HomePage</div>
           <CardsList />
         </Layout>
       </div>

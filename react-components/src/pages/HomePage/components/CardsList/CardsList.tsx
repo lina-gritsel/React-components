@@ -65,9 +65,14 @@ class CardsList extends React.Component<any, ResponseProducts> {
     } else {
       return (
         <div className={styles.cards}>
-          {items.map(({ title, price, image }, index) => (
+          {items.map(({ title, price, image, description }, index) => (
             <div key={index}>
-              <Card title={title} price={price} image={image} />
+              <Card
+                title={title}
+                price={price}
+                image={image}
+                desc={description}
+              />
             </div>
           ))}
         </div>
