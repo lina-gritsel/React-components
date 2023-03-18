@@ -14,9 +14,11 @@ class Card extends React.Component<CardProps> {
     return (
       <div className={styles.cardWrapper}>
         <img className={styles.imageProduct} src={this.props.image} />
-        <div className={styles.title}>{this.props.title}</div>
-        <div className={styles.price}>Price: {this.props.price}$</div>
-        <div className={styles.description}>{this.props.desc}</div>
+        <div className={styles.wrapperInfo}>
+          <div className={styles.title}>{this.props.title}</div>
+          <div className={styles.price}>{this.props.price}$</div>
+          <div className={styles.description}>{this.props.desc}</div>
+        </div>
       </div>
     )
   }

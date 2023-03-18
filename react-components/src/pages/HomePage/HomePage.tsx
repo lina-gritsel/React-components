@@ -9,7 +9,7 @@ class HomePage extends React.Component {
     return (
       <div>
         <Layout>
-          <CardsList />
+          <CardsList className={styles.cardsList} />
         </Layout>
       </div>
     )
