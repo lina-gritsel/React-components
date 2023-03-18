@@ -5,16 +5,12 @@ import SearchLogo from '../../../../assets/icons/search.svg'
 import styles from './SearchBar.module.scss'
 
 interface SearchBarProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onInputChange: (value: any) => void
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  value: any
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value: string | number
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-class SearchBar extends React.Component<SearchBarProps, any> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  InputChange = (event: any) => {
+class SearchBar extends React.Component<SearchBarProps, {}> {
+  InputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.props.onInputChange(event)
   }
 

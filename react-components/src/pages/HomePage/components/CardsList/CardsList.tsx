@@ -1,5 +1,5 @@
 import SearchBar from '../SearchBar'
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import Card from '../Card/Card'
 
 import styles from './CardsList.module.scss'
@@ -19,17 +19,14 @@ interface Product {
 }
 
 interface ResponseProducts {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  error: any
+  error: null | string
   isLoaded: boolean
   items: Product[]
   search: string
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-class CardsList extends React.Component<any, ResponseProducts> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(props: any) {
+class CardsList extends React.Component<{}, ResponseProducts> {
+  constructor(props: ResponseProducts) {
     super(props)
     this.state = {
       error: null,
@@ -59,11 +56,11 @@ class CardsList extends React.Component<any, ResponseProducts> {
         }
       )
   }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onInputChange = (event: any) => {
+
+  onInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     localStorage.setItem(
       'searchValue',
-      JSON.stringify(event.target.value) as string
+      JSON.stringify(event?.currentTarget.value) as string
     )
     this.setState({
       search: JSON.parse(localStorage.getItem('searchValue') as string),
@@ -74,7 +71,7 @@ class CardsList extends React.Component<any, ResponseProducts> {
     const { error, isLoaded, items } = this.state
     console.log(this.state.search)
 
-    if (error) return <div>Error: {error.message}</div>
+    if (error) return <div>Error: {error}</div>
 
     if (!isLoaded) return <div>Loading...</div>
 
