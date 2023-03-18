@@ -1,10 +1,14 @@
 import React from 'react'
 
+import SearchLogo from '../../../../assets/icons/search.svg'
+
 import styles from './SearchBar.module.scss'
 
 interface SearchBarProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onInputChange: (value: any) => void
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -16,14 +20,15 @@ class SearchBar extends React.Component<SearchBarProps, any> {
 
   render() {
     return (
-      <>
-        <label>Search</label>
+      <div className={styles.searchWrapper}>
+        <img src={SearchLogo} className={styles.searchIcon} />
         <input
           onChange={(event) => this.InputChange(event)}
           className={styles.search}
-          // value={this.props.search}
+          placeholder="Search"
+          value={this.props.value}
         />
-      </>
+      </div>
     )
   }
 }

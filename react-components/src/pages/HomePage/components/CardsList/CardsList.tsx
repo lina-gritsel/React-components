@@ -92,8 +92,13 @@ class CardsList extends React.Component<any, ResponseProducts> {
       )
     })
     return (
-      <>
-        <SearchBar onInputChange={this.onInputChange.bind(this)} />
+      <div className={styles.wrapperCardsList}>
+        <div className={styles.searchBar}>
+          <SearchBar
+            onInputChange={this.onInputChange.bind(this)}
+            value={this.state.search}
+          />
+        </div>
         <div className={styles.cards}>
           {filterProducts.map(({ title, price, image, description }, index) => (
             <div key={index}>
@@ -106,7 +111,7 @@ class CardsList extends React.Component<any, ResponseProducts> {
             </div>
           ))}
         </div>
-      </>
+      </div>
     )
   }
 }

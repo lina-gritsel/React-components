@@ -1,9 +1,26 @@
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+}
+
 .search {
-    background-color: #000;
-    border-radius: 20px;
-    color: #fff;
-    font-size: 20px;
-    min-height: 50px;
-    min-width: 300px;
-  }
-  
+  background-color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 25px;
+  min-height: 60px;
+  min-width: 350px;
+  padding-left: 50px;
+}
+
+.search:focus {
+  outline: none;
+}
