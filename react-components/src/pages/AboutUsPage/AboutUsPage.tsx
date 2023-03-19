@@ -1,11 +1,13 @@
-import Layout from '../../components/Layout'
 import { FC } from 'react'
+import Layout from '../../components/Layout'
+
+import styles from './AboutUsPage.module.scss'
 
 const AboutUsPage: FC = () => {
   return (
     <div>
-      <Layout>
-        <div>AboutUsPage</div>
+      <Layout currentPage="About">
+        <div className={styles.content}>About Us Page</div>
       </Layout>
     </div>
   )

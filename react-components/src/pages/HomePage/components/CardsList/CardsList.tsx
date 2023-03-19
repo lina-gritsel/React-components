@@ -1,5 +1,5 @@
 import SearchBar from '../SearchBar'
-import React, { ChangeEvent } from 'react'
+import React from 'react'
 import Card from '../Card/Card'
 
 import styles from './CardsList.module.scss'
