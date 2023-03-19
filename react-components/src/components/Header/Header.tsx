@@ -16,7 +16,10 @@ class Header extends React.Component<HeaderProps> {
       <div className={styles.container}>
         <div className={styles.contentWrapper}>
           <img className={styles.logo} src={logo} />
-          <div>Current Page:{this.props.currentPage}</div>
+          <div className={styles.currentPageWrapper}>
+            <div className={styles.title}> Current Page:</div>
+            <div className={styles.currentPage}>{this.props.currentPage}</div>
+          </div>
           <Menu />
         </div>
       </div>

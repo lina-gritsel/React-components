@@ -14,3 +14,17 @@
   width: 100px;
   height: 100px;
 }
+
+.currentPageWrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.currentPage {
+  font-size: 30px;
+  font-weight: 700;
+}
