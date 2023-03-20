@@ -7,7 +7,7 @@ import Menu from '../Menu'
 import styles from './Header.module.scss'
 
 interface HeaderProps {
-  currentPage: string
+  currentPage?: string
 }
 
 class Header extends React.Component<HeaderProps> {
