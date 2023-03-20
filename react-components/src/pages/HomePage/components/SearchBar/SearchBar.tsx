@@ -5,13 +5,13 @@ import SearchLogo from '../../../../assets/icons/search.svg'
 import styles from './SearchBar.module.scss'
 
 interface SearchBarProps {
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  value: string | number
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string | number
 }
 
 class SearchBar extends React.Component<SearchBarProps, {}> {
   InputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.props.onInputChange(event)
+    this.props.onInputChange?.(event)
   }
 
   render() {
