@@ -13,7 +13,11 @@ class Card extends React.Component<CardProps> {
   render() {
     return (
       <div className={styles.cardWrapper}>
-        <img className={styles.imageProduct} src={this.props.image} />
+        <img
+          alt="imageProduct"
+          className={styles.imageProduct}
+          src={this.props.image}
+        />
         <div className={styles.wrapperInfo}>
           <div className={styles.title}>{this.props.title}</div>
           <div className={styles.price}>{this.props.price}$</div>
