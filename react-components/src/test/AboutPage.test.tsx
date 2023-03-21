@@ -1,11 +1,17 @@
 import { render } from '@testing-library/react'
-import About from '../pages/AboutUsPage'
 import { BrowserRouter } from 'react-router-dom'
 
-it('display About page', async () => {
-  render(
-    <BrowserRouter>
-      <About />
-    </BrowserRouter>
-  )
+import AboutPage from '../pages/AboutUsPage'
+
+describe('Page About', () => {
+  test('must be rendered successfully', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <AboutPage />
+      </BrowserRouter>
+    )
+
+    const pageText = getByText(/About US Page/i)
+    expect(pageText).toBeInTheDocument()
+  })
 })

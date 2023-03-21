@@ -3,11 +3,11 @@ import Card from '../Card/Card'
 
 import styles from './CardsList.module.scss'
 
-interface Rating {
+export interface Rating {
   rate: number
   count: number
 }
-interface Product {
+export interface Product {
   title: string
   price: number
   description: string

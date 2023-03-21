@@ -3,16 +3,16 @@ import React from 'react'
 import styles from './Card.module.scss'
 
 interface CardProps {
-  title: string
-  image: string
-  price: number
-  desc: string
+  title?: string
+  image?: string
+  price?: number
+  desc?: string
 }
 
 class Card extends React.Component<CardProps> {
   render() {
     return (
-      <div className={styles.cardWrapper}>
+      <div className={styles.cardWrapper} data-testid="card">
         <img
           alt="imageProduct"
           className={styles.imageProduct}
