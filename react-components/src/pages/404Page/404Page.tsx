@@ -1,9 +1,11 @@
-import { FC } from 'react'
+import React from 'react'
 
 import styles from './404Page.module.scss'
 
-const Page404: FC = () => {
-  return <div className={styles.content}>404 Page</div>
+class Page404 extends React.Component {
+  render() {
+    return <div className={styles.content}>404 Page</div>
+  }
 }
 
 export default Page404
