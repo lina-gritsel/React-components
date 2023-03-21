@@ -1,4 +1,3 @@
-import SearchBar from '../SearchBar'
 import React from 'react'
 import Card from '../Card/Card'
 
@@ -25,8 +24,12 @@ interface ResponseProducts {
   search: string
 }
 
-class CardsList extends React.Component<{}, ResponseProducts> {
-  constructor(props: ResponseProducts) {
+interface CardsListProps {
+  searchValue: string
+}
+
+class CardsList extends React.Component<CardsListProps, ResponseProducts> {
+  constructor(props: CardsListProps) {
     super(props)
     this.state = {
       error: null,
@@ -57,19 +60,8 @@ class CardsList extends React.Component<{}, ResponseProducts> {
       )
   }
 
-  onInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    localStorage.setItem(
-      'searchValue',
-      JSON.stringify(event?.currentTarget.value) as string
-    )
-    this.setState({
-      search: JSON.parse(localStorage.getItem('searchValue') as string),
-    })
-  }
-
   render() {
     const { error, isLoaded, items } = this.state
-    console.log(this.state.search)
 
     if (error) return <div>Error: {error}</div>
 
@@ -77,25 +69,21 @@ class CardsList extends React.Component<{}, ResponseProducts> {
 
     const filterProducts = items.filter((item) => {
       return (
-        item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !==
-          -1 ||
+        item.title
+          .toLowerCase()
+          .indexOf(this.props.searchValue.toLowerCase()) !== -1 ||
         item.price
           .toString()
           .toLowerCase()
-          .indexOf(this.state.search.toLowerCase()) !== -1 ||
+          .indexOf(this.props.searchValue.toLowerCase()) !== -1 ||
         item.description
           .toLowerCase()
-          .indexOf(this.state.search.toLowerCase()) !== -1
+          .indexOf(this.props.searchValue.toLowerCase()) !== -1
       )
     })
     return (
       <div className={styles.wrapperCardsList}>
-        <div className={styles.searchBar}>
-          <SearchBar
-            onInputChange={this.onInputChange.bind(this)}
-            value={this.state.search}
-          />
-        </div>
+        <div className={styles.searchBar}></div>
         <div className={styles.cards}>
           {filterProducts.map(({ title, price, image, description }, index) => (
             <div key={index}>
