@@ -26,10 +26,10 @@ class InputSelect extends React.Component<{}, SelectValue> {
           onChange={this.handleChange}
           className={styles.input}
         >
-          <option value="grapefruit">Грейпфрут</option>
-          <option value="lime">Лайм</option>
-          <option value="coconut">Кокос</option>
-          <option value="mango">Манго</option>
+          <option value="Clothes">Clothes</option>
+          <option value="Decorations">Decorations</option>
+          <option value="Technique">Technique</option>
+          <option value="Bags">Bags</option>
         </select>
       </div>
     )
