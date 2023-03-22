@@ -12,12 +12,11 @@ interface Product {
 
 describe('CardList', async () => {
   it('render list', async () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const data: any = await fetch('https://fakestoreapi.com/products').then(
+    const data = (await fetch('https://fakestoreapi.com/products').then(
       (respo) => {
         return respo.json()
       }
-    )
+    )) as Product[]
     class CardList extends React.Component {
       render() {
         return data.map((item: Product, index: number) => (
