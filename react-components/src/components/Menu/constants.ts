@@ -9,4 +9,8 @@ export const MENU_ITEM = [
     label: 'About',
     to: PATHS.ABOUT,
   },
+  {
+    label: 'Forms',
+    to: PATHS.FORMS,
+  },
 ]
