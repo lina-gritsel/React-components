@@ -6,6 +6,7 @@ import InputBirth from './components/InputBirth'
 
 import InputName from './components/InputName'
 import InputSelect from './components/InputSelect'
+import Switcher from './components/Switcher'
 
 import styles from './FormsPage.module.scss'
 
@@ -35,6 +36,7 @@ class FormsPage extends React.Component {
               <InputBirth />
               <InputSelect />
               <Checkbox />
+              <Switcher leftLabel="yes" rightLabel="no" />
             </div>
           </div>
         </form>
