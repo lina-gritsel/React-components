@@ -1,0 +1,15 @@
+.headerInput {
+    font-size: 25px;
+  }
+  
+  .headerInput::first-letter {
+    text-transform: uppercase;
+  }
+  
+  .input {
+    border-radius: 10px;
+    min-width: 640px;
+    height: 45px;
+    padding-left: 20px;
+  }
+  
