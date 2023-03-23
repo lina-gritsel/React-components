@@ -2,6 +2,7 @@ import React from 'react'
 
 import Layout from '../../components/Layout'
 import Checkbox from './components/Checkbox'
+import ImageInput from './components/ImageInput'
 import InputBirth from './components/InputBirth'
 
 import InputName from './components/InputName'
@@ -35,6 +36,7 @@ class FormsPage extends React.Component {
               <InputName />
               <InputBirth />
               <InputSelect />
+              <ImageInput />
               <Checkbox />
               <Switcher leftLabel="yes" rightLabel="no" />
             </div>
