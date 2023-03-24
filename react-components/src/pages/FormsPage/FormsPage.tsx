@@ -11,8 +11,9 @@ import InputCategory from './components/InputCategory'
 import Switcher from './components/Switcher'
 
 import styles from './FormsPage.module.scss'
+import CardsList from './components/CardsList'
 
-interface ICardData {
+export interface ICardData {
   name?: string
   birth?: string
   category?: string
@@ -22,7 +23,7 @@ interface ICardData {
 }
 
 interface IState {
-  cardData: ICardData[]
+  cardsData: ICardData[]
 }
 
 class FormsPage extends React.Component<object, IState> {
@@ -38,7 +39,7 @@ class FormsPage extends React.Component<object, IState> {
   constructor(props: object) {
     super(props)
     this.state = {
-      cardData: [],
+      cardsData: [],
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -56,15 +57,15 @@ class FormsPage extends React.Component<object, IState> {
         checkbox: this.checkbox.current?.value,
         switcher: this.switcherPositive.current?.checked ? 'yes' : 'no',
       }
-      const newArr = this.state.cardData
+      const newArr = this.state.cardsData
       newArr.push(newCard)
-      this.setState({ cardData: newArr })
+      this.setState({ cardsData: newArr })
     }
     submitForm()
   }
 
   render() {
-    console.log(this.state.cardData)
+    console.log(this.state.cardsData)
 
     return (
       <Layout currentPage="Forms Page">
@@ -89,6 +90,7 @@ class FormsPage extends React.Component<object, IState> {
             </div>
           </div>
         </form>
+        <CardsList cards={this.state.cardsData} />
       </Layout>
     )
   }
