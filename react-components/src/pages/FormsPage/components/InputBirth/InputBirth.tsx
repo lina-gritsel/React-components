@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './InputBirth.module.scss'
 
 interface InputBirthProps {
-  forwardedRef: React.RefObject<HTMLInputElement>
+  forwardedRef?: React.RefObject<HTMLInputElement>
 }
 
 class InputBirth extends React.Component<InputBirthProps, {}> {

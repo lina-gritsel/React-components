@@ -1,5 +1,5 @@
 import React from 'react'
-import { ICardData } from 'pages/FormsPage/FormsPage'
+import { ICardData } from 'pages/FormsPage/FormPage'
 
 import styles from './CardsList.module.scss'
 

@@ -5,10 +5,10 @@ interface SwitcherValue {
 }
 
 interface SwitcherProps {
-  leftLabel: string
-  rightLabel: string
-  forwardedRefPos: React.RefObject<HTMLInputElement>
-  forwardedRefNeg: React.RefObject<HTMLInputElement>
+  leftLabel?: string
+  rightLabel?: string
+  forwardedRefPos?: React.RefObject<HTMLInputElement>
+  forwardedRefNeg?: React.RefObject<HTMLInputElement>
 }
 
 import styles from './Switcher.module.scss'

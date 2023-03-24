@@ -2,11 +2,11 @@ import React from 'react'
 
 import styles from './Checkbox.module.scss'
 
-interface InputBirthProps {
-  forwardedRef: React.RefObject<HTMLInputElement>
+interface CheckboxProps {
+  forwardedRef?: React.RefObject<HTMLInputElement>
 }
 
-class Checkbox extends React.Component<InputBirthProps, {}> {
+class Checkbox extends React.Component<CheckboxProps, {}> {
   render() {
     return (
       <div>

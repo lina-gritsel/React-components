@@ -26,7 +26,7 @@ interface IState {
   cardsData: ICardData[]
 }
 
-class FormsPage extends React.Component<object, IState> {
+class FormPage extends React.Component<object, IState> {
   name = React.createRef<HTMLInputElement>()
   birth = React.createRef<HTMLInputElement>()
   category = React.createRef<HTMLSelectElement>()
@@ -99,4 +99,4 @@ class FormsPage extends React.Component<object, IState> {
   }
 }
 
-export default FormsPage
+export default FormPage

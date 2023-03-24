@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './InputCategory.module.scss'
 
 interface InputCategoryProps {
-  forwardedRef: React.RefObject<HTMLSelectElement>
+  forwardedRef?: React.RefObject<HTMLSelectElement>
 }
 
 class InputCategory extends React.Component<InputCategoryProps, {}> {

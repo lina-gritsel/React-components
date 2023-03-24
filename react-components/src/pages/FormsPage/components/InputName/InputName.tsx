@@ -3,7 +3,7 @@ import React from 'react'
 import styles from './InputName.module.scss'
 
 interface InputNameProps {
-  forwardedRef: React.RefObject<HTMLInputElement>
+  forwardedRef?: React.RefObject<HTMLInputElement>
 }
 
 class InputName extends React.Component<InputNameProps, {}> {
