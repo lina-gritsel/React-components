@@ -1,10 +1,12 @@
-import { render } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import { render, createEvent, fireEvent } from '@testing-library/react'
 import Switcher from '../pages/FormsPage/components/Switcher'
 import Button from '../components/Button'
 import Checkbox from '../pages/FormsPage/components/Checkbox'
 import InputBirth from '../pages/FormsPage/components/InputBirth'
 import InputCategory from '../pages/FormsPage/components/InputCategory'
 import InputName from '../pages/FormsPage/components/InputName'
+import FormPage from '../pages/FormsPage'
 
 describe('render all inputs in form', () => {
   test('render input name', () => {
@@ -43,5 +45,13 @@ describe('radio button', () => {
     const { getAllByRole } = render(<Switcher />)
     const radios = getAllByRole('radio')
     expect(radios.length).toBe(2)
+  })
+})
+
+describe('Select', () => {
+  it('renders select with 4 options', () => {
+    const { getAllByTestId } = render(<InputCategory />)
+    const options = getAllByTestId('select-option')
+    expect(options.length).toBe(4)
   })
 })

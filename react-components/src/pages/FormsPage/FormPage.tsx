@@ -72,7 +72,7 @@ class FormPage extends React.Component<object, IState> {
 
     return (
       <Layout currentPage="Forms Page">
-        <form onSubmit={this.handleSubmit} ref={this.form}>
+        <form role="form" onSubmit={this.handleSubmit} ref={this.form}>
           <div className={styles.container}>
             <div className={styles.content}>
               <div className={styles.title}>fill out the form</div>
