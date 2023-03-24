@@ -1,0 +1,38 @@
+.container {
+  margin: 50px 0;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+.card {
+  border-radius: 16px;
+  border: 2px solid #000;
+}
+
+.cardHeader {
+  display: flex;
+  gap: 30px;
+}
+
+.image {
+  border-radius: 16px 0 0 16px;
+  width: 350px;
+  height: 238px;
+}
+
+.subtitle {
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.dataUser {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoUser {
+  font-size: 30px;
+}

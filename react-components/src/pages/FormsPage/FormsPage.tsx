@@ -53,7 +53,10 @@ class FormsPage extends React.Component<object, IState> {
         name: this.name.current?.value,
         birth: this.birth.current?.value,
         category: this.category.current?.value,
-        image: this.image.current?.value,
+        image:
+          this.image.current?.files instanceof FileList
+            ? URL.createObjectURL(this.image.current.files[0])
+            : '',
         checkbox: this.checkbox.current?.value,
         switcher: this.switcherPositive.current?.checked ? 'yes' : 'no',
       }
