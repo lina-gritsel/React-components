@@ -2,29 +2,19 @@ import React from 'react'
 
 import styles from './InputBirth.module.scss'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-class InputBirth extends React.Component<any, any> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      date: '',
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
+interface InputBirthProps {
+  forwardedRef: React.RefObject<HTMLInputElement>
+}
 
-  handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ date: event?.target.value })
-  }
-
+class InputBirth extends React.Component<InputBirthProps, {}> {
   render() {
     return (
       <div className={styles.formItem}>
         <div className={styles.headerInput}>date of birth:</div>
         <input
           type="date"
-          onChange={this.handleChange}
           className={styles.input}
+          ref={this.props.forwardedRef}
         />
       </div>
     )

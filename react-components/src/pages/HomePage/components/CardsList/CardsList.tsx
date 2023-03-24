@@ -13,8 +13,8 @@ export interface Product {
   description: string
   category: string
   image: string
-  id: number
-  rating: Rating
+  id?: number
+  rating?: Rating
 }
 
 interface ResponseProducts {

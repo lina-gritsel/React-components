@@ -13,7 +13,11 @@ interface ButtonProps {
 
 class Button extends React.Component<{}, ButtonProps> {
   render(): React.ReactNode {
-    return <button className={styles.button}>Submit</button>
+    return (
+      <button type="submit" className={styles.button}>
+        Submit
+      </button>
+    )
   }
 }
 

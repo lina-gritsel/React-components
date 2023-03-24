@@ -7,6 +7,8 @@ interface SwitcherValue {
 interface SwitcherProps {
   leftLabel: string
   rightLabel: string
+  forwardedRefPos: React.RefObject<HTMLInputElement>
+  forwardedRefNeg: React.RefObject<HTMLInputElement>
 }
 
 import styles from './Switcher.module.scss'
@@ -41,6 +43,7 @@ class Switcher extends React.Component<SwitcherProps, SwitcherValue> {
           onChange={this.toggleState}
           checked={!this.state.toggle}
           className={styles.input}
+          ref={this.props.forwardedRefPos}
         />
         <label className={styles.valueInput} htmlFor="switchLeft">
           {this.props.leftLabel}
@@ -53,6 +56,7 @@ class Switcher extends React.Component<SwitcherProps, SwitcherValue> {
           onChange={this.toggleState}
           checked={this.state.toggle}
           className={styles.input}
+          ref={this.props.forwardedRefNeg}
         />
         <label className={styles.valueInput} htmlFor="switchRight">
           {this.props.rightLabel}
