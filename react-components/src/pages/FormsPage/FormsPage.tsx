@@ -1,3 +1,4 @@
+import Button from '../../components/Button'
 import React from 'react'
 
 import Layout from '../../components/Layout'
@@ -39,6 +40,9 @@ class FormsPage extends React.Component {
               <ImageInput />
               <Checkbox />
               <Switcher leftLabel="yes" rightLabel="no" />
+              <div className={styles.wrapperButton}>
+                <Button />
+              </div>
             </div>
           </div>
         </form>
