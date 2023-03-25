@@ -12,6 +12,7 @@ export interface IState {
   errors: IErors
 }
 
-interface IErors {
+export interface IErors {
   name?: string
+  birth?: string
 }

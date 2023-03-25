@@ -12,7 +12,7 @@ import Switcher from './components/Switcher'
 
 import styles from './FormsPage.module.scss'
 import CardsList from './components/CardsList'
-import { IState } from '../types'
+import { IErors, IState } from '../types'
 
 class FormPage extends React.Component<object, IState> {
   name = React.createRef<HTMLInputElement>()
@@ -35,8 +35,11 @@ class FormPage extends React.Component<object, IState> {
 
   formValidation = () => {
     const nameUser = this.name.current?.value
+    const birthUser = this.birth.current?.value
+
     const errors = {} as typeof this.state.errors
     let formIsValid = true
+
     if (nameUser!.trim().length < 3) {
       formIsValid = false
       errors.name = 'UserName is very short'
@@ -51,18 +54,32 @@ class FormPage extends React.Component<object, IState> {
       formIsValid = false
       errors.name = 'Cannot be empty'
     }
-    this.setState({ errors })
+    if (!birthUser) {
+      formIsValid = false
+      errors.birth = 'Cannot be empty'
+    }
+
+    if (Object.keys(errors).length) {
+      this.setState({
+        errors,
+      })
+      formIsValid = false
+    } else {
+      formIsValid = true
+    }
+
     return formIsValid
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    console.log(this.formValidation())
+
     if (this.formValidation()) {
       alert('Form submitted')
     } else {
       alert('Form has errors.')
     }
     event.preventDefault()
-    const isValid = this.formValidation()
 
     const submitForm = () => {
       const newCard = {
@@ -80,8 +97,14 @@ class FormPage extends React.Component<object, IState> {
       newArr.push(newCard)
       this.setState({ cardsData: newArr })
     }
-    if (isValid) {
+    if (this.formValidation()) {
       submitForm()
+      this.form.current?.reset()
+      const errors = this.state.errors
+      Object.keys(errors).forEach((key) => delete errors[key as keyof IErors])
+      this.setState({
+        errors,
+      })
     }
   }
 
@@ -95,6 +118,7 @@ class FormPage extends React.Component<object, IState> {
               <InputName forwardedRef={this.name} />
               <span style={{ color: 'red' }}>{this.state.errors['name']}</span>
               <InputBirth forwardedRef={this.birth} />
+              <span style={{ color: 'red' }}>{this.state.errors['birth']}</span>
               <InputCategory forwardedRef={this.category} />
               <FileInput forwardedRef={this.image} />
               <Checkbox forwardedRef={this.checkbox} />
