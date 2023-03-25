@@ -10,6 +10,7 @@ export interface ICardData {
 export interface IState {
   cardsData: ICardData[]
   errors: IErors
+  showModal: boolean
 }
 
 export interface IErors {
