@@ -1,35 +1,18 @@
-import Button from '../../components/Button'
 import React from 'react'
 
+import Button from '../../components/Button'
 import Layout from '../../components/Layout'
-import Checkbox from './components/Checkbox'
-import FileInput from './components/FileInput'
-import InputBirth from './components/InputBirth'
 
-import InputName from './components/InputName'
 import InputCategory from './components/InputCategory'
+import InputBirth from './components/InputBirth'
+import InputName from './components/InputName'
+import FileInput from './components/FileInput'
+import Checkbox from './components/Checkbox'
 import Switcher from './components/Switcher'
 
 import styles from './FormsPage.module.scss'
 import CardsList from './components/CardsList'
-
-export interface ICardData {
-  name?: string
-  birth?: string
-  category?: string
-  image?: string
-  checkbox?: string
-  switcher?: string
-}
-
-interface IState {
-  cardsData: ICardData[]
-  errors: IErors
-}
-
-interface IErors {
-  name?: string
-}
+import { IState } from '../types'
 
 class FormPage extends React.Component<object, IState> {
   name = React.createRef<HTMLInputElement>()
