@@ -24,6 +24,11 @@ export interface ICardData {
 
 interface IState {
   cardsData: ICardData[]
+  errors: IErors
+}
+
+interface IErors {
+  name?: string
 }
 
 class FormPage extends React.Component<object, IState> {
@@ -40,13 +45,41 @@ class FormPage extends React.Component<object, IState> {
     super(props)
     this.state = {
       cardsData: [],
+      errors: {},
     }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  formValidation = () => {
+    const nameUser = this.name.current?.value
+    const errors = {} as typeof this.state.errors
+    let formIsValid = true
+    if (nameUser!.trim().length < 3) {
+      formIsValid = false
+      errors.name = 'UserName is very short'
+    }
+    if (typeof nameUser !== undefined) {
+      if (!nameUser?.match(/^[a-zA-Z]+$/)) {
+        formIsValid = false
+        errors.name = 'Only letters'
+      }
+    }
+    if (!nameUser) {
+      formIsValid = false
+      errors.name = 'Cannot be empty'
+    }
+    this.setState({ errors })
+    return formIsValid
+  }
+
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    alert('An essay was submitted')
+    if (this.formValidation()) {
+      alert('Form submitted')
+    } else {
+      alert('Form has errors.')
+    }
     event.preventDefault()
+    const isValid = this.formValidation()
 
     const submitForm = () => {
       const newCard = {
@@ -64,12 +97,12 @@ class FormPage extends React.Component<object, IState> {
       newArr.push(newCard)
       this.setState({ cardsData: newArr })
     }
-    submitForm()
+    if (isValid) {
+      submitForm()
+    }
   }
 
   render() {
-    console.log(this.state.cardsData)
-
     return (
       <Layout currentPage="Forms Page">
         <form role="form" onSubmit={this.handleSubmit} ref={this.form}>
@@ -77,6 +110,7 @@ class FormPage extends React.Component<object, IState> {
             <div className={styles.content}>
               <div className={styles.title}>fill out the form</div>
               <InputName forwardedRef={this.name} />
+              <span style={{ color: 'red' }}>{this.state.errors['name']}</span>
               <InputBirth forwardedRef={this.birth} />
               <InputCategory forwardedRef={this.category} />
               <FileInput forwardedRef={this.image} />

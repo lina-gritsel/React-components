@@ -4,14 +4,14 @@ import { ICardData } from 'pages/FormsPage/FormPage'
 import styles from './CardsList.module.scss'
 
 interface CardsListProps {
-  cards: ICardData[]
+  cards?: ICardData[]
 }
 
 class CardsList extends React.Component<CardsListProps> {
   render() {
     return (
       <div className={styles.container}>
-        {this.props.cards.map(
+        {this.props.cards?.map(
           ({ name, birth, category, image, checkbox, switcher }, index) => (
             <div key={index} className={styles.card}>
               <div className={styles.cardHeader}>
