@@ -37,6 +37,8 @@ class FormPage extends React.Component<object, IState> {
     const nameUser = this.name.current?.value
     const birthUser = this.birth.current?.value
     const category = this.category.current?.value
+    const file = this.image.current?.value
+    const checkbox = this.checkbox.current?.value
 
     const errors = {} as typeof this.state.errors
     let formIsValid = true
@@ -48,6 +50,9 @@ class FormPage extends React.Component<object, IState> {
     if (!nameUser) errors.name = 'Cannot be empty'
     if (!birthUser) errors.birth = 'Cannot be empty'
     if (!category) errors.category = 'Cannot be empty, choose a category'
+    if (!file) errors.file = 'Cannot be empty, choose a file'
+    if (checkbox !== 'checked')
+      errors.checkbox = 'This item is mandatory for sending the form'
 
     if (Object.keys(errors).length) {
       this.setState({
@@ -57,16 +62,10 @@ class FormPage extends React.Component<object, IState> {
     } else {
       formIsValid = true
     }
-
     return formIsValid
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    if (this.formValidation()) {
-      alert('Form submitted')
-    } else {
-      alert('Form has errors.')
-    }
     event.preventDefault()
 
     const submitForm = () => {
@@ -78,7 +77,7 @@ class FormPage extends React.Component<object, IState> {
           this.image.current?.files instanceof FileList
             ? URL.createObjectURL(this.image.current.files[0])
             : '',
-        checkbox: this.checkbox.current?.value,
+        checkbox: this.checkbox.current?.checked ? 'checked' : '',
         switcher: this.switcherPositive.current?.checked ? 'yes' : 'no',
       }
       const newArr = this.state.cardsData
@@ -112,7 +111,11 @@ class FormPage extends React.Component<object, IState> {
                 {this.state.errors['category']}
               </span>
               <FileInput forwardedRef={this.image} />
+              <span style={{ color: 'red' }}>{this.state.errors['file']}</span>
               <Checkbox forwardedRef={this.checkbox} />
+              <span style={{ color: 'red' }}>
+                {this.state.errors['checkbox']}
+              </span>
               <Switcher
                 forwardedRefPos={this.switcherPositive}
                 forwardedRefNeg={this.switcherNegative}
