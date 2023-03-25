@@ -15,4 +15,5 @@ export interface IState {
 export interface IErors {
   name?: string
   birth?: string
+  category?: string
 }

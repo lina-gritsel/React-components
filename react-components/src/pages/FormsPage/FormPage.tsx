@@ -36,28 +36,18 @@ class FormPage extends React.Component<object, IState> {
   formValidation = () => {
     const nameUser = this.name.current?.value
     const birthUser = this.birth.current?.value
+    const category = this.category.current?.value
 
     const errors = {} as typeof this.state.errors
     let formIsValid = true
 
-    if (nameUser!.trim().length < 3) {
-      formIsValid = false
-      errors.name = 'UserName is very short'
-    }
+    if (nameUser!.trim().length < 3) errors.name = 'UserName is very short'
     if (typeof nameUser !== undefined) {
-      if (!nameUser?.match(/^[a-zA-Z]+$/)) {
-        formIsValid = false
-        errors.name = 'Only letters'
-      }
+      if (!nameUser?.match(/^[a-zA-Z]+$/)) errors.name = 'Only letters'
     }
-    if (!nameUser) {
-      formIsValid = false
-      errors.name = 'Cannot be empty'
-    }
-    if (!birthUser) {
-      formIsValid = false
-      errors.birth = 'Cannot be empty'
-    }
+    if (!nameUser) errors.name = 'Cannot be empty'
+    if (!birthUser) errors.birth = 'Cannot be empty'
+    if (!category) errors.category = 'Cannot be empty, choose a category'
 
     if (Object.keys(errors).length) {
       this.setState({
@@ -72,8 +62,6 @@ class FormPage extends React.Component<object, IState> {
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    console.log(this.formValidation())
-
     if (this.formValidation()) {
       alert('Form submitted')
     } else {
@@ -120,6 +108,9 @@ class FormPage extends React.Component<object, IState> {
               <InputBirth forwardedRef={this.birth} />
               <span style={{ color: 'red' }}>{this.state.errors['birth']}</span>
               <InputCategory forwardedRef={this.category} />
+              <span style={{ color: 'red' }}>
+                {this.state.errors['category']}
+              </span>
               <FileInput forwardedRef={this.image} />
               <Checkbox forwardedRef={this.checkbox} />
               <Switcher

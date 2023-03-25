@@ -12,6 +12,9 @@ class InputCategory extends React.Component<InputCategoryProps, {}> {
       <div>
         <div className={styles.headerInput}>What do you want to order?</div>
         <select ref={this.props.forwardedRef} className={styles.input}>
+          <option value="" data-testid="select-option">
+            Category:
+          </option>
           <option value="Clothes" data-testid="select-option">
             Clothes
           </option>
