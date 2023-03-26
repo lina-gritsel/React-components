@@ -1,5 +1,7 @@
 import React from 'react'
 
+import styles from './FileInput.module.scss'
+
 interface FileInputProps {
   forwardedRef?: React.RefObject<HTMLInputElement>
 }
@@ -8,10 +10,16 @@ class FileInput extends React.Component<FileInputProps, {}> {
   listenerSelectedFile = () => {}
   render() {
     return (
-      <>
-        <span>Add image</span>
-        <input type="file" ref={this.props.forwardedRef} />
-      </>
+      <div className={styles.wrapper}>
+        <div className={styles.inputTitle}>Add file</div>
+        <input
+          type="file"
+          ref={this.props.forwardedRef}
+          accept="image/*"
+          className={styles.inputFile}
+          id="file"
+        />
+      </div>
     )
   }
 }
