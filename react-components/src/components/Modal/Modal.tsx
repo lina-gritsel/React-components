@@ -4,6 +4,7 @@ import styles from './Modal.module.scss'
 
 interface ModalProps {
   showModal: boolean
+  className?: string
 }
 
 class Modal extends React.Component<ModalProps> {

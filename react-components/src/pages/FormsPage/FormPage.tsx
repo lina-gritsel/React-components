@@ -110,18 +110,24 @@ class FormPage extends React.Component<object, IState> {
             <div className={styles.content}>
               <div className={styles.title}>fill out the form</div>
               <InputName forwardedRef={this.name} />
-              <span style={{ color: 'red' }}>{this.state.errors['name']}</span>
+              <span className={styles.errorMessage}>
+                {this.state.errors.name}
+              </span>
               <InputBirth forwardedRef={this.birth} />
-              <span style={{ color: 'red' }}>{this.state.errors['birth']}</span>
+              <span className={styles.errorMessage}>
+                {this.state.errors.birth}
+              </span>
               <InputCategory forwardedRef={this.category} />
-              <span style={{ color: 'red' }}>
-                {this.state.errors['category']}
+              <span className={styles.errorMessage}>
+                {this.state.errors.category}
               </span>
               <FileInput forwardedRef={this.image} />
-              <span style={{ color: 'red' }}>{this.state.errors['file']}</span>
+              <span className={styles.errorMessage}>
+                {this.state.errors.file}
+              </span>
               <Checkbox forwardedRef={this.checkbox} data-testid="check" />
-              <span style={{ color: 'red' }}>
-                {this.state.errors['checkbox']}
+              <span className={styles.errorMessage}>
+                {this.state.errors.checkbox}
               </span>
               <Switcher
                 forwardedRefPos={this.switcherPositive}
@@ -133,10 +139,10 @@ class FormPage extends React.Component<object, IState> {
                 <Button />
               </div>
             </div>
+            <Modal showModal={this.state.showModal} className={styles.modal} />
           </div>
         </form>
         <CardsList cards={this.state.cardsData} />
-        <Modal showModal={this.state.showModal} />
       </Layout>
     )
   }

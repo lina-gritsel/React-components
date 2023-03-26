@@ -1,8 +1,8 @@
 .container {
-  margin: 50px 0;
+  padding: 20px;
   display: grid;
-  gap: 40px;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
 }
 
 .card {
@@ -12,22 +12,21 @@
 
 .cardHeader {
   display: flex;
-  gap: 30px;
+  gap: 10px;
 }
 
 .image {
   border-radius: 16px 0 0 16px;
-  width: 350px;
-  height: 320px;
+  width: 290px;
+  height: 205px;
 }
 
 .subtitle {
   font-weight: 700;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .dataUser {
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -35,5 +34,5 @@
 }
 
 .infoUser {
-  font-size: 30px;
+  font-size: 25px;
 }
