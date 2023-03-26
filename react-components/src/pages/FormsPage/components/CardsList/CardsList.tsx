@@ -12,7 +12,7 @@ class CardsList extends React.Component<CardsListProps> {
     return (
       <div className={styles.container}>
         {this.props.cards?.map(
-          ({ name, birth, category, image, checkbox, switcher }, index) => (
+          ({ name, birth, category, image, switcher }, index) => (
             <div key={index} className={styles.card}>
               <div className={styles.cardHeader}>
                 <img src={image} className={styles.image} />
@@ -26,10 +26,6 @@ class CardsList extends React.Component<CardsListProps> {
                   <div className={styles.infoUser}>
                     <span className={styles.subtitle}>Category:</span>
                     {category}
-                  </div>
-                  <div className={styles.infoUser}>
-                    <span className={styles.subtitle}>Data processing:</span>
-                    {checkbox}
                   </div>
                   <div className={styles.infoUser}>
                     <span className={styles.subtitle}>Notices:</span>

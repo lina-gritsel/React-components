@@ -11,7 +11,7 @@ class FileInput extends React.Component<FileInputProps, {}> {
   render() {
     return (
       <div className={styles.wrapper}>
-        <div className={styles.inputTitle}>Add file</div>
+        <div className={styles.inputTitle}>Add image</div>
         <input
           type="file"
           ref={this.props.forwardedRef}
