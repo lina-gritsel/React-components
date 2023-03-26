@@ -15,6 +15,7 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
             type="checkbox"
             ref={this.props.forwardedRef}
             className={styles.input}
+            data-testid="check"
           />
           <span className={styles.headerInput}>
             Consent to the data processing

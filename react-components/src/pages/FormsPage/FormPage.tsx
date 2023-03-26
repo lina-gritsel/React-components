@@ -119,7 +119,7 @@ class FormPage extends React.Component<object, IState> {
               </span>
               <FileInput forwardedRef={this.image} />
               <span style={{ color: 'red' }}>{this.state.errors['file']}</span>
-              <Checkbox forwardedRef={this.checkbox} />
+              <Checkbox forwardedRef={this.checkbox} data-testid="check" />
               <span style={{ color: 'red' }}>
                 {this.state.errors['checkbox']}
               </span>

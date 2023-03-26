@@ -1,4 +1,6 @@
 import React from 'react'
+// import fetch from 'node-fetch'
+
 import Card from '../Card/Card'
 
 import styles from './CardsList.module.scss'

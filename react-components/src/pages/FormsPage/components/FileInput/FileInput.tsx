@@ -7,7 +7,12 @@ interface FileInputProps {
 class FileInput extends React.Component<FileInputProps, {}> {
   listenerSelectedFile = () => {}
   render() {
-    return <input type="file" ref={this.props.forwardedRef} />
+    return (
+      <>
+        <span>Add image</span>
+        <input type="file" ref={this.props.forwardedRef} />
+      </>
+    )
   }
 }
 
