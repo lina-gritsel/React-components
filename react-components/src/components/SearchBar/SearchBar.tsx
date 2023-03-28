@@ -5,10 +5,15 @@ import styles from './SearchBar.module.scss'
 
 interface SearchBarProps {
   searchValue?: string
-  setSearchValue?: (value: string) => void
+  setSearch: (value: string) => void
 }
 
-const SearchBar: FC<SearchBarProps> = ({ searchValue, setSearchValue }) => {
+const SearchBar: FC<SearchBarProps> = ({ searchValue, setSearch }) => {
+  const setSearchValue = (value: string) => {
+    setSearch(value)
+    localStorage.setItem('searchValue', value)
+  }
+
   return (
     <div className={styles.searchWrapper}>
       <img src={SearchLogo} className={styles.searchIcon} />
