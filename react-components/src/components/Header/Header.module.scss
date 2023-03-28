@@ -1,18 +1,22 @@
 .container {
-  background-color: #f4f1e9;
+  background-color: #eae9ee;
+  border-bottom: 2px solid #fff;
+  margin: 0 auto;
+  max-width: 1400px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .contentWrapper {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 .logo {
-  width: 90px;
-  height: 90px;
+  height: 70px;
+  width: 70px;
 }
 
 .currentPageWrapper {
