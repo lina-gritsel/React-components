@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { FC, useState } from 'react'
 
-interface SwitcherValue {
-  toggle: boolean
-}
+import styles from './Switcher.module.scss'
 
 interface SwitcherProps {
   leftLabel?: string
@@ -11,59 +9,51 @@ interface SwitcherProps {
   forwardedRefNeg?: React.RefObject<HTMLInputElement>
 }
 
-import styles from './Switcher.module.scss'
+const Switcher: FC<SwitcherProps> = ({
+  leftLabel,
+  rightLabel,
+  forwardedRefPos,
+  forwardedRefNeg,
+}) => {
+  const [toggle, setToggle] = useState<boolean>(true)
 
-class Switcher extends React.Component<SwitcherProps, SwitcherValue> {
-  constructor(props: SwitcherProps) {
-    super(props)
-    this.state = {
-      toggle: false,
-    }
-
-    this.toggleState = this.toggleState.bind(this)
+  const toggleState = () => {
+    setToggle((prev) => !prev)
   }
 
-  toggleState() {
-    this.setState({
-      toggle: !this.state.toggle,
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <div className={styles.switchTitle}>
-          Do you want to receive notifications from us?
-        </div>
-        <input
-          type="radio"
-          id="switchLeft"
-          name="switchToggle"
-          value={this.props.leftLabel}
-          onChange={this.toggleState}
-          checked={!this.state.toggle}
-          className={styles.input}
-          ref={this.props.forwardedRefPos}
-        />
-        <label className={styles.valueInput} htmlFor="switchLeft">
-          {this.props.leftLabel}
-        </label>
-        <input
-          type="radio"
-          id="switchRight"
-          name="switchToggle"
-          value={this.props.rightLabel}
-          onChange={this.toggleState}
-          checked={this.state.toggle}
-          className={styles.input}
-          ref={this.props.forwardedRefNeg}
-        />
-        <label className={styles.valueInput} htmlFor="switchRight">
-          {this.props.rightLabel}
-        </label>
+  return (
+    <div>
+      <div className={styles.switchTitle}>
+        Do you want to receive notifications from us?
       </div>
-    )
-  }
+      <input
+        type="radio"
+        id="switchLeft"
+        name="switchToggle"
+        value={leftLabel}
+        onChange={toggleState}
+        checked={toggle}
+        className={styles.input}
+        ref={forwardedRefPos}
+      />
+      <label className={styles.valueInput} htmlFor="switchLeft">
+        {leftLabel}
+      </label>
+      <input
+        type="radio"
+        id="switchRight"
+        name="switchToggle"
+        value={rightLabel}
+        onChange={toggleState}
+        checked={toggle}
+        className={styles.input}
+        ref={forwardedRefNeg}
+      />
+      <label className={styles.valueInput} htmlFor="switchRight">
+        {rightLabel}
+      </label>
+    </div>
+  )
 }
 
 export default Switcher

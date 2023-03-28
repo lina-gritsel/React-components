@@ -4,7 +4,7 @@ import styles from './Button.module.scss'
 
 interface ButtonProps {
   className?: string
-  children: ReactNode
+  children?: ReactNode
   isDisabled?: boolean
   outlined?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
