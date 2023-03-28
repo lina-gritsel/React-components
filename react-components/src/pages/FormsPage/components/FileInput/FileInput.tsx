@@ -3,16 +3,16 @@ import React, { FC } from 'react'
 import styles from './FileInput.module.scss'
 
 interface FileInputProps {
-  forwardedRef?: React.RefObject<HTMLInputElement>
+  innerRef?: React.RefObject<HTMLInputElement>
 }
 
-const FileInput: FC<FileInputProps> = ({ forwardedRef }) => {
+const FileInput: FC<FileInputProps> = ({ innerRef }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inputTitle}>Add image</div>
       <input
         type="file"
-        ref={forwardedRef}
+        ref={innerRef}
         accept="image/*"
         className={styles.inputFile}
         id="file"

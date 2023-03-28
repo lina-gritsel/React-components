@@ -3,14 +3,14 @@ import React, { FC } from 'react'
 import styles from './InputCategory.module.scss'
 
 interface InputCategoryProps {
-  forwardedRef?: React.RefObject<HTMLSelectElement>
+  innerRef?: React.RefObject<HTMLSelectElement>
 }
 
-const InputCategory: FC<InputCategoryProps> = ({ forwardedRef }) => {
+const InputCategory: FC<InputCategoryProps> = ({ innerRef }) => {
   return (
     <div>
       <div className={styles.headerInput}>What do you want to order?</div>
-      <select ref={forwardedRef} className={styles.input}>
+      <select ref={innerRef} className={styles.input}>
         <option className={styles.option} value="" data-testid="select-option">
           Category:
         </option>

@@ -7,12 +7,6 @@ export interface ICardData {
   switcher?: string
 }
 
-export interface IState {
-  cardsData: ICardData[]
-  errors: IErors
-  showModal: boolean
-}
-
 export interface IErors {
   name?: string
   birth?: string

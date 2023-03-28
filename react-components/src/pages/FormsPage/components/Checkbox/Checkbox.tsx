@@ -3,16 +3,16 @@ import React, { FC } from 'react'
 import styles from './Checkbox.module.scss'
 
 interface CheckboxProps {
-  forwardedRef?: React.RefObject<HTMLInputElement>
+  innerRef?: React.RefObject<HTMLInputElement>
 }
 
-const Checkbox: FC<CheckboxProps> = ({ forwardedRef }) => {
+const Checkbox: FC<CheckboxProps> = ({ innerRef }) => {
   return (
     <div>
       <label>
         <input
           type="checkbox"
-          ref={forwardedRef}
+          ref={innerRef}
           className={styles.input}
           data-testid="check"
         />

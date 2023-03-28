@@ -3,14 +3,14 @@ import React, { FC } from 'react'
 import styles from './InputName.module.scss'
 
 interface InputNameProps {
-  forwardedRef?: React.RefObject<HTMLInputElement>
+  innerRef?: React.RefObject<HTMLInputElement>
 }
 
-const InputName: FC<InputNameProps> = ({ forwardedRef }) => {
+const InputName: FC<InputNameProps> = ({ innerRef }) => {
   return (
     <div className={styles.formItem}>
       <div className={styles.headerInput}>name:</div>
-      <input ref={forwardedRef} className={styles.input} />
+      <input ref={innerRef} className={styles.input} />
     </div>
   )
 }
