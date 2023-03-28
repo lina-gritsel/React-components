@@ -18,7 +18,7 @@ export const useCardsListHome = (searchValue: string) => {
       }
     }
     getAllProducts()
-  }, [])
+  }, [error])
 
   const filterProducts = products.filter((item) => {
     return (
