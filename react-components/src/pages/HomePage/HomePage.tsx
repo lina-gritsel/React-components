@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import CardsList from './components/CardsList'
-import SearchBar from './components/SearchBar'
+import CardsList from '../../components/CardsList'
+import SearchBar from '../../components/SearchBar'
 
 import styles from './HomePage.module.scss'
 

@@ -1,24 +1,24 @@
 .searchWrapper {
-  display: flex;
   align-items: center;
+  display: flex;
   position: relative;
 }
 
 .searchIcon {
+  height: 30px;
+  left: 20px;
   position: absolute;
-  left: 10px;
-  width: 40px;
-  height: 40px;
+  width: 30px;
 }
 
 .search {
   background-color: #fff;
   border: none;
-  border-radius: 20px;
-  font-size: 25px;
-  min-height: 70px;
+  border-radius: 16px;
+  font-size: 20px;
+  min-height: 50px;
   min-width: 650px;
-  padding-left: 60px;
+  padding-left: 70px;
 }
 
 .search:focus {

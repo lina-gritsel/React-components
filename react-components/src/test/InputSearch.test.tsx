@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import Input from '../pages/HomePage/components/SearchBar'
+import Input from '../components/SearchBar'
 
 describe('Input component', () => {
   afterEach(() => {
