@@ -1,66 +1,19 @@
-import React from 'react'
+import { FC } from 'react'
 
 import CardHome from '../CardHome'
-import { CardsListProps, ResponseProducts } from './types'
+import { CardsListProps } from './types'
+import { useCardsListHome } from './hooks'
 
 import styles from './CardsList.module.scss'
 
-class CardsList extends React.Component<CardsListProps, ResponseProducts> {
-  constructor(props: CardsListProps) {
-    super(props)
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: [],
-      search: '',
-    }
-  }
+const CardsList: FC<CardsListProps> = ({ searchValue }) => {
+  const { filterProducts, isLoaded, error } = useCardsListHome(searchValue)
 
-  componentDidMount() {
-    fetch('https://fakestoreapi.com/products')
-      .then((respo) => {
-        return respo.json()
-      })
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result,
-          })
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          })
-        }
-      )
-  }
-
-  render() {
-    const { error, isLoaded, items } = this.state
-
-    if (error) return <div>Error: {error}</div>
-
-    if (!isLoaded) return <div>Loading...</div>
-
-    const filterProducts = items.filter((item) => {
-      return (
-        item.title
-          .toLowerCase()
-          .indexOf(this.props.searchValue.toLowerCase()) !== -1 ||
-        item.price
-          .toString()
-          .toLowerCase()
-          .indexOf(this.props.searchValue.toLowerCase()) !== -1 ||
-        item.description
-          .toLowerCase()
-          .indexOf(this.props.searchValue.toLowerCase()) !== -1
-      )
-    })
-    return (
+  return (
+    <>
+      {!isLoaded && <div>Loading...</div>}
+      {error && <div>Error: {error}</div>}
       <div className={styles.wrapperCardsList}>
-        <div className={styles.searchBar}></div>
         <div className={styles.cards}>
           {filterProducts.map(({ title, price, image, description }, index) => (
             <div key={index}>
@@ -74,8 +27,8 @@ class CardsList extends React.Component<CardsListProps, ResponseProducts> {
           ))}
         </div>
       </div>
-    )
-  }
+    </>
+  )
 }
 
 export default CardsList
