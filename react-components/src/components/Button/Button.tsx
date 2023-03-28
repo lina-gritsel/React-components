@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { FC, ReactNode } from 'react'
 
 import styles from './Button.module.scss'
 
@@ -11,14 +11,12 @@ interface ButtonProps {
   type?: 'submit'
 }
 
-class Button extends React.Component<{}, ButtonProps> {
-  render(): React.ReactNode {
-    return (
-      <button type="submit" className={styles.button}>
-        Submit
-      </button>
-    )
-  }
+const Button: FC<ButtonProps> = () => {
+  return (
+    <button type="submit" className={styles.button}>
+      Submit
+    </button>
+  )
 }
 
 export default Button

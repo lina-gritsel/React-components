@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import styles from './Modal.module.scss'
 
@@ -7,17 +7,14 @@ interface ModalProps {
   className?: string
 }
 
-class Modal extends React.Component<ModalProps> {
-  render() {
-    return (
-      <div
-        className={this.props.showModal ? styles.showModal : styles.hideModal}
-      >
-        Card
-        <br /> is <br /> created
-      </div>
-    )
-  }
+const Modal: FC<ModalProps> = ({ showModal }) => {
+  return (
+    <div className={showModal ? styles.showModal : styles.hideModal}>
+      Card
+      <br /> is <br />
+      created
+    </div>
+  )
 }
 
 export default Modal
