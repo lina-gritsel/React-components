@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import fetch from 'node-fetch'
-import Card from '../components/Card'
+import Card from '../components/CardHome'
 
 interface Product {
   title: string

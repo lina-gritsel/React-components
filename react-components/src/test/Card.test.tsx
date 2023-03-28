@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import Card from '../components/Card/Card'
+import Card from '../components/CardHome/CardHome'
 
 describe('Card component', () => {
   const testProps = {

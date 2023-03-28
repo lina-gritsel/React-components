@@ -35,10 +35,9 @@
   color: #5e5c5b;
   display: -webkit-box;
   font-size: 18px;
-  max-height: 52px;
-  text-overflow: ellipsis;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 

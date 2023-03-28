@@ -4,14 +4,14 @@ import likeIcon from '../../assets/like.png'
 
 import styles from './Card.module.scss'
 
-interface CardProps {
+interface CardHomeProps {
   title?: string
   image?: string
   price?: number
   desc?: string
 }
 
-const Card: FC<CardProps> = ({ image, price, desc, title }) => {
+const CardHome: FC<CardHomeProps> = ({ image, price, desc, title }) => {
   return (
     <div className={styles.cardWrapper} data-testid="card">
       <img alt="imageProduct" className={styles.imageProduct} src={image} />
@@ -25,4 +25,4 @@ const Card: FC<CardProps> = ({ image, price, desc, title }) => {
   )
 }
 
-export default Card
+export default CardHome

@@ -1,33 +1,9 @@
 import React from 'react'
 
-import Card from '../Card/Card'
+import CardHome from '../CardHome'
+import { CardsListProps, ResponseProducts } from './types'
 
 import styles from './CardsList.module.scss'
-
-export interface Rating {
-  rate: number
-  count: number
-}
-export interface Product {
-  title: string
-  price: number
-  description: string
-  category: string
-  image: string
-  id?: number
-  rating?: Rating
-}
-
-interface ResponseProducts {
-  error: null | string
-  isLoaded: boolean
-  items: Product[]
-  search: string
-}
-
-interface CardsListProps {
-  searchValue: string
-}
 
 class CardsList extends React.Component<CardsListProps, ResponseProducts> {
   constructor(props: CardsListProps) {
@@ -88,7 +64,7 @@ class CardsList extends React.Component<CardsListProps, ResponseProducts> {
         <div className={styles.cards}>
           {filterProducts.map(({ title, price, image, description }, index) => (
             <div key={index}>
-              <Card
+              <CardHome
                 title={title}
                 price={price}
                 image={image}
