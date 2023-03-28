@@ -27,7 +27,6 @@ const FormPage: FC = () => {
   const image = useRef<HTMLInputElement>(null)
   const checkbox = useRef<HTMLInputElement>(null)
   const switcherPositive = useRef<HTMLInputElement>(null)
-  const switcherNegative = useRef<HTMLInputElement>(null)
   const form = useRef<HTMLFormElement>(null)
 
   const formValidation = () => {
@@ -112,8 +111,7 @@ const FormPage: FC = () => {
             <Checkbox innerRef={checkbox} data-testid="check" />
             <span className={styles.errorMessage}>{errors.checkbox}</span>
             <Switcher
-              forwardedRefPos={switcherPositive}
-              forwardedRefNeg={switcherNegative}
+              innerRef={switcherPositive}
               leftLabel="yes"
               rightLabel="no"
             />

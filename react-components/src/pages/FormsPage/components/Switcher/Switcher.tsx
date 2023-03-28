@@ -5,16 +5,10 @@ import styles from './Switcher.module.scss'
 interface SwitcherProps {
   leftLabel?: string
   rightLabel?: string
-  forwardedRefPos?: React.RefObject<HTMLInputElement>
-  forwardedRefNeg?: React.RefObject<HTMLInputElement>
+  innerRef?: React.RefObject<HTMLInputElement>
 }
 
-const Switcher: FC<SwitcherProps> = ({
-  leftLabel,
-  rightLabel,
-  forwardedRefPos,
-  forwardedRefNeg,
-}) => {
+const Switcher: FC<SwitcherProps> = ({ leftLabel, rightLabel, innerRef }) => {
   const [toggle, setToggle] = useState<boolean>(true)
 
   const toggleState = () => {
@@ -34,7 +28,7 @@ const Switcher: FC<SwitcherProps> = ({
         onChange={toggleState}
         checked={toggle}
         className={styles.input}
-        ref={forwardedRefPos}
+        ref={innerRef}
       />
       <label className={styles.valueInput} htmlFor="switchLeft">
         {leftLabel}
@@ -47,7 +41,6 @@ const Switcher: FC<SwitcherProps> = ({
         onChange={toggleState}
         checked={toggle}
         className={styles.input}
-        ref={forwardedRefNeg}
       />
       <label className={styles.valueInput} htmlFor="switchRight">
         {rightLabel}
