@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import likeIcon from '../../assets/like.png'
+
 import styles from './Card.module.scss'
 
 interface CardProps {
@@ -15,8 +17,9 @@ const Card: FC<CardProps> = ({ image, price, desc, title }) => {
       <img alt="imageProduct" className={styles.imageProduct} src={image} />
       <div className={styles.wrapperInfo}>
         <div className={styles.title}>{title}</div>
-        <div className={styles.price}>{price}$</div>
         <div className={styles.description}>{desc}</div>
+        <div className={styles.price}>${price}</div>
+        <img alt="like" className={styles.likeIcon} src={likeIcon} />
       </div>
     </div>
   )
