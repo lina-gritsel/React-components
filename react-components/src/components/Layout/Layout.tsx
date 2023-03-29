@@ -8,13 +8,11 @@ interface LayoutProps {
   currentPage: string
 }
 
-const Layout: FC<LayoutProps> = (props) => {
-  return (
-    <>
-      <Header currentPage={props.currentPage} />
-      <div className={styles.content}>{props.children}</div>
-    </>
-  )
-}
+const Layout: FC<LayoutProps> = ({ currentPage, children }) => (
+  <>
+    <Header currentPage={currentPage} />
+    <div className={styles.content}>{children}</div>
+  </>
+)
 
 export default Layout
