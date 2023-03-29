@@ -1,1 +1,1 @@
-export { default } from './InputCategory'
+export { default } from './InputSelect'

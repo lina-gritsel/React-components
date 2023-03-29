@@ -1,6 +1,6 @@
-import { IErors } from '../../../types'
 import React, { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
+import { IErors } from '../../../types'
 
 import styles from './InputDate.module.scss'
 

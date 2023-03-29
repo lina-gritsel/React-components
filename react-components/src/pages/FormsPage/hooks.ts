@@ -5,13 +5,13 @@ import { ICardData, IErors } from '../types'
 export const useFormPage = () => {
   const {
     control,
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm({
     defaultValues: {
       name: '',
-      birth: '',
+      date: '',
+      categories: '',
     },
   })
 
@@ -94,7 +94,10 @@ export const useFormPage = () => {
   //   }
   // }
 
-  const onSubmit = () => {}
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onSubmit = (data: any) => {
+    console.log(data)
+  }
 
   return {
     handleSubmit,

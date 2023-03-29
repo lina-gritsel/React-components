@@ -1,12 +1,11 @@
 import { FC } from 'react'
-import { useForm } from 'react-hook-form'
 
 import Button from '../../components/Button'
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
 
-import InputCategory from './components/InputSelect'
-import InputBirth from './components/InputDate'
+import InputSelect from './components/InputSelect'
+import InputDate from './components/InputDate'
 import InputName from './components/Input'
 import CardsList from './components/CardsList'
 import FileInput from './components/FileInput'
@@ -45,13 +44,13 @@ const FormPage: FC = () => {
             placeholder="Your name"
             errors={errors}
           />
-          <InputBirth
-            name="data"
+          <InputDate
+            name="date"
             type="date"
             control={control}
             errors={errors}
           />
-          <InputCategory />
+          <InputSelect name="categories" control={control} errors={errors} />
           <FileInput />
           <Checkbox data-testid="check" />
           <Switcher leftLabel="yes" rightLabel="no" />

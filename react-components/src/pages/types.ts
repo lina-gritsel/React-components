@@ -1,6 +1,6 @@
 export interface ICardData {
   name?: string
-  birth?: string
+  date?: string
   category?: string
   image?: string
   checkbox?: string
@@ -9,7 +9,7 @@ export interface ICardData {
 
 export interface IErors {
   name?: string
-  birth?: string
+  date?: string
   category?: string
   file?: string
   checkbox?: string
