@@ -1,10 +1,23 @@
 import { useRef, useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { ICardData, IErors } from '../types'
 
 export const useFormPage = () => {
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: '',
+      birth: '',
+    },
+  })
+
   const [cardsData, setCardsData] = useState<ICardData[]>([])
   const [showModal, setShowModal] = useState<boolean>(false)
-  const [errors, setErrors] = useState<IErors>({})
+  // const [errors, setErrors] = useState<IErors>({})
 
   const name = useRef<HTMLInputElement>(null)
   const birth = useRef<HTMLInputElement>(null)
@@ -46,39 +59,42 @@ export const useFormPage = () => {
     return formIsValid
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
+  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //   event.preventDefault()
 
-    const submitForm = () => {
-      const newCard = {
-        name: name.current?.value,
-        birth: birth.current?.value,
-        category: category.current?.value,
-        image:
-          image.current?.files instanceof FileList
-            ? URL.createObjectURL(image.current.files[0])
-            : '',
-        checkbox: checkbox.current?.checked ? 'checked' : '',
-        switcher: switcherPositive.current?.checked ? 'yes' : 'no',
-      }
-      const newArr = cardsData
-      newArr.push(newCard)
-      setCardsData(newArr)
-    }
-    if (formValidation()) {
-      submitForm()
-      form.current?.reset()
-      const allErrors = errors
-      Object.keys(allErrors).forEach(
-        (key) => delete allErrors[key as keyof IErors]
-      )
-      setErrors(errors)
-      setShowModal(true)
-      setTimeout(() => {
-        setShowModal(false)
-      }, 2000)
-    }
-  }
+  // const submitForm = () => {
+  //   const newCard = {
+  //     name: name.current?.value,
+  //     birth: birth.current?.value,
+  //     category: category.current?.value,
+  //     image:
+  //       image.current?.files instanceof FileList
+  //         ? URL.createObjectURL(image.current.files[0])
+  //         : '',
+  //     checkbox: checkbox.current?.checked ? 'checked' : '',
+  //     switcher: switcherPositive.current?.checked ? 'yes' : 'no',
+  //   }
+  //   const newArr = cardsData
+  //   newArr.push(newCard)
+  //   setCardsData(newArr)
+  // }
+
+  //   if (formValidation()) {
+  //     submitForm()
+  //     form.current?.reset()
+  //     const allErrors = errors
+  //     Object.keys(allErrors).forEach(
+  //       (key) => delete allErrors[key as keyof IErors]
+  //     )
+  //     setErrors(errors)
+  //     setShowModal(true)
+  //     setTimeout(() => {
+  //       setShowModal(false)
+  //     }, 2000)
+  //   }
+  // }
+
+  const onSubmit = () => {}
 
   return {
     handleSubmit,
@@ -92,5 +108,7 @@ export const useFormPage = () => {
     switcherPositive,
     showModal,
     cardsData,
+    onSubmit,
+    control
   }
 }
