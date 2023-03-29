@@ -11,16 +11,17 @@ interface InputProps {
   control: Control<any>
   placeholder: string
   errors?: FieldErrors<IErors>
+  label: string
 }
 
-const Input: FC<InputProps> = ({ type, name, control, placeholder }) => {
+const Input: FC<InputProps> = ({ type, name, control, placeholder, label }) => {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field: { value, onChange } }) => (
         <div className={styles.formItem}>
-          <div className={styles.headerInput}>name:</div>
+          {label && <div className={styles.caption}>{label}</div>}
           <input
             type={type}
             value={value ?? ''}

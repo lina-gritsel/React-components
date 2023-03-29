@@ -14,6 +14,7 @@ import Switcher from './components/RadioButton'
 import { useFormPage } from './hooks'
 
 import styles from './FormsPage.module.scss'
+import { OPTIONS_VALUES } from './components/InputSelect/constants'
 
 const FormPage: FC = () => {
   const {
@@ -43,14 +44,22 @@ const FormPage: FC = () => {
             control={control}
             placeholder="Your name"
             errors={errors}
+            label="enter your name"
           />
           <InputDate
             name="date"
             type="date"
             control={control}
             errors={errors}
+            label="date of birth"
           />
-          <InputSelect name="categories" control={control} errors={errors} />
+          <InputSelect
+            options={OPTIONS_VALUES}
+            name="categories"
+            control={control}
+            errors={errors}
+            label="What do you want to order?"
+          />
           <FileInput />
           <Checkbox data-testid="check" />
           <Switcher leftLabel="yes" rightLabel="no" />

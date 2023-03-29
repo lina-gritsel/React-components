@@ -4,19 +4,19 @@ export const OPTIONS_VALUES = [
     label: 'Category:',
   },
   {
-    value: 'Clothes',
+    value: 'clothes',
     label: 'Clothes',
   },
   {
-    value: 'Decorations',
+    value: 'decorations',
     label: 'Decorations',
   },
   {
-    value: 'Technique',
+    value: 'technique',
     label: 'Technique',
   },
   {
-    value: 'Bags',
+    value: 'bags',
     label: 'Bags',
   },
 ]
