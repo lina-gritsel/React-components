@@ -1,37 +1,30 @@
-import { IErors } from 'pages/types'
-import { FC } from 'react'
+import { IErors } from '../../../types'
+import React, { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import styles from './InputName.module.scss'
+import styles from './InputDate.module.scss'
 
-interface InputNameProps {
+interface InputDateProps {
   name: string
   type: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>
-  placeholder: string
   errors?: FieldErrors<IErors>
 }
 
-const InputName: FC<InputNameProps> = ({
-  type,
-  name,
-  control,
-  placeholder,
-}) => {
+const InputDate: FC<InputDateProps> = ({ type, name, control, errors }) => {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field: { value, onChange } }) => (
         <div className={styles.formItem}>
-          <div className={styles.headerInput}>name:</div>
+          <div className={styles.headerInput}>date of birth:</div>
           <input
             type={type}
             value={value ?? ''}
-            className={styles.input}
-            placeholder={placeholder}
             onChange={onChange}
+            className={styles.input}
           />
         </div>
       )}
@@ -39,4 +32,4 @@ const InputName: FC<InputNameProps> = ({
   )
 }
 
-export default InputName
+export default InputDate

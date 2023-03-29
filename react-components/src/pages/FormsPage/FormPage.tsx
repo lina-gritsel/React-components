@@ -19,14 +19,14 @@ import styles from './FormsPage.module.scss'
 const FormPage: FC = () => {
   const {
     handleSubmit,
-    form,
-    name,
+    // form,
+    // name,
     errors,
-    birth,
-    category,
-    image,
-    checkbox,
-    switcherPositive,
+    // birth,
+    // category,
+    // image,
+    // checkbox,
+    // switcherPositive,
     showModal,
     cardsData,
     onSubmit,
@@ -45,15 +45,16 @@ const FormPage: FC = () => {
             placeholder="Your name"
             errors={errors}
           />
-          <InputBirth innerRef={birth} />
-          <InputCategory innerRef={category} />
-          <FileInput innerRef={image} />
-          <Checkbox innerRef={checkbox} data-testid="check" />
-          <Switcher
-            innerRef={switcherPositive}
-            leftLabel="yes"
-            rightLabel="no"
+          <InputBirth
+            name="data"
+            type="date"
+            control={control}
+            errors={errors}
           />
+          <InputCategory />
+          <FileInput />
+          <Checkbox data-testid="check" />
+          <Switcher leftLabel="yes" rightLabel="no" />
           <div className={styles.wrapperButton}>
             <Button />
           </div>

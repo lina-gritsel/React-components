@@ -1,1 +1,1 @@
-export { default } from './InputBirth'
+export { default } from './InputDate'
