@@ -1,26 +1,33 @@
 import React, { FC } from 'react'
+import { Control, Controller } from 'react-hook-form'
 
 import styles from './Checkbox.module.scss'
 
 interface CheckboxProps {
-  innerRef?: React.RefObject<HTMLInputElement>
+  name: string
+  control: Control<any>
+  type: string
+  label?: string
 }
 
-const Checkbox: FC<CheckboxProps> = ({ innerRef }) => {
+const Checkbox: FC<CheckboxProps> = ({ name, control, type, label }) => {
   return (
-    <div>
-      <label>
-        <input
-          type="checkbox"
-          ref={innerRef}
-          className={styles.input}
-          data-testid="check"
-        />
-        <span className={styles.headerInput}>
-          Consent to the data processing
-        </span>
-      </label>
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, value } }) => (
+        <div>
+          <input
+            type={type}
+            onChange={onChange}
+            value={value}
+            className={styles.input}
+            data-testid="check"
+          />
+          {label && <label className={styles.caption}>{label}</label>}
+        </div>
+      )}
+    />
   )
 }
 

@@ -66,7 +66,13 @@ const FormPage: FC = () => {
             type="file"
             label="Add image"
           />
-          <Checkbox data-testid="check" />
+          <Checkbox
+            name="checkbox"
+            control={control}
+            type="checkbox"
+            label="Consent to the data processing"
+            data-testid="check"
+          />
           <Switcher leftLabel="yes" rightLabel="no" />
           <div className={styles.wrapperButton}>
             <Button />

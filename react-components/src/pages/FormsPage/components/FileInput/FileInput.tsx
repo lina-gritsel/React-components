@@ -17,7 +17,7 @@ const FileInput: FC<FileInputProps> = ({ name, control, type, label }) => {
       control={control}
       render={({ field: { onChange, value } }) => (
         <div className={styles.wrapper}>
-          <div className={styles.inputTitle}>{label}</div>
+          {label && <div className={styles.caption}>{label}</div>}
           <input
             type={type}
             onChange={onChange}
