@@ -5,7 +5,7 @@ import { IErors } from '../../../types'
 
 import styles from './InputSelect.module.scss'
 
-interface Options {
+interface RBOption {
   label: string
   value: string
 }
@@ -15,7 +15,7 @@ interface InputSelectProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>
   errors: FieldErrors<IErors>
-  options: Options[]
+  options: RBOption[]
   label?: string
 }
 
@@ -33,9 +33,9 @@ const InputSelect: FC<InputSelectProps> = ({
         <>
           {label && <div className={styles.caption}>{label}</div>}
           <select className={styles.input} value={value} onChange={onChange}>
-            {options.map(({ value, label }, index) => (
+            {options.map(({ value, label }) => (
               <option
-                key={index}
+                key={value}
                 className={styles.option}
                 value={value}
                 data-testid="select-option"
