@@ -10,11 +10,13 @@ import InputName from './components/Input'
 import CardsList from './components/CardsList'
 import FileInput from './components/FileInput'
 import Checkbox from './components/Checkbox'
-import Switcher from './components/RadioButton'
+import RadioButoon from './components/RadioButton'
 import { useFormPage } from './hooks'
 
 import styles from './FormsPage.module.scss'
 import { OPTIONS_VALUES } from './components/InputSelect/constants'
+import { NOTIFACATIONS } from './constants'
+import { useRadioButton } from './components/RadioButton/hooks'
 
 const FormPage: FC = () => {
   const {
@@ -32,6 +34,8 @@ const FormPage: FC = () => {
     onSubmit,
     control,
   } = useFormPage()
+
+  const { radioValue, onRadioValueChange } = useRadioButton()
 
   return (
     <Layout currentPage="Forms Page">
@@ -73,7 +77,15 @@ const FormPage: FC = () => {
             label="Consent to the data processing"
             data-testid="check"
           />
-          <Switcher leftLabel="yes" rightLabel="no" />
+          <RadioButoon
+            name="radio"
+            control={control}
+            type="radio"
+            options={NOTIFACATIONS}
+            currentOption={{ label: radioValue, value: radioValue }}
+            onOptionChange={onRadioValueChange}
+            label="Do you want to receive notifications from us?"
+          />
           <div className={styles.wrapperButton}>
             <Button />
           </div>

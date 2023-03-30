@@ -14,6 +14,7 @@ export const useFormPage = () => {
       categories: '',
       file: '',
       checkbox: false,
+      radio: '',
     },
   })
 
