@@ -14,8 +14,7 @@ import RadioButoon from './components/RadioButton'
 import { useFormPage } from './hooks'
 
 import styles from './FormsPage.module.scss'
-import { OPTIONS_VALUES } from './components/InputSelect/constants'
-import { NOTIFACATIONS } from './constants'
+import { CATEGORIES, NOTIFACATIONS } from './constants'
 import { useRadioButton } from './components/RadioButton/hooks'
 
 const FormPage: FC = () => {
@@ -58,19 +57,14 @@ const FormPage: FC = () => {
           <InputSelect
             name="categories"
             control={control}
-            options={OPTIONS_VALUES}
+            options={CATEGORIES}
             errors={errors}
             label="What do you want to order?"
           />
-          <FileInput
-            name="file"
-            control={control}
-            label="Add image"
-          />
+          <FileInput name="file" control={control} label="Add image" />
           <Checkbox
             name="checkbox"
             control={control}
-            type="checkbox"
             label="Consent to the data processing"
             data-testid="check"
           />

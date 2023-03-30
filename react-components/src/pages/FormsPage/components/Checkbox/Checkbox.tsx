@@ -6,11 +6,10 @@ import styles from './Checkbox.module.scss'
 interface CheckboxProps {
   name: string
   control: Control<any>
-  type: string
   label?: string
 }
 
-const Checkbox: FC<CheckboxProps> = ({ name, control, type, label }) => {
+const Checkbox: FC<CheckboxProps> = ({ name, control, label }) => {
   return (
     <Controller
       name={name}
@@ -18,7 +17,7 @@ const Checkbox: FC<CheckboxProps> = ({ name, control, type, label }) => {
       render={({ field: { onChange, value } }) => (
         <div>
           <input
-            type={type}
+            type="checkbox"
             onChange={onChange}
             value={value}
             className={styles.input}
