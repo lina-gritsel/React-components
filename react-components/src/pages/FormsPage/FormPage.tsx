@@ -45,7 +45,6 @@ const FormPage: FC = () => {
           <InputName
             name="name"
             control={control}
-            type="text"
             placeholder="Your name"
             errors={errors}
             label="enter your name"
@@ -53,7 +52,6 @@ const FormPage: FC = () => {
           <InputDate
             name="date"
             control={control}
-            type="date"
             errors={errors}
             label="date of birth"
           />
@@ -67,7 +65,6 @@ const FormPage: FC = () => {
           <FileInput
             name="file"
             control={control}
-            type="file"
             label="Add image"
           />
           <Checkbox
@@ -80,7 +77,6 @@ const FormPage: FC = () => {
           <RadioButoon
             name="radio"
             control={control}
-            type="radio"
             options={NOTIFACATIONS}
             currentOption={{ label: radioValue, value: radioValue }}
             onOptionChange={onRadioValueChange}

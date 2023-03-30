@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import { FC } from 'react'
 import { Control, Controller } from 'react-hook-form'
 
 import styles from './RadioButton.module.scss'
@@ -11,7 +11,6 @@ export interface RBOption {
 interface SwitcherProps {
   name: string
   control: Control<any>
-  type: string
   options: RBOption[]
   label?: string
   currentOption: RBOption
@@ -22,7 +21,6 @@ interface SwitcherProps {
 const RadioButoon: FC<SwitcherProps> = ({
   name,
   control,
-  type,
   options,
   label,
   currentOption,
@@ -41,7 +39,7 @@ const RadioButoon: FC<SwitcherProps> = ({
             return (
               <div key={option.label}>
                 <input
-                  type={type}
+                  type="radio"
                   id={stringValue}
                   name={stringValue}
                   value={stringValue}

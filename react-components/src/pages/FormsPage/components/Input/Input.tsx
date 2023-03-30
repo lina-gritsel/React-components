@@ -6,7 +6,6 @@ import styles from './Input.module.scss'
 
 interface InputProps {
   name: string
-  type: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>
   placeholder: string
@@ -14,7 +13,7 @@ interface InputProps {
   label: string
 }
 
-const Input: FC<InputProps> = ({ type, name, control, placeholder, label }) => {
+const Input: FC<InputProps> = ({ name, control, placeholder, label }) => {
   return (
     <Controller
       name={name}
@@ -23,7 +22,7 @@ const Input: FC<InputProps> = ({ type, name, control, placeholder, label }) => {
         <div className={styles.formItem}>
           {label && <div className={styles.caption}>{label}</div>}
           <input
-            type={type}
+            type="text"
             value={value ?? ''}
             className={styles.input}
             placeholder={placeholder}

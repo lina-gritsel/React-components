@@ -7,20 +7,12 @@ import styles from './InputDate.module.scss'
 
 interface InputDateProps {
   name: string
-  type: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>
   errors?: FieldErrors<IErors>
   label?: string
 }
 
-const InputDate: FC<InputDateProps> = ({
-  type,
-  name,
-  control,
-  errors,
-  label,
-}) => {
+const InputDate: FC<InputDateProps> = ({ name, control, errors, label }) => {
   return (
     <Controller
       name={name}
@@ -29,7 +21,7 @@ const InputDate: FC<InputDateProps> = ({
         <div className={styles.formItem}>
           {label && <div className={styles.caption}>{label}</div>}
           <input
-            type={type}
+            type="date"
             value={value ?? ''}
             onChange={onChange}
             className={styles.input}

@@ -6,11 +6,10 @@ import styles from './FileInput.module.scss'
 interface FileInputProps {
   name: string
   control: Control<any>
-  type: string
   label?: string
 }
 
-const FileInput: FC<FileInputProps> = ({ name, control, type, label }) => {
+const FileInput: FC<FileInputProps> = ({ name, control, label }) => {
   return (
     <Controller
       name={name}
@@ -19,12 +18,11 @@ const FileInput: FC<FileInputProps> = ({ name, control, type, label }) => {
         <div className={styles.wrapper}>
           {label && <div className={styles.caption}>{label}</div>}
           <input
-            type={type}
+            type="file"
             onChange={onChange}
             value={value}
             className={styles.inputFile}
             accept="image/*"
-            id="file"
           />
         </div>
       )}
