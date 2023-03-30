@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 
 import Button from '../../components/Button'
 import Layout from '../../components/Layout'
@@ -10,31 +10,15 @@ import InputName from './components/Input'
 import CardsList from './components/CardsList'
 import FileInput from './components/FileInput'
 import Checkbox from './components/Checkbox'
-import RadioButoon from './components/RadioButton'
+import RadioGroup from './components/RadioGroup'
 import { useFormPage } from './hooks'
 
 import styles from './FormsPage.module.scss'
-import { CATEGORIES, NOTIFACATIONS } from './constants'
-import { useRadioButton } from './components/RadioButton/hooks'
+import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
 
 const FormPage: FC = () => {
-  const {
-    handleSubmit,
-    // form,
-    // name,
-    errors,
-    // birth,
-    // category,
-    // image,
-    // checkbox,
-    // switcherPositive,
-    showModal,
-    cardsData,
-    onSubmit,
-    control,
-  } = useFormPage()
-
-  const { radioValue, onRadioValueChange } = useRadioButton()
+  const { handleSubmit, errors, showModal, cardsData, onSubmit, control } =
+    useFormPage()
 
   return (
     <Layout currentPage="Forms Page">
@@ -68,16 +52,16 @@ const FormPage: FC = () => {
             label="Consent to the data processing"
             data-testid="check"
           />
-          <RadioButoon
+          <RadioGroup
             name="radio"
             control={control}
-            options={NOTIFACATIONS}
-            currentOption={{ label: radioValue, value: radioValue }}
-            onOptionChange={onRadioValueChange}
+            options={NOTIFICATIONS_OPTIONS}
             label="Do you want to receive notifications from us?"
           />
           <div className={styles.wrapperButton}>
-            <Button />
+            <button type="submit" className={styles.button}>
+              Submit
+            </button>
           </div>
           <Modal showModal={showModal} className={styles.modal} />
         </div>

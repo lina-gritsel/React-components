@@ -1,4 +1,4 @@
-export const NOTIFACATIONS = [
+export const NOTIFICATIONS_OPTIONS = [
   { label: 'yes', value: 'yes' },
   { label: 'no', value: 'no' },
 ]
