@@ -40,27 +40,32 @@ const FormPage: FC = () => {
           <div className={styles.title}>fill out the form</div>
           <InputName
             name="name"
-            type="text"
             control={control}
+            type="text"
             placeholder="Your name"
             errors={errors}
             label="enter your name"
           />
           <InputDate
             name="date"
-            type="date"
             control={control}
+            type="date"
             errors={errors}
             label="date of birth"
           />
           <InputSelect
-            options={OPTIONS_VALUES}
             name="categories"
             control={control}
+            options={OPTIONS_VALUES}
             errors={errors}
             label="What do you want to order?"
           />
-          <FileInput />
+          <FileInput
+            name="file"
+            control={control}
+            type="file"
+            label="Add image"
+          />
           <Checkbox data-testid="check" />
           <Switcher leftLabel="yes" rightLabel="no" />
           <div className={styles.wrapperButton}>

@@ -1,23 +1,34 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
+import { Control, Controller } from 'react-hook-form'
 
 import styles from './FileInput.module.scss'
 
 interface FileInputProps {
-  innerRef?: React.RefObject<HTMLInputElement>
+  name: string
+  control: Control<any>
+  type: string
+  label?: string
 }
 
-const FileInput: FC<FileInputProps> = ({ innerRef }) => {
+const FileInput: FC<FileInputProps> = ({ name, control, type, label }) => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.inputTitle}>Add image</div>
-      <input
-        type="file"
-        ref={innerRef}
-        accept="image/*"
-        className={styles.inputFile}
-        id="file"
-      />
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, value } }) => (
+        <div className={styles.wrapper}>
+          <div className={styles.inputTitle}>{label}</div>
+          <input
+            type={type}
+            onChange={onChange}
+            value={value}
+            className={styles.inputFile}
+            accept="image/*"
+            id="file"
+          />
+        </div>
+      )}
+    />
   )
 }
 

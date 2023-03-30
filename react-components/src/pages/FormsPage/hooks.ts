@@ -12,6 +12,7 @@ export const useFormPage = () => {
       name: '',
       date: '',
       categories: '',
+      file: ''
     },
   })
 
