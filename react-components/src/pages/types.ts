@@ -7,7 +7,7 @@ export interface ICardData {
   switcher?: string
 }
 
-export interface IErors {
+export interface IErrors {
   name?: string
   date?: string
   category?: string

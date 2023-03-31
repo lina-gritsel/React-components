@@ -53,6 +53,7 @@ const FormPage: FC = () => {
           <Checkbox
             name="checkbox"
             control={control}
+            errors={errors}
             label="Consent to the data processing"
             data-testid="check"
           />
@@ -62,11 +63,9 @@ const FormPage: FC = () => {
             options={NOTIFICATIONS_OPTIONS}
             label="Do you want to receive notifications from us?"
           />
-          <div className={styles.wrapperButton}>
-            <button type="submit" className={styles.button}>
-              Submit
-            </button>
-          </div>
+          <button type="submit" className={styles.button}>
+            Submit
+          </button>
           <Modal showModal={showModal} className={styles.modal} />
         </div>
       </form>

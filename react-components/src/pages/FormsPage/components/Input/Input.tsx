@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErors } from '../../../types'
+import { IErrors } from '../../../types'
 
 import styles from './Input.module.scss'
 
@@ -9,7 +9,7 @@ interface InputProps {
   name: string
   control: Control<any>
   placeholder: string
-  errors?: FieldErrors<IErors>
+  errors?: FieldErrors<IErrors>
   label: string
 }
 

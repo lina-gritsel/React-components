@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErors } from '../../../types'
+import { IErrors } from '../../../types'
 
 import styles from './InputSelect.module.scss'
 
@@ -13,7 +13,7 @@ interface RBOption {
 interface InputSelectProps {
   name: string
   control: Control<any>
-  errors: FieldErrors<IErors>
+  errors: FieldErrors<IErrors>
   options: RBOption[]
   label?: string
 }

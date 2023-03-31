@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErors } from '../../../types'
+import { IErrors } from '../../../types'
 
 import styles from './FileInput.module.scss'
 
@@ -9,7 +9,7 @@ interface FileInputProps {
   name: string
   control: Control<any>
   label?: string
-  errors: FieldErrors<IErors>
+  errors: FieldErrors<IErrors>
 }
 
 const FileInput: FC<FileInputProps> = ({ name, control, errors, label }) => {

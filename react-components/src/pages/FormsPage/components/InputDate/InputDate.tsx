@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErors } from '../../../types'
+import { IErrors } from '../../../types'
 
 import styles from './InputDate.module.scss'
 
 interface InputDateProps {
   name: string
   control: Control<any>
-  errors?: FieldErrors<IErors>
+  errors?: FieldErrors<IErrors>
   label?: string
 }
 

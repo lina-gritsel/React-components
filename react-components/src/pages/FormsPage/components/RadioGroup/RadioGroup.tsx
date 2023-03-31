@@ -16,12 +16,7 @@ interface RadioGroupProps {
   label?: string
 }
 
-const RadioGroup: FC<RadioGroupProps> = ({
-  name,
-  control,
-  options,
-  label,
-}) => {
+const RadioGroup: FC<RadioGroupProps> = ({ name, control, options, label }) => {
   return (
     <Controller
       name={name}
@@ -30,15 +25,17 @@ const RadioGroup: FC<RadioGroupProps> = ({
       render={({ field: { onChange, value } }) => (
         <>
           {label && <div className={styles.caption}>{label}</div>}
-          {options.map((option) => (
-            <RadioButton
-              key={option.value}
-              onChange={onChange}
-              value={option.value}
-              currentValue={value}
-              label={option.label}
-            />
-          ))}
+          <div className={styles.radioGroup}>
+            {options.map((option) => (
+              <RadioButton
+                key={option.value}
+                onChange={onChange}
+                value={option.value}
+                currentValue={value}
+                label={option.label}
+              />
+            ))}
+          </div>
         </>
       )}
     />
