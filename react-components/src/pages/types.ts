@@ -3,7 +3,7 @@ export interface ICardData {
   date?: string
   category?: string
   image?: string
-  checkbox?: string
+  checkbox?: boolean
   switcher?: string
 }
 

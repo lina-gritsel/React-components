@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+
 import { ICardData } from '../types'
 
 export const useFormPage = () => {
@@ -7,15 +8,9 @@ export const useFormPage = () => {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      name: '',
-      date: '',
-      categories: '',
-      file: '',
-      checkbox: false,
-      radio: '',
-    },
+    reset,
+  } = useForm<ICardData>({
+    mode: 'onBlur',
   })
 
   const [cardsData, setCardsData] = useState<ICardData[]>([])
@@ -23,6 +18,7 @@ export const useFormPage = () => {
 
   const onSubmit = (data: any) => {
     console.log(data)
+    reset()
   }
 
   return {

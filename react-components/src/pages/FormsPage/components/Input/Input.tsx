@@ -1,23 +1,40 @@
-import { IErors } from '../../../types'
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
+
+import { IErors } from '../../../types'
 
 import styles from './Input.module.scss'
 
 interface InputProps {
   name: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>
   placeholder: string
   errors?: FieldErrors<IErors>
   label: string
 }
 
-const Input: FC<InputProps> = ({ name, control, placeholder, label }) => {
+const Input: FC<InputProps> = ({
+  name,
+  control,
+  placeholder,
+  label,
+  errors,
+}) => {
   return (
     <Controller
       name={name}
       control={control}
+      rules={{
+        required: 'This field is required',
+        minLength: {
+          value: 2,
+          message: 'Minimum 2 sumbol',
+        },
+        pattern: {
+          value: /^[a-zA-Z]+$/,
+          message: 'Only letters',
+        },
+      }}
       render={({ field: { value, onChange } }) => (
         <div className={styles.formItem}>
           {label && <div className={styles.caption}>{label}</div>}
@@ -28,6 +45,7 @@ const Input: FC<InputProps> = ({ name, control, placeholder, label }) => {
             placeholder={placeholder}
             onChange={onChange}
           />
+          <div className={styles.error}>{errors?.name?.message}</div>
         </div>
       )}
     />

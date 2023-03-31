@@ -1,6 +1,5 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
-import Button from '../../components/Button'
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
 
@@ -17,8 +16,14 @@ import styles from './FormsPage.module.scss'
 import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
 
 const FormPage: FC = () => {
-  const { handleSubmit, errors, showModal, cardsData, onSubmit, control } =
-    useFormPage()
+  const {
+    handleSubmit,
+    errors,
+    showModal,
+    cardsData,
+    onSubmit,
+    control,
+  } = useFormPage()
 
   return (
     <Layout currentPage="Forms Page">
