@@ -4,7 +4,7 @@ import { Search } from '../../assets/icons'
 import styles from './SearchBar.module.scss'
 
 interface SearchInputProps {
-  onChange: (value: string) => void
+  onChange: (value?: any) => void
   value: string
   placeholder?: string
 }
@@ -18,7 +18,7 @@ const SearchInput: FC<SearchInputProps> = ({
     <div className={styles.searchWrapper}>
       <Search className={styles.searchIcon} />
       <input
-        onChange={(event) => onChange(event.target.value || '')}
+        onChange={onChange}
         className={styles.search}
         placeholder={placeholder}
         value={value}

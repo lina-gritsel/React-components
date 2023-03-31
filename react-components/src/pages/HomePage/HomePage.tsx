@@ -16,7 +16,7 @@ const HomePage: FC = () => {
         <div className={styles.searchBar}>
           <SearchInput
             value={search}
-            onChange={setSearch}
+            onChange={(event) => setSearch(event.target.value || '')}
             data-testid="searchBarInput"
           />
         </div>

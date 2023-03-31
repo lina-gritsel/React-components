@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useDebounce } from '../../hooks'
 
 export const useHomePage = () => {
-  const [search, setSearch] = useState('')
+  const [searchString, setSearchString] = useState<string>('')
 
-  useEffect(() => {
-    const currentSearchValue = localStorage.getItem('searchValue')
-    if (currentSearchValue) {
-      setSearch(currentSearchValue)
-    }
-  }, [])
+  const searchDebounced = useDebounce(searchString, 300)
 
-  return { search, setSearch }
+  return { searchString: searchDebounced, setSearchString }
 }
-
 
 // const setSearchValue = (value: string) => {
 //   onChange(value)
