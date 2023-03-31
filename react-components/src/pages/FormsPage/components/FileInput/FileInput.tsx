@@ -17,6 +17,7 @@ const FileInput: FC<FileInputProps> = ({ name, control, errors, label }) => {
     <Controller
       name={name}
       control={control}
+      defaultValue=''
       rules={{
         required: 'Select a file',
       }}

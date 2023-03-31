@@ -12,3 +12,9 @@ export const useHomePage = () => {
 
   return { search, setSearch }
 }
+
+
+// const setSearchValue = (value: string) => {
+//   onChange(value)
+//   localStorage.setItem('searchValue', value)
+// }
