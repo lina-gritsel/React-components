@@ -1,15 +1,22 @@
 import { useState } from 'react'
-import { useDebounce } from '../../../hooks'
+import { usrFetchAllProducts } from './useFetchAllProducts'
 
 export const useHomePage = () => {
+  const { products, isLoading } = usrFetchAllProducts()
+
   const [searchString, setSearchString] = useState<string>('')
 
-  // const searchDebounced = useDebounce(searchString.toUpperCase(), 300)
+  const filteredProducts = products.filter((product) => {
+    const productName = product.title
+    const productPrice = product.price.toString()
+    const productDescription = product.description
+    const filterableItems = [productName, productPrice, productDescription]
 
-  return { searchString, setSearchString }
+    return filterableItems
+      .join('')
+      .toUpperCase()
+      .includes(searchString.toUpperCase())
+  })
+
+  return { searchString, setSearchString, filteredProducts, isLoading }
 }
-
-// const setSearchValue = (value: string) => {
-//   onChange(value)
-//   localStorage.setItem('searchValue', value)
-// }

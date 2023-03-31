@@ -1,5 +1,4 @@
 import { FC } from 'react'
-
 import { Product } from '../../pages/HomePage/hooks'
 import CardHome from '../CardHome'
 
@@ -11,7 +10,7 @@ export interface CardsListProps {
 
 const CardsList: FC<CardsListProps> = ({ products }) => {
   return (
-    <div className={styles.wrapperCardsList}>
+    <div className={styles.cardsList}>
       <div className={styles.cards}>
         {products.map(({ title, price, image, description }, index) => (
           <div key={index}>
