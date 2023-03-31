@@ -16,9 +16,10 @@ export const useFormPage = () => {
   const [cardsData, setCardsData] = useState<ICardData[]>([])
   const [showModal, setShowModal] = useState<boolean>(false)
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: ICardData) => {
     console.log(data)
     reset()
+    setCardsData((prev) => [...prev, data])
   }
 
   return {

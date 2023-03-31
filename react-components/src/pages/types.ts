@@ -1,10 +1,10 @@
 export interface ICardData {
-  name?: string
-  date?: string
-  category?: string
-  image?: string
-  checkbox?: boolean
-  switcher?: string
+  name: string
+  date: string
+  category: string
+  image: string
+  checkbox: boolean
+  switcher: string
 }
 
 export interface IErrors {
