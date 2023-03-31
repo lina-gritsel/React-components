@@ -3,24 +3,26 @@ import { FC } from 'react'
 import Layout from '../../components/Layout'
 import CardsList from '../../components/CardsList'
 import SearchInput from '../../components/SearchInput'
-import { useHomePage } from './hooks'
+import { useHomePage, usrFetchAllProducts } from './hooks'
 
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { search, setSearch } = useHomePage()
+  const { products, isLoading } = usrFetchAllProducts()
+  const { searchString, setSearchString } = useHomePage()
 
   return (
     <div data-testid="homeContainer">
       <Layout currentPage="Home">
         <div className={styles.searchBar}>
           <SearchInput
-            value={search}
-            onChange={(event) => setSearch(event.target.value || '')}
+            value={searchString}
+            onChange={(event) => setSearchString(event.target.value || '')}
             data-testid="searchBarInput"
           />
         </div>
-        <CardsList searchValue={search} />
+        {!isLoading && <CardsList products={products} />}
+        {isLoading && <>Loading...</>}
       </Layout>
     </div>
   )
