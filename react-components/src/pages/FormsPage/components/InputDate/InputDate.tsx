@@ -17,6 +17,9 @@ const InputDate: FC<InputDateProps> = ({ name, control, errors, label }) => {
     <Controller
       name={name}
       control={control}
+      rules={{
+        required: 'This field is required',
+      }}
       render={({ field: { value, onChange } }) => (
         <div className={styles.formItem}>
           {label && <div className={styles.caption}>{label}</div>}
@@ -26,6 +29,7 @@ const InputDate: FC<InputDateProps> = ({ name, control, errors, label }) => {
             onChange={onChange}
             className={styles.input}
           />
+          <div className={styles.error}>{errors?.date?.message}</div>
         </div>
       )}
     />
