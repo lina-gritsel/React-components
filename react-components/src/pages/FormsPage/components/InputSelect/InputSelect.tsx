@@ -12,7 +12,6 @@ interface RBOption {
 
 interface InputSelectProps {
   name: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>
   errors: FieldErrors<IErors>
   options: RBOption[]
@@ -24,11 +23,15 @@ const InputSelect: FC<InputSelectProps> = ({
   control,
   options,
   label,
+  errors,
 }) => {
   return (
     <Controller
       name={name}
       control={control}
+      rules={{
+        required: 'This field is required',
+      }}
       render={({ field: { onChange, value } }) => (
         <>
           {label && <div className={styles.caption}>{label}</div>}
@@ -44,6 +47,7 @@ const InputSelect: FC<InputSelectProps> = ({
               </option>
             ))}
           </select>
+          <div className={styles.error}>{errors?.category?.message}</div>
         </>
       )}
     />

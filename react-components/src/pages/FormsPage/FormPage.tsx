@@ -44,7 +44,7 @@ const FormPage: FC = () => {
             label="date of birth"
           />
           <InputSelect
-            name="categories"
+            name="category"
             control={control}
             options={CATEGORIES}
             errors={errors}
