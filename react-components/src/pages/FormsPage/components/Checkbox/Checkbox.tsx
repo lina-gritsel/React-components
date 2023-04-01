@@ -27,6 +27,7 @@ const Checkbox: FC<CheckboxProps> = ({ name, control, errors, label }) => {
               type="checkbox"
               onChange={onChange}
               value={value}
+              checked={!!value}
               className={styles.input}
               data-testid="check"
             />

@@ -29,6 +29,7 @@ const InputSelect: FC<InputSelectProps> = ({
     <Controller
       name={name}
       control={control}
+      defaultValue={options[0]}
       rules={{
         required: 'This field is required',
       }}
