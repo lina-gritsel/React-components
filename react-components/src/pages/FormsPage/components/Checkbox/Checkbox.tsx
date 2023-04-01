@@ -32,7 +32,7 @@ const Checkbox: FC<CheckboxProps> = ({ name, control, errors, label }) => {
             />
             {label && <label className={styles.caption}>{label}</label>}
           </div>
-          <div className={styles.error}>{errors?.date?.message}</div>
+          <div className={styles.error}>{errors?.checkbox?.message}</div>
         </>
       )}
     />

@@ -15,7 +15,7 @@ export interface ICardData {
   category: string
   image: string
   checkbox: boolean
-  switcher: string
+  radio: string
 }
 
 export const useFormPage = () => {
@@ -32,10 +32,15 @@ export const useFormPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const onSubmit = (data: ICardData) => {
-    console.log(data.image)
-    reset()
+    console.log(data)
     setCardsData((prev) => [...prev, data])
+    setShowModal(true)
+    reset()
   }
+
+  setTimeout(() => {
+    setShowModal(false)
+  }, 3000)
 
   return {
     handleSubmit,

@@ -10,7 +10,7 @@ interface CardsListProps {
 const CardsList: FC<CardsListProps> = ({ cards }) => {
   return (
     <div className={styles.container}>
-      {cards?.map(({ name, date, category, image, switcher }, index) => (
+      {cards?.map(({ name, date, category, image, radio }, index) => (
         <div key={index} className={styles.card}>
           <div className={styles.cardHeader}>
             <img src={image} className={styles.image} />
@@ -27,7 +27,7 @@ const CardsList: FC<CardsListProps> = ({ cards }) => {
               </div>
               <div className={styles.infoUser}>
                 <span className={styles.subtitle}>Notices:</span>
-                {switcher}
+                {radio}
               </div>
             </div>
           </div>
