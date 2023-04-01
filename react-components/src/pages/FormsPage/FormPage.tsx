@@ -16,8 +16,16 @@ import styles from './FormsPage.module.scss'
 import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
 
 const FormPage: FC = () => {
-  const { handleSubmit, errors, showModal, cardsData, onSubmit, control } =
-    useFormPage()
+  const {
+    handleSubmit,
+    errors,
+    showModal,
+    cardsData,
+    onSubmit,
+    control,
+    currentFile,
+    setCurrentFile,
+  } = useFormPage()
 
   return (
     <Layout currentPage="Forms Page">
@@ -49,6 +57,8 @@ const FormPage: FC = () => {
             control={control}
             errors={errors}
             label="Add image"
+            currentFile={currentFile}
+            setCurrentFile={setCurrentFile}
           />
           <Checkbox
             name="checkbox"

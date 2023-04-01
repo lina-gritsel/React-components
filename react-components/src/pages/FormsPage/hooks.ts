@@ -13,7 +13,16 @@ export interface ICardData {
   name: string
   date: string
   category: string
-  image: string
+  file: FileList
+  checkbox: boolean
+  radio: string
+}
+
+export interface ICoorectCardData {
+  name: string
+  date: string
+  category: string
+  file: string
   checkbox: boolean
   radio: string
 }
@@ -28,14 +37,20 @@ export const useFormPage = () => {
     mode: 'onBlur',
   })
 
-  const [cardsData, setCardsData] = useState<ICardData[]>([])
+  const [cardsData, setCardsData] = useState<ICoorectCardData[]>([])
   const [showModal, setShowModal] = useState<boolean>(false)
+  const [currentFile, setCurrentFile] = useState<string>('')
 
   const onSubmit = (data: ICardData) => {
     console.log(data)
-    setCardsData((prev) => [...prev, data])
-    setShowModal(true)
     reset()
+    setCurrentFile('')
+    const correctData = {
+      ...data,
+      file: URL.createObjectURL(data.file[0]).toString(),
+    }
+    setCardsData((prev) => [...prev, correctData])
+    setShowModal(true)
   }
 
   setTimeout(() => {
@@ -49,5 +64,7 @@ export const useFormPage = () => {
     cardsData,
     onSubmit,
     control,
+    currentFile,
+    setCurrentFile,
   }
 }

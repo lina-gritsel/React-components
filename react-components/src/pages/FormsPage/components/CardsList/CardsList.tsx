@@ -1,19 +1,19 @@
 import { FC } from 'react'
-import { ICardData } from '../../hooks'
+import { ICoorectCardData } from '../../hooks'
 
 import styles from './CardsList.module.scss'
 
 interface CardsListProps {
-  cards?: ICardData[]
+  cards?: ICoorectCardData[]
 }
 
 const CardsList: FC<CardsListProps> = ({ cards }) => {
   return (
     <div className={styles.container}>
-      {cards?.map(({ name, date, category, image, radio }, index) => (
+      {cards?.map(({ name, date, category, file, radio }, index) => (
         <div key={index} className={styles.card}>
           <div className={styles.cardHeader}>
-            <img src={image} className={styles.image} />
+            <img src={file} className={styles.image} />
             <div className={styles.dataUser}>
               <div className={styles.infoUser}>
                 <span className={styles.subtitle}>Name:</span> {name}
