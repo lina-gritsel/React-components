@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErrors } from '../../../types'
+import { IErrors } from '../../hooks'
 
 import styles from './Checkbox.module.scss'
 

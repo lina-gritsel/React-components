@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ICardData } from '../../../../pages/types'
+import { ICardData } from '../../hooks'
 
 import styles from './CardsList.module.scss'
 

@@ -1,7 +1,22 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { ICardData } from '../types'
+export interface IErrors {
+  name?: string
+  date?: string
+  category?: string
+  file?: string
+  checkbox?: string
+}
+
+export interface ICardData {
+  name: string
+  date: string
+  category: string
+  image: string
+  checkbox: boolean
+  switcher: string
+}
 
 export const useFormPage = () => {
   const {
@@ -17,7 +32,7 @@ export const useFormPage = () => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   const onSubmit = (data: ICardData) => {
-    console.log(data)
+    console.log(data.image)
     reset()
     setCardsData((prev) => [...prev, data])
   }
