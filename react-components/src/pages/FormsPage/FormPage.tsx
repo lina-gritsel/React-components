@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
+import ShopImage from '../../assets/images/shop.jpg'
 
 import InputSelect from './components/InputSelect'
 import RadioGroup from './components/RadioGroup'
@@ -28,57 +29,68 @@ const FormPage: FC = () => {
   } = useFormPage()
 
   return (
-    <Layout currentPage="Forms Page">
-      <form role="form" onSubmit={handleSubmit(onSubmit)}>
-        <div className={styles.container}>
-          <div className={styles.title}>fill out the form</div>
-          <InputName
-            name="name"
-            control={control}
-            placeholder="Your name"
-            errors={errors}
-            label="enter your name"
-          />
-          <InputDate
-            name="date"
-            control={control}
-            errors={errors}
-            label="date of birth"
-          />
-          <InputSelect
-            name="category"
-            control={control}
-            options={CATEGORIES}
-            errors={errors}
-            label="What do you want to order?"
-          />
-          <FileInput
-            name="file"
-            control={control}
-            errors={errors}
-            label="Add image"
-            currentFile={currentFile}
-            setCurrentFile={setCurrentFile}
-          />
-          <Checkbox
-            name="checkbox"
-            control={control}
-            errors={errors}
-            label="Consent to the data processing"
-            data-testid="check"
-          />
-          <RadioGroup
-            name="radio"
-            control={control}
-            options={NOTIFICATIONS_OPTIONS}
-            label="Do you want to receive notifications from us?"
-          />
-          <button type="submit" className={styles.button}>
-            Submit
-          </button>
-          <Modal showModal={showModal} className={styles.modal} />
+    <Layout>
+      <div className={styles.main}>
+        <div className={styles.poster}>
+          <div className={styles.shadow}></div>
+          <img src={ShopImage} className={styles.shopImage} alt="shop" />
+          <div className={styles.mainTitle}>
+            You can order online - just fill out the form
+          </div>
         </div>
-      </form>
+        <form
+          role="form"
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.form}
+        >
+          <div className={styles.container}>
+            {/* <div className={styles.title}>fill out the form</div> */}
+            <InputName
+              name="name"
+              control={control}
+              placeholder="Your name"
+              errors={errors}
+            />
+            <InputDate
+              name="date"
+              control={control}
+              errors={errors}
+              label="date of birth"
+            />
+            <InputSelect
+              name="category"
+              control={control}
+              options={CATEGORIES}
+              errors={errors}
+            />
+            <FileInput
+              name="file"
+              control={control}
+              errors={errors}
+              currentFile={currentFile}
+              setCurrentFile={setCurrentFile}
+            />
+            <Checkbox
+              name="checkbox"
+              control={control}
+              errors={errors}
+              label="Consent to the data processing"
+              data-testid="check"
+            />
+            <RadioGroup
+              name="radio"
+              control={control}
+              options={NOTIFICATIONS_OPTIONS}
+              label="Do you want to receive notifications from us?"
+            />
+            <button type="submit" className={styles.button}>
+              Submit
+            </button>
+            <Modal showModal={showModal} className={styles.modal} />
+          </div>
+        </form>
+      </div>
+
       <CardsList cards={cardsData} />
     </Layout>
   )

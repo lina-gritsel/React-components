@@ -1,4 +1,4 @@
-.radioGroup{
+.radioGroup {
   display: flex;
 }
 
@@ -17,11 +17,11 @@
   width: 100px;
   height: 30px;
   text-align: center;
-  background-color: #e4e4e4;
   color: #000;
   text-align: center;
   padding: 2px 14px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid #979797;
+  border-radius: 10px;
   font-size: 20px;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .input:checked + label {
-  background-color: #dbc7e1;
+  background-color: #e0e0e0;
   font-size: 20px;
   color: #000;
   box-shadow: none;

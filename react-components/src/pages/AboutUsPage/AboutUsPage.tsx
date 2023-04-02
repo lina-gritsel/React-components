@@ -5,7 +5,7 @@ import styles from './AboutUsPage.module.scss'
 
 const AboutUsPage: FC = () => (
   <div>
-    <Layout currentPage="About">
+    <Layout>
       <div className={styles.content}>About Us Page</div>
     </Layout>
   </div>

@@ -13,7 +13,7 @@ const HomePage: FC = () => {
 
   return (
     <div data-testid="homeContainer">
-      <Layout currentPage="Home">
+      <Layout>
         <div className={styles.searchBar}>
           <SearchInput
             value={searchString}

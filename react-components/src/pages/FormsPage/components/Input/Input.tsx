@@ -10,7 +10,7 @@ interface InputProps {
   control: Control<any>
   placeholder: string
   errors?: FieldErrors<IErrors>
-  label: string
+  label?: string
 }
 
 const Input: FC<InputProps> = ({

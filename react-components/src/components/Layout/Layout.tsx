@@ -5,12 +5,11 @@ import styles from './Layout.module.scss'
 
 interface LayoutProps {
   children: ReactNode
-  currentPage: string
 }
 
-const Layout: FC<LayoutProps> = ({ currentPage, children }) => (
+const Layout: FC<LayoutProps> = ({ children }) => (
   <>
-    <Header currentPage={currentPage} />
+    <Header />
     <div className={styles.content}>{children}</div>
   </>
 )

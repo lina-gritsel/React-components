@@ -5,19 +5,11 @@ import Menu from '../Menu'
 
 import styles from './Header.module.scss'
 
-interface HeaderProps {
-  currentPage?: string
-}
-
-const Header: FC<HeaderProps> = ({ currentPage }) => {
+const Header: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.contentWrapper}>
         <img className={styles.logo} src={logo} />
-        <div className={styles.currentPageWrapper}>
-          <div className={styles.title}> Current Page:</div>
-          <div className={styles.currentPage}>{currentPage}</div>
-        </div>
         <Menu />
       </div>
     </div>
