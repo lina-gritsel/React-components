@@ -6,6 +6,13 @@ export const useHomePage = () => {
 
   const [searchString, setSearchString] = useState<string>('')
 
+  const onChangeSearch = (value: string) => {
+    setSearchString(value)
+    localStorage.setItem('search', value)
+  }
+
+  const savedSearchValue = localStorage.getItem('search') as string
+
   const filteredProducts = products.filter((product) => {
     const productName = product.title
     const productPrice = product.price.toString()
@@ -15,8 +22,14 @@ export const useHomePage = () => {
     return filterableItems
       .join('')
       .toUpperCase()
-      .includes(searchString.toUpperCase())
+      .includes(savedSearchValue.toUpperCase())
   })
 
-  return { searchString, setSearchString, filteredProducts, isLoading }
+  return {
+    searchString,
+    onChangeSearch,
+    filteredProducts,
+    isLoading,
+    savedSearchValue,
+  }
 }

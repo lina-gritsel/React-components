@@ -8,16 +8,21 @@ import { useHomePage } from './hooks'
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { searchString, setSearchString, filteredProducts, isLoading } =
-    useHomePage()
+  const {
+    searchString,
+    onChangeSearch,
+    filteredProducts,
+    isLoading,
+    savedSearchValue,
+  } = useHomePage()
 
   return (
     <div data-testid="homeContainer">
       <Layout>
         <div className={styles.searchBar}>
           <SearchInput
-            value={searchString}
-            onChange={(event) => setSearchString(event.target.value || '')}
+            value={savedSearchValue || ''}
+            onChange={(event) => onChangeSearch(event.target.value || '')}
             data-testid="searchBarInput"
           />
         </div>

@@ -9,7 +9,7 @@ const Header: FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.contentWrapper}>
-        <img className={styles.logo} src={logo} />
+        <div className={styles.logo}>bajor</div>
         <Menu />
       </div>
     </div>
