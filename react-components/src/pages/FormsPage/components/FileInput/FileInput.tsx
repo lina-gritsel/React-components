@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
 import { IErrors } from '../../hooks'

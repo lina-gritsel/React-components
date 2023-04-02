@@ -1,25 +1,23 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErrors } from '../../hooks'
+import { ICardData, IErrors } from '../../hooks'
 
 import styles from './InputSelect.module.scss'
 
-interface RBOption {
+interface CategoriesOption {
   label: string
   value: string
 }
 
 interface InputSelectProps {
-  name: string
-  control: Control<any>
+  control: Control<ICardData, CategoriesOption>
   errors: FieldErrors<IErrors>
-  options: RBOption[]
+  options: CategoriesOption[]
   label?: string
 }
 
 const InputSelect: FC<InputSelectProps> = ({
-  name,
   control,
   options,
   label,
@@ -27,9 +25,9 @@ const InputSelect: FC<InputSelectProps> = ({
 }) => {
   return (
     <Controller
-      name={name}
+      name="category"
       control={control}
-      defaultValue={options[0]}
+      defaultValue={options[0].label}
       rules={{
         required: 'This field is required',
       }}

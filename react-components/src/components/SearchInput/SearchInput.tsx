@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import React, { FC } from 'react'
 import { Search } from '../../assets/icons'
 
 import styles from './SearchBar.module.scss'
 
 interface SearchInputProps {
-  onChange: (value?: any) => void
+  onChange: (value?: React.ChangeEvent<HTMLInputElement>) => void
   value: string
   placeholder?: string
 }

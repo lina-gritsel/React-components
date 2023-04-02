@@ -44,21 +44,17 @@ const FormPage: FC = () => {
           className={styles.form}
         >
           <div className={styles.container}>
-            {/* <div className={styles.title}>fill out the form</div> */}
             <InputName
-              name="name"
               control={control}
               placeholder="Your name"
               errors={errors}
             />
             <InputDate
-              name="date"
               control={control}
               errors={errors}
               label="date of birth"
             />
             <InputSelect
-              name="category"
               control={control}
               options={CATEGORIES}
               errors={errors}

@@ -9,7 +9,6 @@ import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
   const {
-    searchString,
     onChangeSearch,
     filteredProducts,
     isLoading,
@@ -22,7 +21,7 @@ const HomePage: FC = () => {
         <div className={styles.searchBar}>
           <SearchInput
             value={savedSearchValue || ''}
-            onChange={(event) => onChangeSearch(event.target.value || '')}
+            onChange={(event) => onChangeSearch(event?.target.value || '')}
             data-testid="searchBarInput"
           />
         </div>

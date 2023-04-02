@@ -1,20 +1,21 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErrors } from '../../hooks'
+import { ICardData, IErrors } from '../../hooks'
 
 import styles from './Input.module.scss'
 
-interface InputProps {
+type FormValues = {
   name: string
-  control: Control<any>
+}
+interface InputProps {
+  control: Control<ICardData, FormValues>
   placeholder: string
   errors?: FieldErrors<IErrors>
   label?: string
 }
 
 const Input: FC<InputProps> = ({
-  name,
   control,
   placeholder,
   label,
@@ -22,7 +23,7 @@ const Input: FC<InputProps> = ({
 }) => {
   return (
     <Controller
-      name={name}
+      name="name"
       control={control}
       rules={{
         required: 'This field is required',

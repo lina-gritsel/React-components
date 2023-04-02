@@ -1,21 +1,23 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErrors } from '../../hooks'
+import { ICardData, IErrors } from '../../hooks'
 
 import styles from './InputDate.module.scss'
 
+type FormValues = {
+  date: string
+}
 interface InputDateProps {
-  name: string
-  control: Control<any>
+  control: Control<ICardData, FormValues>
   errors?: FieldErrors<IErrors>
   label?: string
 }
 
-const InputDate: FC<InputDateProps> = ({ name, control, errors, label }) => {
+const InputDate: FC<InputDateProps> = ({ control, errors, label }) => {
   return (
     <Controller
-      name={name}
+      name="date"
       control={control}
       rules={{
         required: 'This field is required',
