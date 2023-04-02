@@ -41,7 +41,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "vitest": true
   },
   "globals": {
     "history": false,

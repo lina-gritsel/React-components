@@ -22,7 +22,7 @@ interface RadioGroupProps {
   label?: string
 }
 
-const RadioGroup: FC<RadioGroupProps> = ({ name, control, options, label }) => {
+const RadioGroup: FC<RadioGroupProps> = ({ control, options, label }) => {
   return (
     <Controller
       name='radio'

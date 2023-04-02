@@ -28,7 +28,7 @@ describe('Card component', () => {
 
   test('renders price correctly', async () => {
     const { getByText } = await render(<Card {...testProps} />)
-    const price = getByText('20$')
+    const price = getByText('$20')
     expect(price).toBeInTheDocument()
   })
 })
