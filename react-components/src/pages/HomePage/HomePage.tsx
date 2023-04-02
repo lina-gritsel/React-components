@@ -12,7 +12,7 @@ const HomePage: FC = () => {
     onChangeSearch,
     filteredProducts,
     isLoading,
-    savedSearchValue,
+    searchString,
   } = useHomePage()
 
   return (
@@ -20,7 +20,7 @@ const HomePage: FC = () => {
       <Layout>
         <div className={styles.searchBar}>
           <SearchInput
-            value={savedSearchValue || ''}
+            value={searchString || ''}
             onChange={(event) => onChangeSearch(event?.target.value || '')}
             data-testid="searchBarInput"
           />

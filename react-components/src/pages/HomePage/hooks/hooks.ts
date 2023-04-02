@@ -3,15 +3,14 @@ import { usrFetchAllProducts } from './useFetchAllProducts'
 
 export const useHomePage = () => {
   const { products, isLoading } = usrFetchAllProducts()
+  const savedSearchValue = localStorage.getItem('search') as string
 
-  const [searchString, setSearchString] = useState<string>('')
+  const [searchString, setSearchString] = useState<string>(savedSearchValue)
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
     localStorage.setItem('search', value)
   }
-
-  const savedSearchValue = localStorage.getItem('search') as string
 
   const filteredProducts = products.filter((product) => {
     const productName = product.title
@@ -29,7 +28,6 @@ export const useHomePage = () => {
     searchString,
     onChangeSearch,
     filteredProducts,
-    isLoading,
-    savedSearchValue,
+    isLoading
   }
 }
