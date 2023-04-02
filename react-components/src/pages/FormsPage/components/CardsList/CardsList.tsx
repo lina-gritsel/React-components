@@ -9,12 +9,13 @@ interface CardsListProps {
 
 const CardsList: FC<CardsListProps> = ({ cards }) => {
   return (
-    <div className={styles.container}>
-      {cards?.map(({ name, date, category, file, radio }, index) => (
-        <div key={index} className={styles.card}>
-          <div className={styles.cardHeader}>
-            <img src={file} className={styles.image} />
-            <div className={styles.dataUser}>
+    <div className={cards?.length ? styles.show : styles.hidden}>
+      <div className={styles.orders}>your orders</div>
+      <div className={styles.cards}>
+        {cards?.map(({ name, date, category, file, radio }, index) => (
+          <div key={index} className={styles.card}>
+            <div className={styles.cardWraper}>
+              <img src={file} className={styles.image} />
               <div className={styles.infoUser}>
                 <span className={styles.subtitle}>Name:</span> {name}
               </div>
@@ -31,8 +32,8 @@ const CardsList: FC<CardsListProps> = ({ cards }) => {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }

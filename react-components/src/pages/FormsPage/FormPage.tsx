@@ -86,7 +86,6 @@ const FormPage: FC = () => {
           </div>
         </form>
       </div>
-
       <CardsList cards={cardsData} />
     </Layout>
   )
