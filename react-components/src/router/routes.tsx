@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { PATHS } from './patch'
 import AboutUsPage from '../pages/AboutUsPage'

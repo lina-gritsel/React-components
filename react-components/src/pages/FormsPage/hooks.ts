@@ -42,7 +42,6 @@ export const useFormPage = () => {
   const [currentFile, setCurrentFile] = useState<string>('')
 
   const onSubmit = (data: ICardData) => {
-    console.log(data)
     reset()
     setCurrentFile('')
     const correctData = {

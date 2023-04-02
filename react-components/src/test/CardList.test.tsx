@@ -10,7 +10,7 @@ interface Product {
   image: string
 }
 
-describe('CardList', async () => {
+describe('CardList', () => {
   it('render list', async () => {
     const data = (await fetch('https://fakestoreapi.com/products').then(
       (respo) => {

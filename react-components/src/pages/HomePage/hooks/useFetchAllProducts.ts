@@ -26,7 +26,7 @@ export const usrFetchAllProducts = () => {
         const response = await allProducts.json()
         setProducts(response)
       } catch (error) {
-        console.log(error)
+        return
       } finally {
         setIsLoading(false)
       }
