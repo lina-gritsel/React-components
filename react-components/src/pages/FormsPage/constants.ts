@@ -5,10 +5,6 @@ export const NOTIFICATIONS_OPTIONS = [
 
 export const CATEGORIES = [
   {
-    value: '',
-    label: 'Category:',
-  },
-  {
     value: 'clothes',
     label: 'Clothes',
   },
