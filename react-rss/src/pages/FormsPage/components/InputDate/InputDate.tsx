@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { ICoorectCardData, IErrors } from '../../hooks'
+import { ICardData, IErrors } from '../../hooks'
 
 import styles from './InputDate.module.scss'
 
 interface InputDateProps {
-  control: Control<ICoorectCardData>
+  control: Control<ICardData>
   errors?: FieldErrors<IErrors>
   label?: string
 }

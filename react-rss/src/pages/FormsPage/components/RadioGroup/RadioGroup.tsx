@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Control, Controller } from 'react-hook-form'
 
-import { ICoorectCardData } from '../../hooks'
+import { ICardData } from '../../hooks'
 import { RadioButton } from './RadioButton'
 
 import styles from './RadioGroup.module.scss'
@@ -13,7 +13,7 @@ export interface RBOption {
 
 interface RadioGroupProps {
   name: string
-  control: Control<ICoorectCardData>
+  control: Control<ICardData>
   options: RBOption[]
   label?: string
 }

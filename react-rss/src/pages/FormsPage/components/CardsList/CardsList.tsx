@@ -1,10 +1,10 @@
 import { FC } from 'react'
-import { ICoorectCardData } from '../../hooks'
+import { ICardData } from '../../hooks'
 
 import styles from './CardsList.module.scss'
 
 interface CardsListProps {
-  cards?: ICoorectCardData[]
+  cards?: ICardData[]
 }
 
 const CardsList: FC<CardsListProps> = ({ cards }) => {
