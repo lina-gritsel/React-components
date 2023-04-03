@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { ICoorectCardData, IErrors } from '../../hooks'
+import { ICardData, IErrors } from '../../hooks'
 
 import styles from './FileInput.module.scss'
 
 interface FileInputProps {
   name: string
-  control: Control<ICoorectCardData>
+  control: Control<ICardData>
   label?: string
   errors: FieldErrors<IErrors>
   currentFile: string

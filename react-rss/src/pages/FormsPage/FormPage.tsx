@@ -1,9 +1,10 @@
 import { FC } from 'react'
 
+import ShopImage from '../../assets/images/shop.jpg'
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
-import ShopImage from '../../assets/images/shop.jpg'
 
+import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
 import InputSelect from './components/InputSelect'
 import RadioGroup from './components/RadioGroup'
 import CardsList from './components/CardsList'
@@ -14,7 +15,6 @@ import InputName from './components/Input'
 import { useFormPage } from './hooks'
 
 import styles from './FormsPage.module.scss'
-import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
 
 const FormPage: FC = () => {
   const {
