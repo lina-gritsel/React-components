@@ -10,19 +10,17 @@ export interface CardsListProps {
 
 const CardsList: FC<CardsListProps> = ({ products }) => {
   return (
-    <div className={styles.cardsList}>
-      <div className={styles.cards}>
-        {products.map(({ title, price, image, description }, index) => (
-          <div key={index}>
-            <CardHome
-              title={title}
-              price={price}
-              image={image}
-              desc={description}
-            />
-          </div>
-        ))}
-      </div>
+    <div className={styles.cards}>
+      {products.map(({ title, price, image, description }, index) => (
+        <div key={index}>
+          <CardHome
+            title={title}
+            price={price}
+            image={image}
+            desc={description}
+          />
+        </div>
+      ))}
     </div>
   )
 }

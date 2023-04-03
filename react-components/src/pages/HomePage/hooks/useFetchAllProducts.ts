@@ -22,9 +22,12 @@ export const usrFetchAllProducts = () => {
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const allProducts = await fetch('https://fakestoreapi.com/products')
+        const allProducts = await fetch(
+          'https://strange-shawl-mite.cyclic.app/products'
+        )
         const response = await allProducts.json()
-        setProducts(response)
+        console.log(response.products)
+        setProducts(response.products)
       } catch (error) {
         return
       } finally {

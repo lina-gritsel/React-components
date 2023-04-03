@@ -1,7 +1,5 @@
 import { FC } from 'react'
 
-import likeIcon from '../../assets/like.png'
-
 import styles from './Card.module.scss'
 
 interface CardHomeProps {
@@ -19,7 +17,6 @@ const CardHome: FC<CardHomeProps> = ({ image, price, desc, title }) => {
         <div className={styles.title}>{title}</div>
         <div className={styles.description}>{desc}</div>
         <div className={styles.price}>${price}</div>
-        <img alt="like" className={styles.likeIcon} src={likeIcon} />
       </div>
     </div>
   )
