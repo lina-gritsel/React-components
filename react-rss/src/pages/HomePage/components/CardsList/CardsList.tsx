@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import { Product } from '../../pages/HomePage/hooks'
+
+import { Product } from '../../../../api'
 import CardHome from '../CardHome'
 
 import styles from './CardsList.module.scss'
@@ -16,7 +17,7 @@ const CardsList: FC<CardsListProps> = ({ products }) => {
           <CardHome
             title={title}
             price={price}
-            image={image}
+            image={image[0]}
             desc={description}
           />
         </div>

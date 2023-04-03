@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import Layout from '../../components/Layout'
-import CardsList from '../../components/CardsList'
+import CardsList from './components/CardsList'
 import SearchInput from '../../components/SearchInput'
 import { useHomePage } from './hooks'
 
