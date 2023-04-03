@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { ICardData, IErrors } from '../../hooks'
+import { ICoorectCardData, IErrors } from '../../hooks'
 
 import styles from './InputSelect.module.scss'
 
@@ -11,7 +11,7 @@ interface CategoriesOption {
 }
 
 interface InputSelectProps {
-  control: Control<ICardData, CategoriesOption>
+  control: Control<ICoorectCardData>
   errors: FieldErrors<IErrors>
   options: CategoriesOption[]
   label?: string

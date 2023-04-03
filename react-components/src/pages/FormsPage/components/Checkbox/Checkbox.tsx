@@ -1,21 +1,21 @@
 import React, { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { IErrors } from '../../hooks'
+import { ICoorectCardData, IErrors } from '../../hooks'
 
 import styles from './Checkbox.module.scss'
 
 interface CheckboxProps {
   name: string
-  control: Control<any>
+  control: Control<ICoorectCardData>
   errors: FieldErrors<IErrors>
   label?: string
 }
 
-const Checkbox: FC<CheckboxProps> = ({ name, control, errors, label }) => {
+const Checkbox: FC<CheckboxProps> = ({ control, errors, label }) => {
   return (
     <Controller
-      name={name}
+      name="checkbox"
       control={control}
       rules={{
         required: 'This field is required',

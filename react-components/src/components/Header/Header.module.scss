@@ -1,11 +1,11 @@
 .container {
   background-color: #fff;
   margin: 0 auto;
-  padding: 0 80px;
   position: sticky;
   top: 0;
   z-index: 10;
-  max-width: 1640px;
+  width: 100%;
+  padding: 0 60px;
 }
 
 .contentWrapper {

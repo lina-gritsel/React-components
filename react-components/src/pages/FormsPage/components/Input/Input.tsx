@@ -1,26 +1,18 @@
 import { FC } from 'react'
 import { Control, Controller, FieldErrors } from 'react-hook-form'
 
-import { ICardData, IErrors } from '../../hooks'
+import { ICoorectCardData, IErrors } from '../../hooks'
 
 import styles from './Input.module.scss'
 
-type FormValues = {
-  name: string
-}
 interface InputProps {
-  control: Control<ICardData, FormValues>
+  control: Control<ICoorectCardData>
   placeholder: string
   errors?: FieldErrors<IErrors>
   label?: string
 }
 
-const Input: FC<InputProps> = ({
-  control,
-  placeholder,
-  label,
-  errors,
-}) => {
+const Input: FC<InputProps> = ({ control, placeholder, label, errors }) => {
   return (
     <Controller
       name="name"

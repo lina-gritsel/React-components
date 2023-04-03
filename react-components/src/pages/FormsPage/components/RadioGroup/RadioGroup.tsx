@@ -1,14 +1,10 @@
 import { FC } from 'react'
 import { Control, Controller } from 'react-hook-form'
 
-import { ICardData } from '../../hooks'
+import { ICoorectCardData } from '../../hooks'
 import { RadioButton } from './RadioButton'
 
 import styles from './RadioGroup.module.scss'
-
-type FormValues = {
-  name: string
-}
 
 export interface RBOption {
   label: string
@@ -17,7 +13,7 @@ export interface RBOption {
 
 interface RadioGroupProps {
   name: string
-  control: Control<ICardData, FormValues>
+  control: Control<ICoorectCardData>
   options: RBOption[]
   label?: string
 }
@@ -25,7 +21,7 @@ interface RadioGroupProps {
 const RadioGroup: FC<RadioGroupProps> = ({ control, options, label }) => {
   return (
     <Controller
-      name='radio'
+      name="radio"
       control={control}
       defaultValue={options[0].value}
       render={({ field: { onChange, value } }) => (

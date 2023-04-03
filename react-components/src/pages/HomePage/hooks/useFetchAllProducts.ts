@@ -26,7 +26,6 @@ export const usrFetchAllProducts = () => {
           'https://strange-shawl-mite.cyclic.app/products'
         )
         const response = await allProducts.json()
-        console.log(response.products)
         setProducts(response.products)
       } catch (error) {
         return

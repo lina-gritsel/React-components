@@ -14,7 +14,7 @@ export interface ICardData {
   date: string
   category: string
   file: FileList
-  checkbox: boolean
+  checkbox: string
   radio: string
 }
 
@@ -23,7 +23,7 @@ export interface ICoorectCardData {
   date: string
   category: string
   file: string
-  checkbox: boolean
+  checkbox: string
   radio: string
 }
 
@@ -42,6 +42,7 @@ export const useFormPage = () => {
   const [currentFile, setCurrentFile] = useState<string>('')
 
   const onSubmit = (data: ICardData) => {
+    console.log(data)
     reset()
     setCurrentFile('')
     const correctData = {
