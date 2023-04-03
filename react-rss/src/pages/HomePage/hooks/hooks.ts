@@ -31,3 +31,13 @@ export const useHomePage = () => {
     isLoading,
   }
 }
+
+export const getInfoproduct = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  const showInfoProduct = () => {
+    setModalIsOpen(true)
+  }
+
+  return { modalIsOpen, showInfoProduct }
+}

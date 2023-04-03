@@ -1,17 +1,20 @@
 import { FC } from 'react'
 
-import Layout from '../../components/Layout'
-import CardsList from './components/CardsList'
 import SearchInput from '../../components/SearchInput'
-import { useHomePage } from './hooks'
-
 import mainImage from '../../assets/images/clotes.jpg'
+import Layout from '../../components/Layout'
+
+import ModalProductInfo from './components/ModalProductInfo'
+import { useHomePage, getInfoproduct } from './hooks'
+import CardsList from './components/CardsList'
 
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
   const { onChangeSearch, filteredProducts, isLoading, searchString } =
     useHomePage()
+
+  const { modalIsOpen, showInfoProduct } = getInfoproduct()
 
   return (
     <div data-testid="homeContainer">
@@ -31,9 +34,15 @@ const HomePage: FC = () => {
             data-testid="searchBarInput"
           />
         </div>
-        {!isLoading && <CardsList products={filteredProducts} />}
+        {!isLoading && (
+          <CardsList
+            products={filteredProducts}
+            showInfoProduct={showInfoProduct}
+          />
+        )}
         {isLoading && <>Loading...</>}
       </Layout>
+      <ModalProductInfo modalIsOpen={modalIsOpen} />
     </div>
   )
 }
