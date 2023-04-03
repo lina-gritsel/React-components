@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { usrFetchAllProducts } from './useFetchAllProducts'
+import { Product, usrFetchAllProducts } from '../../../api'
 
 export const useHomePage = () => {
   const { products, isLoading } = usrFetchAllProducts()
@@ -12,7 +12,7 @@ export const useHomePage = () => {
     localStorage.setItem('search', value)
   }
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = products.filter((product: Product) => {
     const productName = product.title
     const productPrice = product.price.toString()
     const productDescription = product.description
@@ -28,6 +28,6 @@ export const useHomePage = () => {
     searchString,
     onChangeSearch,
     filteredProducts,
-    isLoading
+    isLoading,
   }
 }
