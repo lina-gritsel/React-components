@@ -42,5 +42,15 @@ export const getInfoproduct = () => {
     setSelectCharacter(characterInfo)
   }
 
-  return { modalIsOpen, showInfoProduct, selectCharacter, setModalIsOpen }
+  const close = () => {
+    setModalIsOpen(false)
+  }
+
+  return {
+    modalIsOpen,
+    showInfoProduct,
+    selectCharacter,
+    setModalIsOpen,
+    close,
+  }
 }

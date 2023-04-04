@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC, useRef } from 'react'
 
 import Close from '../../../../assets/images/close.png'
-import { getInfoproduct } from '../../hooks'
+import { useClickOutside } from '../../../../hooks'
 import { Сharacter } from '../../../../api'
 
 import styles from './ModalProductInfo.module.scss'
@@ -10,15 +10,24 @@ interface ModalProductInfoProps {
   modalIsOpen: boolean
   selectCharacter: Сharacter | null
   setModalIsOpen: (value: boolean) => void
+  close: () => void
 }
 
 const ModalProductInfo: FC<ModalProductInfoProps> = ({
   modalIsOpen,
   selectCharacter,
-  setModalIsOpen
+  setModalIsOpen,
+  close,
 }) => {
+  const modalRef = useRef(null)
+
+  useClickOutside(modalRef, close)
+
   return (
-    <div className={modalIsOpen ? styles.container : styles.hidden}>
+    <div
+      ref={modalRef}
+      className={modalIsOpen ? styles.container : styles.hidden}
+    >
       <img className={styles.image} src={selectCharacter?.image}></img>
       <div className={styles.info}>
         <div className={styles.name}>

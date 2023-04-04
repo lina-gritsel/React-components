@@ -14,19 +14,25 @@ const HomePage: FC = () => {
   const { onChangeSearch, filteredProducts, isLoading, searchString } =
     useHomePage()
 
-  const { modalIsOpen, showInfoProduct, selectCharacter, setModalIsOpen } =
-    getInfoproduct()
+  const {
+    modalIsOpen,
+    showInfoProduct,
+    selectCharacter,
+    setModalIsOpen,
+    close,
+  } = getInfoproduct()
+
   return (
     <div data-testid="homeContainer">
       <Layout>
-        <div className={styles.wrapperMain}>
+        {/* <div className={styles.wrapperMain}>
           <div className={styles.shadow}></div>
           <img src={mainImage} className={styles.mainImage}></img>
           <div className={styles.mainTitle}>
             bajor
             <br /> -<br /> choose the best
           </div>
-        </div>
+        </div> */}
         <div>
           <div className={styles.searchBar}>
             <SearchInput
@@ -48,6 +54,7 @@ const HomePage: FC = () => {
         modalIsOpen={modalIsOpen}
         selectCharacter={selectCharacter}
         setModalIsOpen={setModalIsOpen}
+        close={close}
       />
       <div className={modalIsOpen ? styles.overlay : ''}></div>
     </div>
