@@ -1,11 +1,9 @@
-export interface Product {
+export interface Сharacter {
   id: number
-  title: string
-  price: number
-  brand: string
-  rating: number
-  stock: number
-  description: string
-  category: string
-  image: string[]
+  epizode: string[]
+  gender: string
+  image: string
+  name: string
+  status: string
+  species: string
 }

@@ -36,7 +36,7 @@ const HomePage: FC = () => {
         </div>
         {!isLoading && (
           <CardsList
-            products={filteredProducts}
+          characters={filteredProducts}
             showInfoProduct={showInfoProduct}
           />
         )}

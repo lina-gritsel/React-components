@@ -3,18 +3,18 @@ import { FC } from 'react'
 import styles from './Card.module.scss'
 
 interface CardHomeProps {
-  title?: string
+  name?: string
   image?: string
-  price?: number
-  desc?: string
+  species?: string
+  status?: string
   showInfoProduct: (value: boolean) => void
 }
 
 const CardHome: FC<CardHomeProps> = ({
   image,
-  price,
-  desc,
-  title,
+  species,
+  status,
+  name,
   showInfoProduct,
 }) => {
   return (
@@ -25,9 +25,9 @@ const CardHome: FC<CardHomeProps> = ({
     >
       <img alt="imageProduct" className={styles.imageProduct} src={image} />
       <div className={styles.wrapperInfo}>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{desc}</div>
-        <div className={styles.price}>${price}</div>
+        <div className={styles.title}>{name}</div>
+        <div className={styles.description}>{status}</div>
+        <div className={styles.price}>{species}</div>
       </div>
     </div>
   )

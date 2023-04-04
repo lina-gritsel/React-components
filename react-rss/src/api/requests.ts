@@ -1,19 +1,20 @@
-import { Product } from './types'
+import { Сharacter } from './types'
 
-const baseUrl = 'https://strange-shawl-mite.cyclic.app'
+const ALL_CHARACTERS = 'https://rickandmortyapi.com/api/character'
 
 import { useEffect, useState } from 'react'
 
 export const usrFetchAllProducts = () => {
-  const [products, setProducts] = useState<Product[]>([])
+  const [сharacters, setCharacters] = useState<Сharacter[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const getAllProducts = async () => {
       try {
-        const result = await fetch(`${baseUrl}/products`)
-        const { products } = await result.json()
-        setProducts(products)
+        const response = await fetch(ALL_CHARACTERS)
+        const { results } = await response.json()
+        console.log(results)
+        setCharacters(results)
       } catch (error) {
         return error
       } finally {
@@ -23,5 +24,5 @@ export const usrFetchAllProducts = () => {
     getAllProducts()
   }, [])
 
-  return { products, isLoading }
+  return { сharacters, isLoading }
 }
