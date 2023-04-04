@@ -14,7 +14,8 @@ const HomePage: FC = () => {
   const { onChangeSearch, filteredProducts, isLoading, searchString } =
     useHomePage()
 
-  const { modalIsOpen, showInfoProduct, selectCharacter } = getInfoproduct()
+  const { modalIsOpen, showInfoProduct, selectCharacter, setModalIsOpen } =
+    getInfoproduct()
   return (
     <div data-testid="homeContainer">
       <Layout>
@@ -46,8 +47,9 @@ const HomePage: FC = () => {
       <ModalProductInfo
         modalIsOpen={modalIsOpen}
         selectCharacter={selectCharacter}
+        setModalIsOpen={setModalIsOpen}
       />
-      <div className={modalIsOpen && styles.overlay}></div>
+      <div className={modalIsOpen ? styles.overlay : ''}></div>
     </div>
   )
 }

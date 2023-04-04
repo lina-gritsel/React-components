@@ -3,20 +3,41 @@
 }
 
 .container {
+  background-color: #f1ece9;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 320px;
   height: 430px;
-  background-color: #f1ece9;
   position: fixed;
-  top: 50%;
   right: 50%;
+  top: 50%;
   transform: translate(50%, -50%);
+  width: 320px;
   z-index: 2;
 }
 
 .image {
-  width: 100%;
   height: 250px;
+  width: 100%;
+}
+
+.info {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+span {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.close {
+  height: 15px;
+  margin: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 15px;
 }
