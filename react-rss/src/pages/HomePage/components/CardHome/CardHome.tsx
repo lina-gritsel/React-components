@@ -3,11 +3,12 @@ import { FC } from 'react'
 import styles from './Card.module.scss'
 
 interface CardHomeProps {
+  id: number
   name?: string
   image?: string
   species?: string
   status?: string
-  showInfoProduct: (value: boolean) => void
+  showInfoProduct: (value: number) => void
 }
 
 const CardHome: FC<CardHomeProps> = ({
@@ -16,11 +17,12 @@ const CardHome: FC<CardHomeProps> = ({
   status,
   name,
   showInfoProduct,
+  id,
 }) => {
   return (
     <div
       className={styles.cardWrapper}
-      onClick={() => showInfoProduct(true)}
+      onClick={() => showInfoProduct(id)}
       data-testid="card"
     >
       <img alt="imageProduct" className={styles.imageProduct} src={image} />

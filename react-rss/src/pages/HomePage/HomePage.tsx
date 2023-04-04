@@ -14,8 +14,7 @@ const HomePage: FC = () => {
   const { onChangeSearch, filteredProducts, isLoading, searchString } =
     useHomePage()
 
-  const { modalIsOpen, showInfoProduct } = getInfoproduct()
-
+  const { modalIsOpen, showInfoProduct, selectCharacter } = getInfoproduct()
   return (
     <div data-testid="homeContainer">
       <Layout>
@@ -27,22 +26,28 @@ const HomePage: FC = () => {
             <br /> -<br /> choose the best
           </div>
         </div>
-        <div className={styles.searchBar}>
-          <SearchInput
-            value={searchString || ''}
-            onChange={(event) => onChangeSearch(event?.target.value || '')}
-            data-testid="searchBarInput"
-          />
+        <div>
+          <div className={styles.searchBar}>
+            <SearchInput
+              value={searchString || ''}
+              onChange={(event) => onChangeSearch(event?.target.value || '')}
+              data-testid="searchBarInput"
+            />
+          </div>
+          {!isLoading && (
+            <CardsList
+              characters={filteredProducts}
+              showInfoProduct={showInfoProduct}
+            />
+          )}
+          {isLoading && <>Loading...</>}
         </div>
-        {!isLoading && (
-          <CardsList
-          characters={filteredProducts}
-            showInfoProduct={showInfoProduct}
-          />
-        )}
-        {isLoading && <>Loading...</>}
       </Layout>
-      <ModalProductInfo modalIsOpen={modalIsOpen} />
+      <ModalProductInfo
+        modalIsOpen={modalIsOpen}
+        selectCharacter={selectCharacter}
+      />
+      <div className={modalIsOpen && styles.overlay}></div>
     </div>
   )
 }

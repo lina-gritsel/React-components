@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Сharacter, usrFetchAllProducts } from '../../../api'
+import { Сharacter, usrFetchAllProducts, getCharacter } from '../../../api'
 
 export const useHomePage = () => {
   const { сharacters, isLoading } = usrFetchAllProducts()
@@ -33,11 +33,14 @@ export const useHomePage = () => {
 }
 
 export const getInfoproduct = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
+  const [selectCharacter, setSelectCharacter] = useState<Сharacter | null>(null)
 
-  const showInfoProduct = () => {
+  const showInfoProduct = async (id: number) => {
+    const characterInfo = await getCharacter(id)
     setModalIsOpen(true)
+    setSelectCharacter(characterInfo)
   }
 
-  return { modalIsOpen, showInfoProduct }
+  return { modalIsOpen, showInfoProduct, selectCharacter }
 }

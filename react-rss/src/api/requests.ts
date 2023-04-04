@@ -13,7 +13,6 @@ export const usrFetchAllProducts = () => {
       try {
         const response = await fetch(ALL_CHARACTERS)
         const { results } = await response.json()
-        console.log(results)
         setCharacters(results)
       } catch (error) {
         return error
@@ -25,4 +24,10 @@ export const usrFetchAllProducts = () => {
   }, [])
 
   return { сharacters, isLoading }
+}
+
+export const getCharacter = async (id: number) => {
+  const response = await fetch(`${ALL_CHARACTERS}/${id}`)
+  const characterInfo = await response.json()
+  return characterInfo
 }
