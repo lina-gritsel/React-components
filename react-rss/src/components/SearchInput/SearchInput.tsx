@@ -10,18 +10,18 @@ interface SearchInputProps {
 }
 
 const SearchInput: FC<SearchInputProps> = ({
-  onChange,
   value,
   placeholder = 'Search',
+  onChange,
 }) => {
   return (
     <div className={styles.searchWrapper}>
       <Search className={styles.searchIcon} />
       <input
-        onChange={onChange}
         className={styles.search}
         placeholder={placeholder}
         value={value}
+        onChange={onChange}
       />
     </div>
   )

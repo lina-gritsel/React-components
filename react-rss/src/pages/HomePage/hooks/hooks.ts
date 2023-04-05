@@ -1,15 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Product, usrFetchAllProducts } from '../../../api'
 
 export const useHomePage = () => {
   const { products, isLoading } = usrFetchAllProducts()
   const savedSearchValue = localStorage.getItem('search') as string
 
-  const [searchString, setSearchString] = useState<string>(savedSearchValue)
+  const [searchString, setSearchString] = useState<string>(savedSearchValue || '')
+
+  const searchRef = useRef<string>()
+
+  useEffect(() => {
+    searchRef.current = searchString
+  }, [searchString])
+
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('search', searchRef.current || '')
+    }
+  },[])
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
-    localStorage.setItem('search', value)
   }
 
   const filteredProducts = products.filter((product: Product) => {
@@ -26,8 +37,8 @@ export const useHomePage = () => {
 
   return {
     searchString,
-    onChangeSearch,
     filteredProducts,
     isLoading,
+    onChangeSearch
   }
 }
