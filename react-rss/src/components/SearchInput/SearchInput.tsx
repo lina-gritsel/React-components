@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
+
 import { Search } from '../../assets/icons'
+import { submitByKeyDown } from '../../hooks'
 
 import styles from './SearchInput.module.scss'
 
@@ -7,14 +9,15 @@ interface SearchInputProps {
   onChange: (value?: React.ChangeEvent<HTMLInputElement>) => void
   value: string
   placeholder?: string
-  onClick: (value: string) => void
+  setCharacters: (value: []) => void
+  onKeyDown?: (value?: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
 const SearchInput: FC<SearchInputProps> = ({
   onChange,
   value,
   placeholder = 'Search',
-  onClick,
+  setCharacters,
 }) => {
   return (
     <div className={styles.searchWrapper}>
@@ -24,10 +27,8 @@ const SearchInput: FC<SearchInputProps> = ({
         className={styles.search}
         placeholder={placeholder}
         value={value}
+        onKeyDown={submitByKeyDown(setCharacters)}
       />
-      <button className={styles.searchButton} onClick={() => onClick(value)}>
-        Find
-      </button>
     </div>
   )
 }

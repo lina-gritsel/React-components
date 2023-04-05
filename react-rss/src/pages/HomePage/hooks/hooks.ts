@@ -1,50 +1,44 @@
 import { useEffect, useState } from 'react'
 
-import {
-  Сharacter,
-  useFetchAllProducts,
-  getCharacter,
-  getСharacterBySearch,
-} from '../../../api'
-
+import { Сharacter, getCharacter, fetchAllCharacters } from '../../../api'
 import { useModal } from '../../../components/Modal'
 
 export const useHomePage = () => {
-  const { сharacters, isLoading } = useFetchAllProducts()
   const savedSearchValue = localStorage.getItem('search') as string
 
   const [searchString, setSearchString] = useState<string>(savedSearchValue)
-  const [searchCharacters, setSearchCharacters] = useState([])
-  const [currentCharacters, setCurrentCharacters] = useState<Сharacter[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [сharacters, setCharacters] = useState<Сharacter[]>([])
 
-  const onChangeSearch = (value: string) => {
+  const onChangeSearch = (value: any) => {
     setSearchString(value)
     localStorage.setItem('search', value)
   }
 
   useEffect(() => {
-    if (searchCharacters.length) {
-      setCurrentCharacters(searchCharacters)
-    } else {
-      setCurrentCharacters(сharacters)
+    const findCharacter = async () => {
+      const characters = await fetchAllCharacters(searchString)
+      setCharacters(characters.results)
     }
-  }, [searchCharacters, сharacters])
+    findCharacter()
 
-  const findCharacter = async (name: string) => {
-    const { results } = await getСharacterBySearch(name)
-    setSearchCharacters(results)
-  }
+    if (!сharacters) {
+      setIsLoading(true)
+    } else {
+      setIsLoading(false)
+    }
+  }, [])
 
   return {
     searchString,
     onChangeSearch,
     isLoading,
-    findCharacter,
-    currentCharacters,
+    сharacters,
+    setCharacters
   }
 }
 
-export const getInfoproduct = () => {
+export const getInfoCharacter = () => {
   const {
     visible: modalVisible,
     open: openModal,
