@@ -21,7 +21,7 @@ export const useHomePage = () => {
     return filterableItems
       .join('')
       .toUpperCase()
-      .includes(savedSearchValue.toUpperCase())
+      .includes(savedSearchValue?.toUpperCase())
   })
 
   return {
