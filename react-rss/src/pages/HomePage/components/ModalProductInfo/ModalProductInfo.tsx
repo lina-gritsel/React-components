@@ -1,55 +1,46 @@
 import { FC, useRef } from 'react'
 
-import Close from '../../../../assets/images/close.png'
+import closeIcon from '../../../../assets/images/close.png'
 import { useClickOutside } from '../../../../hooks'
 import { Сharacter } from '../../../../api'
 
 import styles from './ModalProductInfo.module.scss'
 
 interface ModalProductInfoProps {
-  modalIsOpen: boolean
+  modalVisible: boolean
   selectCharacter: Сharacter | null
-  setModalIsOpen: (value: boolean) => void
-  close: () => void
+  onClose: () => void
 }
 
 const ModalProductInfo: FC<ModalProductInfoProps> = ({
-  modalIsOpen,
+  modalVisible,
   selectCharacter,
-  setModalIsOpen,
-  close,
+  onClose,
 }) => {
-  const modalRef = useRef(null)
-
-  useClickOutside(modalRef, close)
+  const ref = useRef(null)
+  useClickOutside(ref, onClose)
 
   return (
-    <div
-      ref={modalRef}
-      className={modalIsOpen ? styles.container : styles.hidden}
-    >
-      <img className={styles.image} src={selectCharacter?.image}></img>
-      <div className={styles.info}>
-        <div className={styles.name}>
-          <span>name:</span> {selectCharacter?.name}
+    <>
+      <div ref={ref} className={modalVisible ? styles.container : styles.hidden}>
+        <img className={styles.image} src={selectCharacter?.image} />
+        <div className={styles.info}>
+          <RowValues label="name" value={selectCharacter?.name} />
+          <RowValues label="species" value={selectCharacter?.species} />
+          <RowValues label="gender" value={selectCharacter?.gender} />
+          <RowValues label="status" value={selectCharacter?.status} />
+          <img onClick={onClose} src={closeIcon} className={styles.close} />
         </div>
-        <div className={styles.species}>
-          <span>species:</span> {selectCharacter?.species}
-        </div>
-        <div className={styles.gender}>
-          <span>gender:</span> {selectCharacter?.gender}
-        </div>
-        <div className={styles.status}>
-          <span>status:</span> {selectCharacter?.status}
-        </div>
-        <img
-          onClick={() => setModalIsOpen(false)}
-          src={Close}
-          className={styles.close}
-        />
       </div>
-    </div>
+      <div className={modalVisible ? styles.overlay : ''}></div>
+    </>
   )
 }
 
 export default ModalProductInfo
+
+const RowValues = ({ label, value }: { label: string; value?: string }) => (
+  <div className={styles.values}>
+    <span>{label}:</span> {value}
+  </div>
+)

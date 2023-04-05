@@ -2,31 +2,27 @@ import { FC } from 'react'
 
 import styles from './Card.module.scss'
 
-interface CardHomeProps {
+interface CardProps {
   id: number
   name?: string
   image?: string
   species?: string
   status?: string
-  showInfoProduct: (value: number) => void
+  onClick: (value: number) => void
 }
 
-const CardHome: FC<CardHomeProps> = ({
+const Card: FC<CardProps> = ({
   image,
   species,
   status,
   name,
-  showInfoProduct,
+  onClick,
   id,
 }) => {
   return (
-    <div
-      className={styles.cardWrapper}
-      onClick={() => showInfoProduct(id)}
-      data-testid="card"
-    >
-      <img alt="imageProduct" className={styles.imageProduct} src={image} />
-      <div className={styles.wrapperInfo}>
+    <div className={styles.card} onClick={() => onClick(id)} data-testid="card">
+      <img className={styles.image} src={image} alt="imageProduct" />
+      <div className={styles.content}>
         <div className={styles.title}>{name}</div>
         <div className={styles.description}>{status}</div>
         <div className={styles.price}>{species}</div>
@@ -35,4 +31,4 @@ const CardHome: FC<CardHomeProps> = ({
   )
 }
 
-export default CardHome
+export default Card

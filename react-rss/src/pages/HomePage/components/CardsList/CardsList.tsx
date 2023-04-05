@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { Сharacter } from '../../../../api'
-import CardHome from '../CardHome'
+import Card from '../Card'
 
 import styles from './CardsList.module.scss'
 
@@ -15,13 +15,13 @@ const CardsList: FC<CardsListProps> = ({ characters, showInfoProduct }) => {
     <div className={styles.cards}>
       {characters.map(({ id, name, species, image, status }, index) => (
         <div key={index}>
-          <CardHome
+          <Card
             id={id}
             name={name}
             species={species}
             image={image}
             status={status}
-            showInfoProduct={showInfoProduct}
+            onClick={showInfoProduct}
           />
         </div>
       ))}

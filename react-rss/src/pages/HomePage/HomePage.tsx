@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import SearchInput from '../../components/SearchInput'
-import mainImage from '../../assets/images/clotes.jpg'
+// import mainImage from '../../assets/images/clotes.jpg'
 import Layout from '../../components/Layout'
 
 import ModalProductInfo from './components/ModalProductInfo'
@@ -14,13 +14,10 @@ const HomePage: FC = () => {
   const { onChangeSearch, filteredProducts, isLoading, searchString } =
     useHomePage()
 
-  const {
-    modalIsOpen,
-    showInfoProduct,
-    selectCharacter,
-    setModalIsOpen,
-    close,
-  } = getInfoproduct()
+  const { modalVisible, showInfoProduct, selectCharacter, closeModal } =
+    getInfoproduct()
+
+  //! REFACTOR ALL CODE!!!!
 
   return (
     <div data-testid="homeContainer">
@@ -33,30 +30,24 @@ const HomePage: FC = () => {
             <br /> -<br /> choose the best
           </div>
         </div> */}
-        <div>
-          <div className={styles.searchBar}>
-            <SearchInput
-              value={searchString || ''}
-              onChange={(event) => onChangeSearch(event?.target.value || '')}
-              data-testid="searchBarInput"
-            />
-          </div>
-          {!isLoading && (
-            <CardsList
-              characters={filteredProducts}
-              showInfoProduct={showInfoProduct}
-            />
-          )}
-          {isLoading && <>Loading...</>}
-        </div>
+        <SearchInput
+          value={searchString || ''}
+          onChange={(event) => onChangeSearch(event?.target.value || '')} //? Remove div wrapper
+          data-testid="searchBarInput"
+        />
+        {!isLoading && (
+          <CardsList
+            characters={filteredProducts}
+            showInfoProduct={showInfoProduct}
+          />
+        )}
+        {isLoading && <>Loading...</>}
       </Layout>
       <ModalProductInfo
-        modalIsOpen={modalIsOpen}
+        modalVisible={modalVisible}
         selectCharacter={selectCharacter}
-        setModalIsOpen={setModalIsOpen}
-        close={close}
+        onClose={closeModal}
       />
-      <div className={modalIsOpen ? styles.overlay : ''}></div>
     </div>
   )
 }

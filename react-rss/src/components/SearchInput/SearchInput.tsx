@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Search } from '../../assets/icons'
 
-import styles from './SearchBar.module.scss'
+import styles from './SearchInput.module.scss'
 
 interface SearchInputProps {
   onChange: (value?: React.ChangeEvent<HTMLInputElement>) => void
