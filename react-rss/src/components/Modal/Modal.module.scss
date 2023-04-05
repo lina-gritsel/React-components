@@ -1,21 +1,56 @@
-.showModal {
-  background-color: #fff;
-  border-radius: 20px;
-  width: 520px;
-  height: 575px;
-  z-index: 7;
+.hidden {
+  display: none;
+}
+
+.container {
+  background-color: #f1ece9;
   display: flex;
-  margin: 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  height: 430px;
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 320px;
+  z-index: 2;
+}
+
+.image {
+  height: 250px;
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.values span {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.close {
+  height: 15px;
+  margin: 10px;
   position: absolute;
+  right: 0;
+  top: 0;
+  width: 15px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  display: block;
+  position: fixed;
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  font-size: 75px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hideModal {
-  display: none;
+  overflow-y: hidden;
 }

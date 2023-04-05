@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import ShopImage from '../../assets/images/shop.jpg'
 import Layout from '../../components/Layout'
-import Modal from '../../components/Modal'
+import Modal from './components/Modal'
 
 import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
 import InputSelect from './components/InputSelect'

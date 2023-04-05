@@ -1,20 +1,46 @@
-import { FC } from 'react'
+import { FC, useRef } from 'react'
+
+import closeIcon from '../../assets/images/close.png'
+import { useClickOutside } from '../../hooks'
+import { Сharacter } from '../../api'
 
 import styles from './Modal.module.scss'
 
 interface ModalProps {
-  showModal: boolean
-  className?: string
+  modalVisible: boolean
+  selectCharacter: Сharacter | null
+  onClose: () => void
 }
 
-const Modal: FC<ModalProps> = ({ showModal }) => {
+const Modal: FC<ModalProps> = ({
+  modalVisible,
+  selectCharacter,
+  onClose,
+}) => {
+  const ref = useRef(null)
+  useClickOutside(ref, onClose)
+
   return (
-    <div className={showModal ? styles.showModal : styles.hideModal}>
-      Card
-      <br /> is <br />
-      created
-    </div>
+    <>
+      <div ref={ref} className={modalVisible ? styles.container : styles.hidden}>
+        <img className={styles.image} src={selectCharacter?.image} />
+        <div className={styles.info}>
+          <RowValues label="name" value={selectCharacter?.name} />
+          <RowValues label="species" value={selectCharacter?.species} />
+          <RowValues label="gender" value={selectCharacter?.gender} />
+          <RowValues label="status" value={selectCharacter?.status} />
+          <img onClick={onClose} src={closeIcon} className={styles.close} />
+        </div>
+      </div>
+      <div className={modalVisible ? styles.overlay : ''}></div>
+    </>
   )
 }
 
 export default Modal
+
+const RowValues = ({ label, value }: { label: string; value?: string }) => (
+  <div className={styles.values}>
+    <span>{label}:</span> {value}
+  </div>
+)

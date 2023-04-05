@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import Modal from '../components/Modal'
+import Modal from '../pages/FormsPage/components/Modal'
 
 describe('render popup', () => {
   test('render modal', () => {

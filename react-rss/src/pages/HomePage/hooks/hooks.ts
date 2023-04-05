@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { Сharacter, usrFetchAllProducts, getCharacter } from '../../../api'
-import { useModal } from '../components/ModalProductInfo'
+import { useModal } from '../../../components/Modal'
 
 export const useHomePage = () => {
   const { сharacters, isLoading } = usrFetchAllProducts()
