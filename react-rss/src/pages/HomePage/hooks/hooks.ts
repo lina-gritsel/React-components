@@ -1,36 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { Сharacter, usrFetchAllProducts, getCharacter } from '../../../api'
+import {
+  Сharacter,
+  useFetchAllProducts,
+  getCharacter,
+  getСharacterBySearch,
+} from '../../../api'
+
 import { useModal } from '../../../components/Modal'
 
 export const useHomePage = () => {
-  const { сharacters, isLoading } = usrFetchAllProducts()
+  const { сharacters, isLoading } = useFetchAllProducts()
   const savedSearchValue = localStorage.getItem('search') as string
 
   const [searchString, setSearchString] = useState<string>(savedSearchValue)
+  const [searchCharacters, setSearchCharacters] = useState([])
+  const [currentCharacters, setCurrentCharacters] = useState<Сharacter[]>([])
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
     localStorage.setItem('search', value)
   }
 
-  const filteredProducts = сharacters.filter((сharacter: Сharacter) => {
-    const productName = сharacter.name
-    const productPrice = сharacter.gender
-    const productDescription = сharacter.species
-    const filterableItems = [productName, productPrice, productDescription]
+  useEffect(() => {
+    if (searchCharacters.length) {
+      setCurrentCharacters(searchCharacters)
+    } else {
+      setCurrentCharacters(сharacters)
+    }
+  }, [searchCharacters, сharacters])
 
-    return filterableItems
-      .join('')
-      .toUpperCase()
-      .includes(savedSearchValue.toUpperCase())
-  })
+  const findCharacter = async (name: string) => {
+    const { results } = await getСharacterBySearch(name)
+    setSearchCharacters(results)
+  }
 
   return {
     searchString,
     onChangeSearch,
-    filteredProducts,
     isLoading,
+    findCharacter,
+    currentCharacters,
   }
 }
 

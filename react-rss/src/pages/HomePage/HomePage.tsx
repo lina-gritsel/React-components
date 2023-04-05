@@ -10,23 +10,29 @@ import CardsList from './components/CardsList'
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { onChangeSearch, filteredProducts, isLoading, searchString } =
-    useHomePage()
+  const {
+    onChangeSearch,
+    currentCharacters,
+    isLoading,
+    searchString,
+    findCharacter,
+  } = useHomePage()
 
   const { modalVisible, showInfoProduct, selectCharacter, closeModal } =
     getInfoproduct()
 
-  return (
+    return (
     <div data-testid="homeContainer">
       <Layout>
         <SearchInput
           value={searchString || ''}
-          onChange={(event) => onChangeSearch(event?.target.value || '')} //? Remove div wrapper
+          onChange={(event) => onChangeSearch(event?.target.value || '')}
+          onClick={findCharacter}
           data-testid="searchBarInput"
         />
         {!isLoading && (
           <CardsList
-            characters={filteredProducts}
+            characters={currentCharacters}
             showInfoProduct={showInfoProduct}
           />
         )}
