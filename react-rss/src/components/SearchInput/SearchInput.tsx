@@ -1,8 +1,7 @@
 import React, { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
-import { Search } from '../../assets/icons'
-import { submitByKeyDown } from '../../hooks'
+import searchIcon from '../../assets/images/search.png'
 
 import styles from './SearchInput.module.scss'
 
@@ -17,7 +16,7 @@ interface SearchInputProps {
 const SearchInput: FC<SearchInputProps> = ({
   onChange,
   value,
-  placeholder = 'Search',
+  placeholder = 'Search...',
   name,
   onSubmit,
 }) => {
@@ -28,15 +27,16 @@ const SearchInput: FC<SearchInputProps> = ({
       control={control}
       render={() => (
         <div className={styles.searchWrapper}>
-          {/* <Search className={styles.searchIcon} /> */}
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <input
               onChange={onChange}
               className={styles.search}
               placeholder={placeholder}
               value={value}
             />
-            <button type="submit">Find</button>
+            <button type="submit" className={styles.button}>
+              <img className={styles.icon} src={searchIcon} />
+            </button>
           </form>
         </div>
       )}
