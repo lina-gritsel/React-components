@@ -12,20 +12,26 @@ export interface CardsListProps {
 
 const CardsList: FC<CardsListProps> = ({ characters, showInfoProduct }) => {
   return (
-    <div className={styles.cards}>
-      {characters.map(({ id, name, species, image, status }, index) => (
-        <div key={index}>
-          <Card
-            id={id}
-            name={name}
-            species={species}
-            image={image}
-            status={status}
-            onClick={showInfoProduct}
-          />
+    <>
+      {characters ? (
+        <div className={styles.cards}>
+          {characters.map(({ id, name, species, image, status }, index) => (
+            <div key={index}>
+              <Card
+                id={id}
+                name={name}
+                species={species}
+                image={image}
+                status={status}
+                onClick={showInfoProduct}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      ) : (
+        <div className={styles.notFound}>Nothing was found for your query</div>
+      )}
+    </>
   )
 }
 

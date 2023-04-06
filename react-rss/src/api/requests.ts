@@ -8,7 +8,6 @@ export const fetchAllCharacters: FetchAllCharacters = async (props) => {
   try {
     const response = await fetch(`${BASE_URL}/${queryParam}`)
     const data = await response.json()
-
     return data
   } catch (error) {
     return error

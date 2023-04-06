@@ -40,7 +40,7 @@ export const useHomePage = () => {
     isLoading,
     сharacters,
     setCharacters,
-    onSubmit
+    onSubmit,
   }
 }
 
