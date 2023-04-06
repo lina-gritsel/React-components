@@ -10,7 +10,7 @@ interface CardsListProps {
 const CardsList: FC<CardsListProps> = ({ cards }) => {
   return (
     <div className={cards?.length ? styles.show : styles.hidden}>
-      <div className={styles.orders}>your orders</div>
+      <div className={styles.characters}>your characters</div>
       <div className={styles.cards}>
         {cards?.map(({ name, date, category, file, radio }, index) => (
           <div key={index} className={styles.card}>

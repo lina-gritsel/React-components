@@ -31,8 +31,8 @@ const FormPage: FC = () => {
   return (
     <Layout>
       <div className={styles.main}>
+        <div className={styles.shadow}></div>
         <div className={styles.poster}>
-          <div className={styles.shadow}></div>
           <img src={background} className={styles.background} />
           <div className={styles.mainTitle}>
             If you want to create a character, do it now
