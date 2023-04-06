@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 
 import { Search } from '../../assets/icons'
 import { submitByKeyDown } from '../../hooks'
@@ -9,27 +10,37 @@ interface SearchInputProps {
   onChange: (value?: React.ChangeEvent<HTMLInputElement>) => void
   value: string
   placeholder?: string
-  setCharacters: (value: []) => void
-  onKeyDown?: (value?: React.KeyboardEvent<HTMLInputElement>) => void
+  name: string
+  onSubmit: () => void
 }
 
 const SearchInput: FC<SearchInputProps> = ({
   onChange,
   value,
   placeholder = 'Search',
-  setCharacters,
+  name,
+  onSubmit,
 }) => {
+  const { control, handleSubmit } = useForm()
   return (
-    <div className={styles.searchWrapper}>
-      {/* <Search className={styles.searchIcon} /> */}
-      <input
-        onChange={onChange}
-        className={styles.search}
-        placeholder={placeholder}
-        value={value}
-        onKeyDown={submitByKeyDown(setCharacters)}
-      />
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={() => (
+        <div className={styles.searchWrapper}>
+          {/* <Search className={styles.searchIcon} /> */}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              onChange={onChange}
+              className={styles.search}
+              placeholder={placeholder}
+              value={value}
+            />
+            <button type="submit">Find</button>
+          </form>
+        </div>
+      )}
+    />
   )
 }
 

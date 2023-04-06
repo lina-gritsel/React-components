@@ -29,12 +29,18 @@ export const useHomePage = () => {
     }
   }, [])
 
+  const onSubmit = async () => {
+    const characters = await fetchAllCharacters(savedSearchValue)
+    setCharacters(characters.results)
+  }
+
   return {
     searchString,
     onChangeSearch,
     isLoading,
     сharacters,
-    setCharacters
+    setCharacters,
+    onSubmit
   }
 }
 

@@ -10,7 +10,7 @@ import CardsList from './components/CardsList'
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { searchString, onChangeSearch, isLoading, сharacters,setCharacters } = useHomePage()
+  const { searchString, onChangeSearch, isLoading, сharacters,setCharacters,onSubmit } = useHomePage()
 
   const { modalVisible, showInfoProduct, selectCharacter, closeModal } =
   getInfoCharacter()
@@ -21,8 +21,9 @@ const HomePage: FC = () => {
         <SearchInput
           value={searchString || ''}
           onChange={(event) => onChangeSearch(event?.target.value || '')}
+          name='search'
+          onSubmit={onSubmit}
           data-testid="searchBarInput"
-          setCharacters={setCharacters}
         />
         {!isLoading && (
           <CardsList
