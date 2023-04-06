@@ -5,19 +5,19 @@ export const NOTIFICATIONS_OPTIONS = [
 
 export const CATEGORIES = [
   {
-    value: 'clothes',
-    label: 'Clothes',
+    value: 'human',
+    label: 'Human',
   },
   {
-    value: 'decorations',
-    label: 'Decorations',
+    value: 'alien',
+    label: 'Alien',
   },
   {
-    value: 'technique',
-    label: 'Technique',
+    value: 'humanoid',
+    label: 'Humanoid',
   },
   {
-    value: 'bags',
-    label: 'Bags',
+    value: 'croneneberg',
+    label: 'Croneneberg',
   },
 ]

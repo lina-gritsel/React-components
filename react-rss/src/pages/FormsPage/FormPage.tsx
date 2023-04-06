@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import ShopImage from '../../assets/images/shop.jpg'
+import background from '../../assets/images/form.webp'
 import Layout from '../../components/Layout'
 import Modal from './components/Modal'
 
@@ -33,9 +33,9 @@ const FormPage: FC = () => {
       <div className={styles.main}>
         <div className={styles.poster}>
           <div className={styles.shadow}></div>
-          <img src={ShopImage} className={styles.shopImage} alt="shop" />
+          <img src={background} className={styles.background} />
           <div className={styles.mainTitle}>
-            You can order online - just fill out the form
+            If you want to create a character, do it now
           </div>
         </div>
         <form
@@ -46,7 +46,7 @@ const FormPage: FC = () => {
           <div className={styles.container}>
             <InputName
               control={control}
-              placeholder="Your name"
+              placeholder="Сharacter name"
               errors={errors}
             />
             <InputDate

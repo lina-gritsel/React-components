@@ -6,24 +6,24 @@
   position: relative;
 }
 
-.shopImage {
+.background {
   height: 648px;
-  width: 870px;
+  width: 900px;
 }
 
 .shadow {
   position: absolute;
   height: 647px;
-  width: 870px;
+  width: 900px;
   background-color: #000;
-  opacity: 0.7;
+  opacity: 0.85;
   top: 0;
   left: 0;
 }
 
 .mainTitle {
   color: #fff;
-  font-size: 70px;
+  font-size: 85px;
   font-weight: 600;
   position: absolute;
   bottom: 0;

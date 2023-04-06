@@ -3,11 +3,12 @@
 }
 
 .container {
-  background-color: #f1ece9;
+  background-color: #0e0f37;
+  border-radius: 4px;
+  color: #fff;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  height: 430px;
   position: fixed;
   right: 50%;
   top: 50%;
@@ -25,21 +26,20 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 0 10px;
+  padding: 10px;
 }
 
 .values span {
-  font-weight: 600;
+  font-weight: 500;
   text-transform: capitalize;
 }
 
 .close {
-  height: 15px;
   margin: 10px;
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 15px;
+  right: -17px;
+  top: -17px;
+  width: 35px;
 }
 
 .overlay {
