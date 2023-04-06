@@ -8,30 +8,37 @@ import { useHomePage, getInfoCharacter } from './hooks'
 import CardsList from './components/CardsList'
 
 import styles from './HomePage.module.scss'
+import Label from '../../assets/images/R&M.png'
 
 const HomePage: FC = () => {
-  const { searchString, onChangeSearch, isLoading, сharacters,setCharacters,onSubmit } = useHomePage()
+  const { searchString, onChangeSearch, isLoading, сharacters, onSubmit } =
+    useHomePage()
 
   const { modalVisible, showInfoProduct, selectCharacter, closeModal } =
-  getInfoCharacter()
+    getInfoCharacter()
 
   return (
     <div data-testid="homeContainer">
       <Layout>
-        <SearchInput
-          value={searchString || ''}
-          onChange={(event) => onChangeSearch(event?.target.value || '')}
-          name='search'
-          onSubmit={onSubmit}
-          data-testid="searchBarInput"
-        />
-        {!isLoading && (
-          <CardsList
-            characters={сharacters}
-            showInfoProduct={showInfoProduct}
+        <div className={styles.main}>
+          <img src={Label} className={styles.label} />
+        </div>
+        <div className={styles.content}>
+          <SearchInput
+            value={searchString || ''}
+            onChange={(event) => onChangeSearch(event?.target.value || '')}
+            name="search"
+            onSubmit={onSubmit}
+            data-testid="searchBarInput"
           />
-        )}
-        {isLoading && <>Loading...</>}
+          {!isLoading && (
+            <CardsList
+              characters={сharacters}
+              showInfoProduct={showInfoProduct}
+            />
+          )}
+          {isLoading && <>Loading...</>}
+        </div>
       </Layout>
       <ModalProductInfo
         modalVisible={modalVisible}

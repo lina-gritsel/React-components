@@ -1,29 +1,17 @@
-.wrapperMain {
-  position: relative;
-  margin: 0 auto;
+.main {
+  background-color: #0e0f37 ;
+  width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.mainImage {
-  width: 100%;
+  align-items: center;
   height: 650px;
 }
 
-.shadow {
-  position: absolute;
-  height: 650px;
-  width: 100%;
-  background-color: #000;
-  opacity: 0.8;
+.label {
+  width: 1220px;
+  height: 450px;
 }
 
-.mainTitle {
-  color: #fff;
-  font-size: 85px;
-  font-weight: 600;
-  position: absolute;
-  bottom: 25%;
-  text-align: center;
-  text-transform: uppercase;
+.content {
+  padding: 50px 0;
 }
