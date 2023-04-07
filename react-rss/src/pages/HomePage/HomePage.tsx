@@ -1,20 +1,21 @@
 import { FC } from 'react'
 
 import SearchInput from '../../components/SearchInput'
-import ModalProductInfo from '../../components/Modal'
+import Label from '../../assets/images/R&M.png'
+import Loader from '../../components/Loader'
 import Layout from '../../components/Layout'
+import Modal from '../../components/Modal'
 
 import { useHomePage, getInfoCharacter } from './hooks'
 import CardsList from './components/CardsList'
 
 import styles from './HomePage.module.scss'
-import Label from '../../assets/images/R&M.png'
 
 const HomePage: FC = () => {
   const { searchString, onChangeSearch, isLoading, сharacters, onSubmit } =
     useHomePage()
 
-  const { modalVisible, showInfoProduct, selectCharacter, closeModal } =
+  const { modalVisible, showModal, selectCharacter, closeModal } =
     getInfoCharacter()
 
   return (
@@ -32,15 +33,12 @@ const HomePage: FC = () => {
             data-testid="searchBarInput"
           />
           {!isLoading && (
-            <CardsList
-              characters={сharacters}
-              showInfoProduct={showInfoProduct}
-            />
+            <CardsList characters={сharacters} showModal={showModal} />
           )}
-          {isLoading && <>Loading...</>}
+          {isLoading && <Loader className={styles.loader}/>}
         </div>
       </Layout>
-      <ModalProductInfo
+      <Modal
         modalVisible={modalVisible}
         selectCharacter={selectCharacter}
         onClose={closeModal}

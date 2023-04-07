@@ -7,10 +7,10 @@ import styles from './CardsList.module.scss'
 
 export interface CardsListProps {
   characters: Сharacter[]
-  showInfoProduct: (value: number) => void
+  showModal: (value: number) => void
 }
 
-const CardsList: FC<CardsListProps> = ({ characters, showInfoProduct }) => {
+const CardsList: FC<CardsListProps> = ({ characters, showModal }) => {
   return (
     <>
       {characters ? (
@@ -23,7 +23,7 @@ const CardsList: FC<CardsListProps> = ({ characters, showInfoProduct }) => {
                 species={species}
                 image={image}
                 status={status}
-                onClick={showInfoProduct}
+                onClick={showModal}
               />
             </div>
           ))}

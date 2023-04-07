@@ -30,8 +30,12 @@ export const useHomePage = () => {
   }, [])
 
   const onSubmit = async () => {
+    setIsLoading(true)
     const characters = await fetchAllCharacters(savedSearchValue)
     setCharacters(characters.results)
+    if (characters) {
+      setIsLoading(false)
+    }
   }
 
   return {
@@ -53,14 +57,14 @@ export const getInfoCharacter = () => {
 
   const [selectCharacter, setSelectCharacter] = useState<Сharacter | null>(null)
 
-  const showInfoProduct = async (id: number) => {
+  const showModal = async (id: number) => {
     const characterInfo = await getCharacter(id)
     openModal()
     setSelectCharacter(characterInfo)
   }
 
   return {
-    showInfoProduct,
+    showModal,
     selectCharacter,
     modalVisible,
     closeModal,
