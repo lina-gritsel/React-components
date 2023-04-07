@@ -23,7 +23,7 @@ export const useLockedBody = (initialLocked = false): ReturnType => {
     if (locked !== initialLocked) {
       setLocked(initialLocked)
     }
-  }, [initialLocked])
+  }, [locked, initialLocked])
 
   return [setLocked]
 }

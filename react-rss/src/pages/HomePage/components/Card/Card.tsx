@@ -21,7 +21,7 @@ const Card: FC<CardProps> = ({
 }) => {
   return (
     <div className={styles.card} onClick={() => onClick(id)} data-testid="card">
-      <img className={styles.image} src={image} alt="imageProduct" />
+      <img className={styles.image} src={image} alt="image" />
       <div className={styles.content}>
         <div className={styles.title}>{name}</div>
         <div className={styles.description}>{status}</div>

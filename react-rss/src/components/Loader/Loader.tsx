@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-const Loader: FC<{ className: string }> = ({ className }) => {
+const Loader: FC<{ className?: string }> = ({ className }) => {
   return (
     <svg
       className={className}
@@ -9,6 +9,7 @@ const Loader: FC<{ className: string }> = ({ className }) => {
       height="273"
       viewBox="0 0 258 273"
       fill="none"
+      role='svg'
     >
       <g id="Loading component">
         <g id="background-frame">

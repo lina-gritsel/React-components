@@ -2,7 +2,6 @@ import { FC } from 'react'
 
 import SearchInput from '../../components/SearchInput'
 import Label from '../../assets/images/R&M.png'
-import Loader from '../../components/Loader'
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
 

@@ -6,8 +6,8 @@ import searchIcon from '../../assets/images/search.png'
 import styles from './SearchInput.module.scss'
 
 interface SearchInputProps {
-  onChange: (value?: React.ChangeEvent<HTMLInputElement>) => void
-  value: string
+  onChange?: (value?: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string
   placeholder?: string
   name: string
   onSubmit: () => void
