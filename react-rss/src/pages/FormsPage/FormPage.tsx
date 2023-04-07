@@ -31,12 +31,12 @@ const FormPage: FC = () => {
   return (
     <Layout>
       <div className={styles.main}>
-        <div className={styles.shadow}></div>
         <div className={styles.poster}>
           <img src={background} className={styles.background} />
           <div className={styles.mainTitle}>
             If you want to create a character, do it now
           </div>
+          <div className={styles.shadow}></div>
         </div>
         <form
           role="form"
