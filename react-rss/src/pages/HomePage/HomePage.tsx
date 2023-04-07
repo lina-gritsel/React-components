@@ -15,7 +15,7 @@ const HomePage: FC = () => {
   const { searchString, onChangeSearch, isLoading, сharacters, onSubmit } =
     useHomePage()
 
-  const { modalVisible, showModal, selectCharacter, closeModal } =
+  const { modalVisible, showModal, selectCharacter, closeModal, loading } =
     getInfoCharacter()
 
   return (
@@ -35,14 +35,17 @@ const HomePage: FC = () => {
           {!isLoading && (
             <CardsList characters={сharacters} showModal={showModal} />
           )}
-          {isLoading && <Loader className={styles.loader}/>}
+          {isLoading && <Loader className={styles.loader} />}
         </div>
       </Layout>
-      <Modal
-        modalVisible={modalVisible}
-        selectCharacter={selectCharacter}
-        onClose={closeModal}
-      />
+      {!loading && (
+        <Modal
+          modalVisible={modalVisible}
+          selectCharacter={selectCharacter}
+          onClose={closeModal}
+        />
+      )}
+      {loading && <Loader className={styles.loader} />}
     </div>
   )
 }

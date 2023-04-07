@@ -10,7 +10,7 @@ export const useHomePage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [сharacters, setCharacters] = useState<Сharacter[]>([])
 
-  const onChangeSearch = (value: any) => {
+  const onChangeSearch = (value: string) => {
     setSearchString(value)
     localStorage.setItem('search', value)
   }
@@ -56,11 +56,16 @@ export const getInfoCharacter = () => {
   } = useModal()
 
   const [selectCharacter, setSelectCharacter] = useState<Сharacter | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
 
   const showModal = async (id: number) => {
+    setLoading(true)
     const characterInfo = await getCharacter(id)
     openModal()
     setSelectCharacter(characterInfo)
+    if (characterInfo) {
+      setLoading(false)
+    }
   }
 
   return {
@@ -68,5 +73,6 @@ export const getInfoCharacter = () => {
     selectCharacter,
     modalVisible,
     closeModal,
+    loading,
   }
 }
