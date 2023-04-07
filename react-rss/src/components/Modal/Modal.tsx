@@ -8,27 +8,26 @@ import styles from './Modal.module.scss'
 
 interface ModalProps {
   modalVisible: boolean
-  selectCharacter: Сharacter | null
+  character: Сharacter | null
   onClose: () => void
 }
 
-const Modal: FC<ModalProps> = ({
-  modalVisible,
-  selectCharacter,
-  onClose,
-}) => {
+const Modal: FC<ModalProps> = ({ modalVisible, character, onClose }) => {
   const ref = useRef(null)
   useClickOutside(ref, onClose)
 
   return (
     <>
-      <div ref={ref} className={modalVisible ? styles.container : styles.hidden}>
-        <img className={styles.image} src={selectCharacter?.image} />
+      <div
+        ref={ref}
+        className={modalVisible ? styles.container : styles.hidden}
+      >
+        <img className={styles.image} src={character?.image} />
         <div className={styles.info}>
-          <RowValues label="name" value={selectCharacter?.name} />
-          <RowValues label="species" value={selectCharacter?.species} />
-          <RowValues label="gender" value={selectCharacter?.gender} />
-          <RowValues label="status" value={selectCharacter?.status} />
+          <RowValues label="name" value={character?.name} />
+          <RowValues label="species" value={character?.species} />
+          <RowValues label="gender" value={character?.gender} />
+          <RowValues label="status" value={character?.status} />
           <img onClick={onClose} src={closeIcon} className={styles.close} />
         </div>
       </div>

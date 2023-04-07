@@ -6,7 +6,7 @@ import Loader from '../../components/Loader'
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
 
-import { useHomePage, getInfoCharacter } from './hooks'
+import { useHomePage, useFetchCharacter } from './hooks'
 import CardsList from './components/CardsList'
 
 import styles from './HomePage.module.scss'
@@ -15,8 +15,8 @@ const HomePage: FC = () => {
   const { searchString, onChangeSearch, isLoading, сharacters, onSubmit } =
     useHomePage()
 
-  const { modalVisible, showModal, selectCharacter, closeModal, loading } =
-    getInfoCharacter()
+  const { modalVisible, onCardClick, selectCharacter, closeModal } =
+    useFetchCharacter()
 
   return (
     <div data-testid="homeContainer">
@@ -32,20 +32,18 @@ const HomePage: FC = () => {
             onSubmit={onSubmit}
             data-testid="searchBarInput"
           />
-          {!isLoading && (
-            <CardsList characters={сharacters} showModal={showModal} />
-          )}
-          {isLoading && <Loader className={styles.loader} />}
+          <CardsList
+            characters={сharacters}
+            onCardClick={onCardClick}
+            isLoading={isLoading}
+          />
         </div>
       </Layout>
-      {!loading && (
-        <Modal
-          modalVisible={modalVisible}
-          selectCharacter={selectCharacter}
-          onClose={closeModal}
-        />
-      )}
-      {loading && <Loader className={styles.loader} />}
+      <Modal
+        modalVisible={modalVisible}
+        character={selectCharacter}
+        onClose={closeModal}
+      />
     </div>
   )
 }

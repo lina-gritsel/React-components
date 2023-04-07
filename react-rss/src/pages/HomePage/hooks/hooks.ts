@@ -1,41 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-import { Сharacter, getCharacter, fetchAllCharacters } from '../../../api'
+import { Сharacter, getCharacter } from '../../../api'
 import { useModal } from '../../../components/Modal'
+
+import { useFetchCharacters } from './useFetchCharacters'
 
 export const useHomePage = () => {
   const savedSearchValue = localStorage.getItem('search') as string
 
   const [searchString, setSearchString] = useState<string>(savedSearchValue)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [сharacters, setCharacters] = useState<Сharacter[]>([])
+  const [submitedString, setSubmitedString] = useState<string>(savedSearchValue)
+  const { isLoading, сharacters } = useFetchCharacters(submitedString)
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
     localStorage.setItem('search', value)
-  }
-
-  useEffect(() => {
-    const findCharacter = async () => {
-      const characters = await fetchAllCharacters(searchString)
-      setCharacters(characters.results)
-    }
-    findCharacter()
-
-    if (!сharacters) {
-      setIsLoading(true)
-    } else {
-      setIsLoading(false)
-    }
-  }, [])
-
-  const onSubmit = async () => {
-    setIsLoading(true)
-    const characters = await fetchAllCharacters(savedSearchValue)
-    setCharacters(characters.results)
-    if (characters) {
-      setIsLoading(false)
-    }
   }
 
   return {
@@ -43,12 +22,11 @@ export const useHomePage = () => {
     onChangeSearch,
     isLoading,
     сharacters,
-    setCharacters,
-    onSubmit,
+    onSubmit: () => setSubmitedString(searchString),
   }
 }
 
-export const getInfoCharacter = () => {
+export const useFetchCharacter = () => {
   const {
     visible: modalVisible,
     open: openModal,
@@ -56,23 +34,18 @@ export const getInfoCharacter = () => {
   } = useModal()
 
   const [selectCharacter, setSelectCharacter] = useState<Сharacter | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
 
-  const showModal = async (id: number) => {
-    setLoading(true)
+  const onCardClick = async (id: number) => {
     const characterInfo = await getCharacter(id)
-    openModal()
     setSelectCharacter(characterInfo)
-    if (characterInfo) {
-      setLoading(false)
-    }
+
+    openModal()
   }
 
   return {
-    showModal,
+    onCardClick,
     selectCharacter,
     modalVisible,
     closeModal,
-    loading,
   }
 }
