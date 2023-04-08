@@ -1,0 +1,23 @@
+.input {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid #979797;
+  align-items: center;
+}
+
+.caption {
+  font-size: 20px;
+}
+
+.caption::first-letter {
+  text-transform: uppercase;
+}
+
+.error {
+  color: #e52424;
+  font-size: 18px;
+  font-weight: 600;
+  height: 30px;
+  margin: 0 auto;
+}
