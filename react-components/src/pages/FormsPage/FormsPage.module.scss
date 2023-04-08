@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 20px 25px;
+  width: 545px;
+}
+
+.title {
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 auto;
+}
+
+.wrapperButton {
+  margin: 0 auto;
+}
+
+.modal {
+  position: absolute;
+}
+
+.errorMessage {
+  color: #f60e0e;
+  font-size: 18px;
+  margin: 0 auto;
+}

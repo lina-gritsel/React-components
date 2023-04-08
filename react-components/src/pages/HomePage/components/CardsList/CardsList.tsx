@@ -1,4 +1,6 @@
 import React from 'react'
+// import fetch from 'node-fetch'
+
 import Card from '../Card/Card'
 
 import styles from './CardsList.module.scss'
@@ -13,8 +15,8 @@ export interface Product {
   description: string
   category: string
   image: string
-  id: number
-  rating: Rating
+  id?: number
+  rating?: Rating
 }
 
 interface ResponseProducts {

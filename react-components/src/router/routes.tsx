@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { PATHS } from './patch'
-import HomePage from '../pages/HomePage'
 import AboutUsPage from '../pages/AboutUsPage'
-import Page404 from '../pages/404Page/404Page'
+import FormsPage from '../pages/FormsPage'
+import HomePage from '../pages/HomePage'
+import Page404 from '../pages/404Page'
 
 interface Routes {
   path: string
@@ -18,6 +19,10 @@ export const routes: Routes[] = [
   {
     path: PATHS.ABOUT,
     component: AboutUsPage,
+  },
+  {
+    path: PATHS.FORMS,
+    component: FormsPage,
   },
   {
     path: PATHS.PAGE_404,

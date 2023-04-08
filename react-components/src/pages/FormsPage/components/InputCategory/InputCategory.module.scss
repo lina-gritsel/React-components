@@ -1,0 +1,19 @@
+.headerInput {
+  font-size: 20px;
+}
+
+.headerInput::first-letter {
+  text-transform: uppercase;
+}
+
+.input {
+  border-radius: 10px;
+  min-width: 495px;
+  height: 30px;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+.option {
+  font-size: 20px;
+}

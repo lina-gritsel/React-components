@@ -36,12 +36,13 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div data-testid="homeContainer">
         <Layout currentPage="Home">
           <div className={styles.searchBar}>
             <SearchBar
               searchValue={this.state.search}
               setSearchValue={this.setSearchValue}
+              data-testid="searchBarInput"
             />
           </div>
           <CardsList searchValue={this.state.search} />
