@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Сharacter, getCharacter } from '../../../api'
 import { useModal } from '../../../components/Modal'
@@ -16,12 +16,29 @@ export const useHomePage = () => {
     setSearchString(value)
   }
 
+  const onSubmit = () => {
+    setSubmitedString(searchString)
+    localStorage.setItem('search', searchString)
+  }
+
+  const searchRef = useRef<string>()
+
+  useEffect(() => {
+    searchRef.current = searchString
+  }, [searchString])
+
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('search', searchRef.current || '')
+    }
+  }, [])
+
   return {
     searchString,
     onChangeSearch,
     isLoading,
     сharacters,
-    onSubmit: () => setSubmitedString(searchString),
+    onSubmit,
   }
 }
 
