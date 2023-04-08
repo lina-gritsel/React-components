@@ -18,7 +18,6 @@ export const getCharacter = async (id: number) => {
   try {
     const response = await fetch(`${BASE_URL}/${id}`)
     const data = await response.json()
-    console.log(data)
     return data
   } catch (error) {
     return error

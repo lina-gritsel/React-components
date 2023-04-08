@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Сharacter, getCharacter } from '../../../api'
 import { useModal } from '../../../components/Modal'
