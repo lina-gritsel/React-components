@@ -30,6 +30,7 @@ const HomePage: FC = () => {
             name="search"
             onSubmit={onSubmit}
             data-testid="searchBarInput"
+            placeholder='Search by name...'
           />
           <CardsList
             characters={сharacters}
