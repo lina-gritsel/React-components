@@ -33,6 +33,7 @@ const SearchInput: FC<SearchInputProps> = ({
               className={styles.search}
               placeholder={placeholder}
               value={value}
+              role='search'
             />
             <button type="submit" className={styles.button}>
               <img className={styles.icon} src={searchIcon} />
