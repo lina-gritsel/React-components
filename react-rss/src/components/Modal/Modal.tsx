@@ -22,7 +22,7 @@ const Modal: FC<ModalProps> = ({ modalVisible, character, onClose }) => {
         ref={ref}
         className={modalVisible ? styles.container : styles.hidden}
       >
-        <img className={styles.image} src={character?.image} />
+        <img className={styles.image} src={character?.image} role='image' />
         <div className={styles.info}>
           <RowValues label="name" value={character?.name} />
           <RowValues label="species" value={character?.species} />

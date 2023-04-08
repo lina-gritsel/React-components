@@ -22,7 +22,17 @@ describe('render modal with api data', () => {
   beforeEach(() => {
     render(<Modal modalVisible={false} character={data} onClose={() => {}} />)
   })
+
   it('renders card with species', () => {
     expect(screen.getByText(data.species)).toBeInTheDocument()
   })
+
+  it('renders card with name', () => {
+    expect(screen.getByText(data.name)).toBeInTheDocument()
+  })
+
+  it('renders card with image src', () => {
+    const logo = screen.getAllByRole('image')[0];
+    expect(logo).toHaveAttribute('src', expect.stringMatching(/\/avatar\/148.jpeg/));
+  });
 })

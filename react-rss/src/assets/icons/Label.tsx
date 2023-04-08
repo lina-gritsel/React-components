@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-const Label: FC<{ className: string }> = ({ className }) => {
+const Label: FC<{ className?: string }> = ({ className }) => {
   return (
     <svg
       className={className}
@@ -9,6 +9,7 @@ const Label: FC<{ className: string }> = ({ className }) => {
       height="212"
       viewBox="0 0 723 212"
       fill="none"
+      role='label'
     >
       <g id="Logo" clipPath="url(#clip0_107_30)">
         <g id="Group">
