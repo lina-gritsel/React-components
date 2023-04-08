@@ -8,7 +8,7 @@ import styles from './Modal.module.scss'
 
 interface ModalProps {
   modalVisible: boolean
-  character: Сharacter | null
+  character?: Сharacter | null
   onClose: () => void
 }
 

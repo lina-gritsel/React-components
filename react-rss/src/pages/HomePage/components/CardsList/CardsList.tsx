@@ -7,9 +7,9 @@ import Card from '../Card'
 import styles from './CardsList.module.scss'
 
 export interface CardsListProps {
-  characters: Сharacter[]
+  characters?: Сharacter[]
   onCardClick: (value: number) => void
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 const CardsList: FC<CardsListProps> = ({
