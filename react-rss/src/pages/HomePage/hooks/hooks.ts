@@ -14,7 +14,6 @@ export const useHomePage = () => {
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
-    localStorage.setItem('search', value)
   }
 
   return {
