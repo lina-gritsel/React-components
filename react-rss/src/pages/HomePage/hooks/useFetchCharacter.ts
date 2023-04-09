@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Сharacter, getCharacter } from '../../../api'
+import { Сharacter, fetchCharacter } from '../../../api'
 import { useModal } from '../../../components/Modal'
 
 export const useFetchCharacter = () => {
@@ -13,7 +13,7 @@ export const useFetchCharacter = () => {
   const [selectCharacter, setSelectCharacter] = useState<Сharacter | null>(null)
 
   const onCardClick = async (id: number) => {
-    const characterInfo = await getCharacter(id)
+    const characterInfo = await fetchCharacter(id)
     setSelectCharacter(characterInfo)
 
     openModal()
