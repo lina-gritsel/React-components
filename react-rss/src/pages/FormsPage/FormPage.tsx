@@ -4,7 +4,10 @@ import background from '../../assets/images/form.webp'
 import Layout from '../../components/Layout'
 import Modal from './components/Modal'
 
-import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
+import {
+  CATEGORIES_OPTIONS as categories,
+  NOTIFICATIONS_OPTIONS as notifications,
+} from './constants'
 import InputSelect from './components/InputSelect'
 import RadioGroup from './components/RadioGroup'
 import CardsList from './components/CardsList'
@@ -56,7 +59,7 @@ const FormPage: FC = () => {
             />
             <InputSelect
               control={control}
-              options={CATEGORIES}
+              options={categories}
               errors={errors}
             />
             <FileInput
@@ -76,7 +79,7 @@ const FormPage: FC = () => {
             <RadioGroup
               name="radio"
               control={control}
-              options={NOTIFICATIONS_OPTIONS}
+              options={notifications}
               label="Do you want to receive notifications from us?"
             />
             <button type="submit" className={styles.button}>

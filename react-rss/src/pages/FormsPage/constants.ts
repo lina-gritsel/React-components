@@ -3,7 +3,7 @@ export const NOTIFICATIONS_OPTIONS = [
   { label: 'no', value: 'no' },
 ]
 
-export const CATEGORIES = [
+export const CATEGORIES_OPTIONS = [
   {
     value: 'human',
     label: 'Human',

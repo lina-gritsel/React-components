@@ -1,4 +1,4 @@
-import { PATHS } from './../../router/patch'
+import { PATHS } from '../../router/paths'
 
 export const MENU_ITEM = [
   {
