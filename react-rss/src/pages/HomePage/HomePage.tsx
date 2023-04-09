@@ -1,11 +1,11 @@
 import { FC } from 'react'
 
 import SearchInput from '../../components/SearchInput'
-import Label from '../../assets/images/R&M.png'
 import Layout from '../../components/Layout'
 import Modal from '../../components/Modal'
 
 import { useHomePage, useFetchCharacter } from './hooks'
+import MainOverlay from './components/MainOverlay'
 import CardsList from './components/CardsList'
 
 import styles from './HomePage.module.scss'
@@ -20,9 +20,7 @@ const HomePage: FC = () => {
   return (
     <div data-testid="homeContainer">
       <Layout>
-        <div className={styles.main}>
-          <img src={Label} className={styles.label} />
-        </div>
+        <MainOverlay />
         <div className={styles.content}>
           <SearchInput
             value={searchString || ''}
@@ -30,7 +28,7 @@ const HomePage: FC = () => {
             name="search"
             onSubmit={onSubmit}
             data-testid="searchBarInput"
-            placeholder='Search by name...'
+            placeholder="Search by name..."
           />
           <CardsList
             characters={сharacters}

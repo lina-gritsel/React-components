@@ -1,4 +1,5 @@
 import { useState } from 'react'
+
 import { useLockedBody } from '../../hooks'
 
 export const useModal = () => {
