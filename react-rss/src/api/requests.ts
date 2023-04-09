@@ -1,8 +1,8 @@
-import { Сharacter } from './types'
+import { Сharacter, ResponseOnAllCharacters } from './types'
 
 const BASE_URL = 'https://rickandmortyapi.com/api/character'
 
-type FetchAllCharacters = (props: string) => Promise<Сharacter[]>
+type FetchAllCharacters = (props: string) => Promise<ResponseOnAllCharacters>
 
 export const fetchAllCharacters: FetchAllCharacters = async (props) => {
   const queryParam = props ? `?name=${props}` : ''

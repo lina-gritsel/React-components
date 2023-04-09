@@ -10,3 +10,15 @@ export interface Сharacter {
   type: string
   url: string
 }
+
+export interface ResponseOnAllCharacters {
+  info: ResponseInfo
+  results: Сharacter[]
+}
+
+interface ResponseInfo {
+  count: number
+  next: string
+  pages: number
+  prev: null
+}
