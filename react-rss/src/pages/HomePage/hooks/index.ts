@@ -1,1 +1,2 @@
-export * from './hooks'
+export * from './useHomePage'
+export { useFetchCharacter } from './useFetchCharacter'
