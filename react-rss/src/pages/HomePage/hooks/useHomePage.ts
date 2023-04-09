@@ -7,7 +7,7 @@ export const useHomePage = () => {
 
   const [searchString, setSearchString] = useState<string>(savedSearchValue)
   const [submitedString, setSubmitedString] = useState<string>(savedSearchValue)
-  const { isLoading, сharacters } = useFetchCharacters(submitedString)
+  const { isLoading, characters } = useFetchCharacters(submitedString)
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
@@ -34,7 +34,7 @@ export const useHomePage = () => {
     searchString,
     onChangeSearch,
     isLoading,
-    сharacters,
+    characters,
     onSubmit,
   }
 }

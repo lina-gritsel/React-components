@@ -1,4 +1,4 @@
-export interface Сharacter {
+export interface Character {
   created: string
   id: number
   episode: string[]
@@ -13,7 +13,7 @@ export interface Сharacter {
 
 export interface ResponseOnAllCharacters {
   info: ResponseInfo
-  results: Сharacter[]
+  results: Character[]
 }
 
 interface ResponseInfo {

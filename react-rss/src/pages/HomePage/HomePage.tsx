@@ -11,7 +11,7 @@ import CardsList from './components/CardsList'
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { searchString, onChangeSearch, isLoading, сharacters, onSubmit } =
+  const { searchString, onChangeSearch, isLoading, characters, onSubmit } =
     useHomePage()
 
   const { modalVisible, onCardClick, selectCharacter, closeModal } =
@@ -31,7 +31,7 @@ const HomePage: FC = () => {
             placeholder="Search by name..."
           />
           <CardsList
-            characters={сharacters}
+            characters={characters}
             onCardClick={onCardClick}
             isLoading={isLoading}
           />

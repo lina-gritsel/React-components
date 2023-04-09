@@ -2,13 +2,13 @@ import { FC, useRef } from 'react'
 
 import closeIcon from '../../assets/images/close.png'
 import { useClickOutside } from '../../hooks'
-import { Сharacter } from '../../api'
+import { Character } from '../../api'
 
 import styles from './Modal.module.scss'
 
 interface ModalProps {
   modalVisible: boolean
-  character?: Сharacter | null
+  character?: Character | null
   onClose: () => void
 }
 
