@@ -15,7 +15,7 @@ export const useFetchCharacter = () => {
   const onCardClick = async (id: number) => {
     const characterInfo = await fetchCharacter(id)
     setSelectCharacter(characterInfo)
-
+    
     openModal()
   }
 

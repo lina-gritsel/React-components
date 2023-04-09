@@ -4,7 +4,6 @@ type ReturnType = [(locked: boolean) => void]
 
 export const useLockedBody = (initialLocked = false): ReturnType => {
   const [locked, setLocked] = useState(initialLocked)
-
   useLayoutEffect(() => {
     if (!locked) {
       return
@@ -23,7 +22,7 @@ export const useLockedBody = (initialLocked = false): ReturnType => {
     if (locked !== initialLocked) {
       setLocked(initialLocked)
     }
-  }, [locked, initialLocked])
+  }, [initialLocked])
 
   return [setLocked]
 }
