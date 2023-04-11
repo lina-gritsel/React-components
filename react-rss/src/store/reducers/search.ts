@@ -1,18 +1,18 @@
 import { searchActions } from '../actions/search'
 
-const initialState = {
+export const initialState = {
   searchValue: '',
 }
 
-const searchValue = (state = initialState, action) => {
+export const searchReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case searchActions.CHANGE_SEARCH_VALUE: {
-        return {
-            ...state,
-            searchValue: action.payload
-        }
+      return {
+        ...state,
+        searchValue: action.payload,
+      }
     }
+    default:
+      return state
   }
 }
-
-export default searchValue

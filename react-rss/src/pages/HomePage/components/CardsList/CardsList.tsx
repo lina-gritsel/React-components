@@ -1,13 +1,13 @@
 import { FC } from 'react'
 
 import Loader from '../../../../components/Loader'
-import { Сharacter } from '../../../../api'
+import { Character } from '../../../../api'
 import Card from '../Card'
 
 import styles from './CardsList.module.scss'
 
 export interface CardsListProps {
-  characters?: Сharacter[]
+  characters?: Character[]
   onCardClick: (value: number) => void
   isLoading?: boolean
 }

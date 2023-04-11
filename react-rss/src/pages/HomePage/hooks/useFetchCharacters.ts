@@ -8,14 +8,15 @@ type UseFetchCharacters = (searchString: string) => {
 
 export const useFetchCharacters: UseFetchCharacters = (searchString) => {
   const [characters, setCharacters] = useState<Character[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   useEffect(() => {
     (async () => {
+      setIsLoading(true)
       const { results } = await fetchAllCharacters(searchString)
       setCharacters(results)
+      setIsLoading(false)
     })()
-    setIsLoading(false)
   }, [searchString])
 
   return { characters, isLoading }
