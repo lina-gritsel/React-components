@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { searchReducer } from './reducers/search'
+import { rootReducer } from './reducers'
 
 const store = configureStore({
-  reducer: searchReducer,
+  reducer: rootReducer,
 })
+
+export type RootState = ReturnType<typeof store.getState>
 
 export default store

@@ -1,18 +1,16 @@
-import { searchActions } from '../actions/search'
+import { createSlice } from '@reduxjs/toolkit'
 
-export const initialState = {
-  searchValue: '',
-}
-
-export const searchReducer = (state = initialState, action: any) => {
-  switch (action.type) {
-    case searchActions.CHANGE_SEARCH_VALUE: {
-      return {
-        ...state,
-        searchValue: action.payload,
-      }
+const toolkitSlice = createSlice({
+  name: 'toolkit',
+  initialState: {
+    searchValue: '',
+  },
+  reducers: {
+    changeSearchValue(state, action){
+      state.searchValue = action.payload
     }
-    default:
-      return state
   }
-}
+})
+
+export default toolkitSlice.reducer
+export const {changeSearchValue} = toolkitSlice.actions
