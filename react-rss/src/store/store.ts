@@ -1,10 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { rootReducer } from './reducers'
+import { charactersAPI } from './services/CharactersService'
 
-const store = configureStore({
-  reducer: rootReducer,
-})
+const store = () => {
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware)=>
+    getDefaultMiddleware().concat(charactersAPI.middleware)
+  })
+}
 
-export type RootState = ReturnType<typeof store.getState>
+export type AppStore = ReturnType<typeof store>
+export type AppDispatch = AppStore['dispatch']
 
 export default store

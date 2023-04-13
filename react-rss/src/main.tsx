@@ -6,9 +6,11 @@ import App from './App'
 
 import './scss/styles.scss'
 
+const storeApp = store()
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={storeApp}>
       <App />
     </Provider>
   </React.StrictMode>
