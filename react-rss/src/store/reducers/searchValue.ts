@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const toolkitSlice = createSlice({
+const searchSlice = createSlice({
   name: 'toolkit',
   initialState: {
     searchValue: '',
@@ -12,5 +12,5 @@ const toolkitSlice = createSlice({
   }
 })
 
-export default toolkitSlice.reducer
-export const {changeSearchValue} = toolkitSlice.actions
+export default searchSlice.reducer
+export const {changeSearchValue} = searchSlice.actions

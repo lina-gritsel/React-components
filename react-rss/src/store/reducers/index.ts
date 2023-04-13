@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import toolkitSlice from './search'
+import searchSlice from './searchValue'
 import { charactersAPI } from '../services/CharactersService'
 
 export const rootReducer = combineReducers({
-  toolkit: toolkitSlice,
+  search: searchSlice,
 [charactersAPI.reducerPath] : charactersAPI.reducer
 })
 

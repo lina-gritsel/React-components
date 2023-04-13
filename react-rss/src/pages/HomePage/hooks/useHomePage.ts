@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { changeSearchValue } from '../../../store/reducers/search'
+import { changeSearchValue } from '../../../store/reducers/searchValue'
 import { useAppSelector } from '../../../store/hooks/redux'
 
 import { useFetchCharacters } from './useFetchCharacters'
 
 export const useHomePage = () => {
   const storeSearchValue = useAppSelector(
-    (state) => state?.toolkit.searchValue
+    (state) => state?.search.searchValue
   )
 
   const dispatch = useDispatch()
