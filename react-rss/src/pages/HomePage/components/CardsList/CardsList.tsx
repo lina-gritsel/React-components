@@ -22,16 +22,15 @@ const CardsList: FC<CardsListProps> = ({
       {!isLoading && characters ? (
         <div className={styles.cards}>
           {characters.map(({ id, name, species, image, status }) => (
-            <div key={id}>
-              <Card
-                id={id}
-                name={name}
-                species={species}
-                image={image}
-                status={status}
-                onClick={onCardClick}
-              />
-            </div>
+            <Card
+              key={id}
+              id={id}
+              name={name}
+              species={species}
+              image={image}
+              status={status}
+              onClick={onCardClick}
+            />
           ))}
         </div>
       ) : (
