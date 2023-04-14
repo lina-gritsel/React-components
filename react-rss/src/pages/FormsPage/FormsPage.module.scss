@@ -6,29 +6,33 @@
   position: relative;
 }
 
-.shopImage {
+.background {
   height: 648px;
-  width: 870px;
+  width: 900px;
 }
 
 .shadow {
   position: absolute;
-  height: 647px;
-  width: 870px;
+  width: 900px;
+  height: 648px;
   background-color: #000;
-  opacity: 0.7;
+  opacity: 0.85;
   top: 0;
   left: 0;
+  bottom: 0;
+  z-index: 2;
 }
 
 .mainTitle {
   color: #fff;
-  font-size: 70px;
+  font-size: 85px;
   font-weight: 600;
   position: absolute;
   bottom: 0;
   left: 0;
   padding: 20px;
+  z-index: 3;
+
 }
 
 .form {
@@ -76,7 +80,7 @@
   margin-top: 20px;
 }
 @media (max-width: 1340px) {
-  .shopImage {
+  .background {
     width: 780px;
   }
 

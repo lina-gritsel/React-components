@@ -1,11 +1,24 @@
-export interface Product {
+export interface Character {
+  created: string
   id: number
-  title: string
-  price: number
-  brand: string
-  rating: number
-  stock: number
-  description: string
-  category: string
-  image: string[]
+  episode: string[]
+  gender: string
+  image: string
+  name: string
+  status: string
+  species: string
+  type: string
+  url: string
+}
+
+export interface ResponseOnAllCharacters {
+  info: ResponseInfo
+  results: Character[]
+}
+
+interface ResponseInfo {
+  count: number
+  next: string
+  pages: number
+  prev: null
 }

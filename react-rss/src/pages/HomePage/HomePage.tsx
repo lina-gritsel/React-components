@@ -1,39 +1,47 @@
 import { FC } from 'react'
 
-import Layout from '../../components/Layout'
-import CardsList from '../../components/CardsList'
 import SearchInput from '../../components/SearchInput'
-import { useHomePage } from './hooks'
+import Layout from '../../components/Layout'
+import Modal from '../../components/Modal'
 
-import mainImage from '../../assets/images/clotes.jpg'
+import { useHomePage, useFetchCharacter } from './hooks'
+import MainOverlay from './components/MainOverlay'
+import CardsList from './components/CardsList'
 
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { onChangeSearch, filteredProducts, isLoading, searchString } =
+  const { searchString, onChangeSearch, isLoading, characters, onSubmit } =
     useHomePage()
+
+  const { modalVisible, onCardClick, selectCharacter, closeModal } =
+    useFetchCharacter()
 
   return (
     <div data-testid="homeContainer">
       <Layout>
-        <div className={styles.wrapperMain}>
-          <div className={styles.shadow}></div>
-          <img src={mainImage} className={styles.mainImage}></img>
-          <div className={styles.mainTitle}>
-            bajor
-            <br /> -<br /> choose the best
-          </div>
-        </div>
-        <div className={styles.searchBar}>
+        <MainOverlay />
+        <div className={styles.content}>
           <SearchInput
             value={searchString || ''}
             onChange={(event) => onChangeSearch(event?.target.value || '')}
+            name="search"
+            onSubmit={onSubmit}
             data-testid="searchBarInput"
+            placeholder="Search by name..."
+          />
+          <CardsList
+            characters={characters}
+            onCardClick={onCardClick}
+            isLoading={isLoading}
           />
         </div>
-        {!isLoading && <CardsList products={filteredProducts} />}
-        {isLoading && <>Loading...</>}
       </Layout>
+      <Modal
+        modalVisible={modalVisible}
+        character={selectCharacter}
+        onClose={closeModal}
+      />
     </div>
   )
 }

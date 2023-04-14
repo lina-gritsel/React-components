@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { PATHS } from './patch'
+import { PATHS } from './paths'
 import AboutUsPage from '../pages/AboutUsPage'
 import FormsPage from '../pages/FormsPage'
 import HomePage from '../pages/HomePage'

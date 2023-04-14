@@ -4,11 +4,9 @@ import Layout from '../../components/Layout'
 import styles from './AboutUsPage.module.scss'
 
 const AboutUsPage: FC = () => (
-  <div>
-    <Layout>
-      <div className={styles.content}>About Us Page</div>
-    </Layout>
-  </div>
+  <Layout>
+    <div className={styles.content}>About Us Page</div>
+  </Layout>
 )
 
 export default AboutUsPage

@@ -1,10 +1,13 @@
 import { FC } from 'react'
 
-import ShopImage from '../../assets/images/shop.jpg'
+import background from '../../assets/images/form.webp'
 import Layout from '../../components/Layout'
-import Modal from '../../components/Modal'
+import Modal from './components/Modal'
 
-import { CATEGORIES, NOTIFICATIONS_OPTIONS } from './constants'
+import {
+  CATEGORIES_OPTIONS as categories,
+  NOTIFICATIONS_OPTIONS as notifications,
+} from './constants'
 import InputSelect from './components/InputSelect'
 import RadioGroup from './components/RadioGroup'
 import CardsList from './components/CardsList'
@@ -32,11 +35,11 @@ const FormPage: FC = () => {
     <Layout>
       <div className={styles.main}>
         <div className={styles.poster}>
-          <div className={styles.shadow}></div>
-          <img src={ShopImage} className={styles.shopImage} alt="shop" />
+          <img src={background} className={styles.background} />
           <div className={styles.mainTitle}>
-            You can order online - just fill out the form
+            If you want to create a character, do it now
           </div>
+          <div className={styles.shadow}></div>
         </div>
         <form
           role="form"
@@ -46,7 +49,7 @@ const FormPage: FC = () => {
           <div className={styles.container}>
             <InputName
               control={control}
-              placeholder="Your name"
+              placeholder="Сharacter name"
               errors={errors}
             />
             <InputDate
@@ -56,7 +59,7 @@ const FormPage: FC = () => {
             />
             <InputSelect
               control={control}
-              options={CATEGORIES}
+              options={categories}
               errors={errors}
             />
             <FileInput
@@ -76,7 +79,7 @@ const FormPage: FC = () => {
             <RadioGroup
               name="radio"
               control={control}
-              options={NOTIFICATIONS_OPTIONS}
+              options={notifications}
               label="Do you want to receive notifications from us?"
             />
             <button type="submit" className={styles.button}>

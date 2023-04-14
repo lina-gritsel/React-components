@@ -1,30 +1,35 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import fetch from 'node-fetch'
-import Card from '../components/CardHome'
+import { screen, render, waitFor } from '@testing-library/react'
 
-interface Product {
-  title: string
-  price: number
-  description: string
-  image: string
-}
+import CardsList from '../pages/FormsPage/components/CardsList'
+import { ICardData } from '../pages/FormsPage/hooks'
 
-describe('CardList', () => {
-  it('render list', async () => {
-    const data = (await fetch('https://fakestoreapi.com/products').then(
-      (respo) => {
-        return respo.json()
-      }
-    )) as Product[]
-    class CardList extends React.Component {
-      render() {
-        return data.map((item: Product, index: number) => (
-          <Card key={index} {...item} />
-        ))
-      }
-    }
-    render(<CardList />)
-    expect(screen.getAllByTestId('card').length).toEqual(20)
+describe('Card', () => {
+  const cards: ICardData[] = [
+    {
+      name: 'Erich',
+      date: '21.01.1991',
+      category: 'Kategorie 1',
+      file: 'https://www.google.com/images/branding/googlelogo/2',
+      checkbox: 'yes',
+      radio: 'yes',
+    },
+    {
+      name: 'Erich',
+      date: '21.01.1991',
+      category: 'Kategorie 1',
+      file: 'https://www.google.com/images/branding/googlelogo/2',
+      checkbox: 'yes',
+      radio: 'yes',
+    },
+  ]
+
+  it('renders card', () => {
+    render(<CardsList cards={cards} />)
+    waitFor(() =>
+      expect(screen.findAllByText(cards[0].name)).toBeInTheDocument()
+    )
+    waitFor(() =>
+    expect(screen.findAllByText(cards[1].name)).toBeInTheDocument()
+  )
   })
 })

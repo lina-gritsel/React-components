@@ -1,29 +1,47 @@
 import React, { FC } from 'react'
-import { Search } from '../../assets/icons'
+import { Controller, useForm } from 'react-hook-form'
 
-import styles from './SearchBar.module.scss'
+import searchIcon from '../../assets/images/search.png'
+
+import styles from './SearchInput.module.scss'
 
 interface SearchInputProps {
-  onChange: (value?: React.ChangeEvent<HTMLInputElement>) => void
-  value: string
+  onChange?: (value?: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string
   placeholder?: string
+  name: string
+  onSubmit: () => void
 }
 
 const SearchInput: FC<SearchInputProps> = ({
-  value,
-  placeholder = 'Search',
   onChange,
+  value,
+  placeholder = 'Search...',
+  name,
+  onSubmit,
 }) => {
+  const { control, handleSubmit } = useForm()
   return (
-    <div className={styles.searchWrapper}>
-      <Search className={styles.searchIcon} />
-      <input
-        className={styles.search}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-      />
-    </div>
+    <Controller
+      name={name}
+      control={control}
+      render={() => (
+        <div className={styles.searchWrapper}>
+          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            <input
+              onChange={onChange}
+              className={styles.search}
+              placeholder={placeholder}
+              value={value}
+              role='search'
+            />
+            <button type="submit" className={styles.button}>
+              <img className={styles.icon} src={searchIcon} />
+            </button>
+          </form>
+        </div>
+      )}
+    />
   )
 }
 

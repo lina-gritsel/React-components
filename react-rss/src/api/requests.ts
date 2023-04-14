@@ -1,27 +1,29 @@
-import { Product } from './types'
+import { Character, ResponseOnAllCharacters } from './types'
 
-const baseUrl = 'https://strange-shawl-mite.cyclic.app'
+const BASE_URL = 'https://rickandmortyapi.com/api/character'
 
-import { useEffect, useState } from 'react'
+type FetchAllCharacters = (props: string) => Promise<ResponseOnAllCharacters>
 
-export const usrFetchAllProducts = () => {
-  const [products, setProducts] = useState<Product[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+export const fetchAllCharacters: FetchAllCharacters = async (props) => {
+  const queryParam = props ? `?name=${props}` : ''
 
-  useEffect(() => {
-    const getAllProducts = async () => {
-      try {
-        const result = await fetch(`${baseUrl}/products`)
-        const { products } = await result.json()
-        setProducts(products)
-      } catch (error) {
-        return error
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    getAllProducts()
-  }, [])
+  try {
+    const response = await fetch(`${BASE_URL}/${queryParam}`)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    return error
+  }
+}
 
-  return { products, isLoading }
+type FetchCharacter = (id: number) => Promise<Character>
+
+export const fetchCharacter: FetchCharacter = async (id: number) => {
+  try {
+    const response = await fetch(`${BASE_URL}/${id}`)
+    const data = await response.json()
+    return data
+  } catch (error) {
+    return error
+  }
 }

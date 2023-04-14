@@ -1,13 +1,15 @@
 import { render } from '@testing-library/react'
-import Card from '../components/CardHome/CardHome'
+import Card from '../pages/HomePage/components/Card/Card'
 
 describe('Card component', () => {
   const testProps = {
+    id: 1,
     image: 'https://example.com/image.jpg',
-    title: 'Example title',
-    desc: 'Example description',
-    price: 20,
-  }
+    name: 'Example name',
+    status: 'Example status',
+    species: 'Example species',
+    onClick: () => {}
+   }
 
   it('renders Card component without crashing', () => {
     render(<Card {...testProps} />)
@@ -15,20 +17,20 @@ describe('Card component', () => {
 
   it('renders image correctly', async () => {
     const { getByAltText } = await render(<Card {...testProps} />)
-    const image = getByAltText('imageProduct')
+    const image = getByAltText('image')
     expect(image).toBeInTheDocument()
     expect(image).toHaveAttribute('src', 'https://example.com/image.jpg')
   })
 
   test('renders title correctly', async () => {
     const { getByText } = await render(<Card {...testProps} />)
-    const title = getByText(`${testProps.title}`)
-    expect(title).toBeInTheDocument()
+    const name = getByText(`${testProps.name}`)
+    expect(name).toBeInTheDocument()
   })
 
   test('renders price correctly', async () => {
     const { getByText } = await render(<Card {...testProps} />)
-    const price = getByText('$20')
-    expect(price).toBeInTheDocument()
+    const status = getByText('Example status')
+    expect(status).toBeInTheDocument()
   })
 })

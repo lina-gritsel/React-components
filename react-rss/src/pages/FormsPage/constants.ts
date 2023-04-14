@@ -3,21 +3,21 @@ export const NOTIFICATIONS_OPTIONS = [
   { label: 'no', value: 'no' },
 ]
 
-export const CATEGORIES = [
+export const CATEGORIES_OPTIONS = [
   {
-    value: 'clothes',
-    label: 'Clothes',
+    value: 'human',
+    label: 'Human',
   },
   {
-    value: 'decorations',
-    label: 'Decorations',
+    value: 'alien',
+    label: 'Alien',
   },
   {
-    value: 'technique',
-    label: 'Technique',
+    value: 'humanoid',
+    label: 'Humanoid',
   },
   {
-    value: 'bags',
-    label: 'Bags',
+    value: 'croneneberg',
+    label: 'Croneneberg',
   },
 ]

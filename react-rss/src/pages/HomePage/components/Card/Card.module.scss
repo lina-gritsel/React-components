@@ -1,27 +1,29 @@
-.cardWrapper {
-  align-items: center;
+.card {
   background-color: #fff;
-  border-radius: 16px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12),
+    0px 2px 4px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
-.imageProduct {
+.image {
   height: 230px;
   width: 100%;
 }
 
-.wrapperInfo {
+.content {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   position: relative;
+  padding: 12px 16px;
 }
 
 .title {
   font-family: 'Gilroy-SemiBold';
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 900;
   line-height: 30px;
   letter-spacing: 0.25px;
@@ -33,20 +35,13 @@
   color: #5e5c5b;
   display: -webkit-box;
   font-size: 18px;
-  overflow: hidden;
   text-overflow: ellipsis;
+  overflow: hidden;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 
 .price {
+  font-size: 20px;
   font-weight: 800;
-}
-
-.likeIcon {
-  position: absolute;
-  height: 35px;
-  width: 35px;
-  bottom: -10px;
-  right: 0;
 }
