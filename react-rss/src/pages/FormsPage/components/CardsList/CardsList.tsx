@@ -16,19 +16,21 @@ const CardsList: FC<CardsListProps> = ({ cards }) => {
           <div key={index} className={styles.card}>
             <div className={styles.cardWraper}>
               <img src={file} className={styles.image} />
-              <div className={styles.infoUser}>
-                <span className={styles.subtitle}>Name:</span> {name}
-              </div>
-              <div className={styles.infoUser}>
-                <span className={styles.subtitle}>Birth:</span> {date}
-              </div>
-              <div className={styles.infoUser}>
-                <span className={styles.subtitle}>Category:</span>
-                {category}
-              </div>
-              <div className={styles.infoUser}>
-                <span className={styles.subtitle}>Notices:</span>
-                {radio}
+              <div className={styles.characterInfo}>
+                <div className={styles.infoUser}>
+                  <span className={styles.subtitle}>Name:</span> {name}
+                </div>
+                <div className={styles.infoUser}>
+                  <span className={styles.subtitle}>Birth:</span> {date}
+                </div>
+                <div className={styles.infoUser}>
+                  <span className={styles.subtitle}>Category:</span>
+                  {category}
+                </div>
+                <div className={styles.infoUser}>
+                  <span className={styles.subtitle}>Notices:</span>
+                  {radio}
+                </div>
               </div>
             </div>
           </div>

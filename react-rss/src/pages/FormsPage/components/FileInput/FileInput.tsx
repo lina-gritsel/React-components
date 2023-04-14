@@ -39,7 +39,7 @@ const FileInput: FC<FileInputProps> = ({
               onChange(e.target.files)
             }}
             value={currentFile}
-            className={styles.inputFile}
+            className={styles.input}
             accept="image/*"
           />
           <div className={styles.error}>{errors.file?.message}</div>
