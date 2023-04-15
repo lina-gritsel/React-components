@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { ResponseOnAllCharacters } from '../../api/types'
 
 export const charactersAPI = createApi({
   reducerPath: 'charactersAPI',
@@ -6,7 +7,7 @@ export const charactersAPI = createApi({
     baseUrl: 'https://rickandmortyapi.com/api',
   }),
   endpoints: (build) => ({
-    fetchAllCharacters: build.query<any, string>({
+    fetchAllCharacters: build.query<ResponseOnAllCharacters, string>({
       query: (name: string) => ({
         url: '/character',
         params: {

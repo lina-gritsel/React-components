@@ -19,7 +19,9 @@ const CardsList: FC<CardsListProps> = ({
 }) => {
   return (
     <>
-      {!isLoading && characters && (
+      {isLoading && <Loader className={styles.loader} />}
+      {!isLoading && !characters?.length && <EmptyList />}
+      {!isLoading && characters?.length && (
         <div className={styles.cards}>
           {characters.map(({ id, name, species, image, status }) => (
             <Card
@@ -34,8 +36,6 @@ const CardsList: FC<CardsListProps> = ({
           ))}
         </div>
       )}
-      {!isLoading && !characters && <EmptyList />}
-      {isLoading && <Loader className={styles.loader} />}
     </>
   )
 }

@@ -7,9 +7,7 @@ import { useAppSelector } from '../../../store/hooks/redux'
 import { useFetchCharacters } from './useFetchCharacters'
 
 export const useHomePage = () => {
-  const storeSearchValue = useAppSelector(
-    (state) => state?.search.searchValue
-  )
+  const storeSearchValue = useAppSelector((state) => state?.search.searchValue)
 
   const dispatch = useDispatch()
 
