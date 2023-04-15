@@ -21,9 +21,9 @@ const CardsList: FC<CardsListProps> = ({
     <>
       {isLoading && <Loader className={styles.loader} />}
       {!isLoading && !characters?.length && <EmptyList />}
-      {!isLoading && characters?.length && (
+      {!isLoading && characters && (
         <div className={styles.cards}>
-          {characters.map(({ id, name, species, image, status }) => (
+          {characters?.map(({ id, name, species, image, status }) => (
             <Card
               key={id}
               id={id}

@@ -8,7 +8,6 @@ import { useFetchCharacters } from './useFetchCharacters'
 
 export const useHomePage = () => {
   const storeSearchValue = useAppSelector((state) => state?.search.searchValue)
-
   const dispatch = useDispatch()
 
   const [searchString, setSearchString] = useState<string>(storeSearchValue)

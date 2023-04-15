@@ -11,8 +11,15 @@ import CardsList from './components/CardsList'
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { searchString, onChangeSearch, isLoading, characters, onSubmit } =
-    useHomePage()
+  const {
+    searchString,
+    onChangeSearch,
+    isLoading,
+    characters,
+    onSubmit,
+  } = useHomePage()
+
+  console.log(characters)
 
   const { modalVisible, onCardClick, selectCharacter, closeModal } =
     useFetchCharacter()
