@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import mainCaption from '../../../../assets/images/R&M.png'
+import mainCaption from '@/assets/images/R&M.png'
 
 import styles from './MainOverlay.module.scss'
 

@@ -19,6 +19,7 @@
       "@/*": ["./src/*", "./dist/*", ""],
       "components/*": ["src/components/*"],
       "api/*": ["src/api/*"],
+      "assets/*": ["src/assets/*"]
     }
   },
   "include": ["./src/**/*", "styled.d.ts"],

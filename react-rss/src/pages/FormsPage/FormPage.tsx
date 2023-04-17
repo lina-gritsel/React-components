@@ -1,8 +1,7 @@
 import { FC } from 'react'
 
+import background from '@/assets/images/form.webp'
 import Layout from '@/components/Layout'
-
-import background from '../../assets/images/form.webp'
 
 import {
   CATEGORIES_OPTIONS as categories,

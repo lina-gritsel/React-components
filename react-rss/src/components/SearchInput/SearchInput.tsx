@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
-import searchIcon from '../../assets/images/search.png'
+import searchIcon from '@/assets/images/search.png'
 
 import styles from './SearchInput.module.scss'
 

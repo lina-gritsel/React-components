@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
-import { Search } from '../assets/icons/Search'
+
+import { Search } from '@/assets/icons/Search'
 
 describe('Search icon render', () => {
   it('renders search icon', () => {
