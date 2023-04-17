@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
+
 import { useAppSelector } from '../../store/hooks/redux'
-import { addNewForm } from '../../store/reducers/forms'
+import { useActions } from '../../store/ActionCreators'
 
 export interface IErrors {
   name?: string
@@ -33,7 +34,7 @@ export const useFormPage = () => {
   const [currentFile, setCurrentFile] = useState<string>('')
 
   const storeForms = useAppSelector((state) => state.forms.forms)
-  const dispatch = useDispatch()
+  const { addNewForm } = useActions()
 
   const onSubmit = (data: ICardData) => {
     reset()
@@ -44,7 +45,7 @@ export const useFormPage = () => {
     ).toString()
     const correctData = { ...data, file: filePath }
 
-    dispatch(addNewForm(correctData))
+    addNewForm(correctData)
     setShowModal(true)
 
     setTimeout(() => {

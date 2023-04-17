@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 
-import { changeSearchValue } from '../../../store/reducers/searchValue'
 import { useAppSelector } from '../../../store/hooks/redux'
+import { useActions } from '../../../store/ActionCreators'
 
 import { useFetchCharacters } from './useFetchCharacters'
 
 export const useHomePage = () => {
   const storeSearchValue = useAppSelector((state) => state?.search.searchValue)
-  const dispatch = useDispatch()
+
+  const { changeSearchValue } = useActions()
 
   const [searchString, setSearchString] = useState<string>(storeSearchValue)
   const { isLoading, characters } = useFetchCharacters(storeSearchValue)
@@ -18,7 +18,7 @@ export const useHomePage = () => {
   }
 
   const onSubmit = () => {
-    dispatch(changeSearchValue(searchString))
+    changeSearchValue(searchString)
   }
 
   return {
