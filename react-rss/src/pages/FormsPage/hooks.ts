@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
 
 import { useAppSelector } from '../../store/hooks/redux'
 import { useActions } from '../../store/ActionCreators'
