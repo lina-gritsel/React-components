@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import { Сharacter } from '../api'
-import Modal from '../components/Modal'
+
+import { Character } from '@/api'
+import Modal from '@/components/Modal'
 
 describe('render modal with api data', () => {
-  const data: Сharacter = {
+  const data: Character = {
     created: '2017-12-29T11:40:25.135Z',
     episode: [
       'https://rickandmortyapi.com/api/episode/18',

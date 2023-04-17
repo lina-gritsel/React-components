@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
-import SearchInput from '../../components/SearchInput'
-import Layout from '../../components/Layout'
-import Modal from '../../components/Modal'
+import SearchInput from '@/components/SearchInput'
+import Layout from '@/components/Layout'
+import Modal from '@/components/Modal'
 
 import { useHomePage, useFetchCharacter } from './hooks'
 import MainOverlay from './components/MainOverlay'

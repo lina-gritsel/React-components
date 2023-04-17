@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import Loader from '../../../../components/Loader'
-import { Character } from '../../../../api'
+import Loader from '@/components/Loader'
+import { Character } from '@/api'
 import Card from '../Card'
 
 import styles from './CardsList.module.scss'

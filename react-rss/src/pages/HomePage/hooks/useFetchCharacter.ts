@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import { Character, fetchCharacter } from '../../../api'
-import { useModal } from '../../../components/Modal'
+import { Character, fetchCharacter } from '@/api'
+import { useModal } from '@/components/Modal'
 
 export const useFetchCharacter = () => {
   const {

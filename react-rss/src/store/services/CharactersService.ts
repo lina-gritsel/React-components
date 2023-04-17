@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ResponseOnAllCharacters } from '../../api/types'
+import { ResponseOnAllCharacters } from '@/api/types'
 
 export const charactersAPI = createApi({
   reducerPath: 'charactersAPI',

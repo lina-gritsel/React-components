@@ -12,9 +12,15 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "baseUrl": "./src",
     "resolveJsonModule": true,
-    "types": ["vitest/globals"]
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*", "./dist/*", ""],
+      "components/*": ["src/components/*"],
+      "api/*": ["src/api/*"],
+    }
   },
-  "include": ["./src/**/*", "styled.d.ts"]
+  "include": ["./src/**/*", "styled.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

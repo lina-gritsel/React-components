@@ -2,7 +2,7 @@ import { FC, useRef } from 'react'
 
 import closeIcon from '../../assets/images/close.png'
 import { useClickOutside } from '../../hooks'
-import { Character } from '../../api'
+import { Character } from '@/api'
 
 import styles from './Modal.module.scss'
 

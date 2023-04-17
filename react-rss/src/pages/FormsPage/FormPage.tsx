@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
+import Layout from '@/components/Layout'
+
 import background from '../../assets/images/form.webp'
-import Layout from '../../components/Layout'
-import Modal from './components/Modal'
 
 import {
   CATEGORIES_OPTIONS as categories,
@@ -15,6 +15,7 @@ import InputDate from './components/InputDate'
 import FileInput from './components/FileInput'
 import Checkbox from './components/Checkbox'
 import InputName from './components/Input'
+import Modal from './components/Modal'
 import { useFormPage } from './hooks'
 
 import styles from './FormsPage.module.scss'
