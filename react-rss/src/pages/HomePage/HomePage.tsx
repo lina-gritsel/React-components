@@ -19,8 +19,6 @@ const HomePage: FC = () => {
     onSubmit,
   } = useHomePage()
 
-  console.log(characters)
-
   const { modalVisible, onCardClick, selectCharacter, closeModal } =
     useFetchCharacter()
 
