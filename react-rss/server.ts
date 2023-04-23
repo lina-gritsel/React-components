@@ -5,6 +5,8 @@ import express from 'express'
 import { createServer as createViteServer } from 'vite'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const indexHTML = path.resolve(__dirname, 'index.html')
+
 const PORT = process.env.PORT || 3000
 
 const createServer = async () => {
@@ -13,18 +15,17 @@ const createServer = async () => {
     server: { middlewareMode: true },
     appType: 'custom',
   })
+
   app.use(vite.middlewares)
 
-  app.use('*', async (req, res, next) => {
-    const url = req.originalUrl
+  app.use('*', async (request, res, next) => {
+    const url = request.originalUrl
 
     try {
-      let template = fs.readFileSync(
-        path.resolve(__dirname, 'index.html'),
-        'utf-8'
-      )
-      template = await vite.transformIndexHtml(url, template)
-      const html = template.split(`<!--ssr-outlet-->`)
+      const template = fs.readFileSync(indexHTML, 'utf-8')
+      const transformHTML = await vite.transformIndexHtml(url, template)
+      const html = transformHTML.split(`<!--ssr-outlet-->`)
+
       const { render } = await vite.ssrLoadModule('/src/entry-server.tsx')
       const { pipe } = await render(url, {
         onShellReady() {
@@ -36,14 +37,20 @@ const createServer = async () => {
           res.end()
         },
       })
-    } catch (e) {
-      vite.ssrFixStacktrace(e)
-      next(e)
+    } catch (error) {
+      vite.ssrFixStacktrace(error as Error)
+      next(error)
     }
   })
 
+  // return app
   console.log(`listening on http://localhost:${PORT}`)
   app.listen(PORT)
 }
 
 createServer()
+// .then((app) => {
+//   app.listen(PORT, () => {
+//     console.log(`Server is running >>> http://localhost:${PORT}`)
+//   })
+// })

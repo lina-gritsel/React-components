@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "useDefineForClassFields": true,
     "lib": ["dom", "esnext", "dom.iterable"],
     "jsx": "react-jsx",
     "module": "esnext",
@@ -13,7 +14,7 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": ["vitest/globals"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*", "./dist/*", ""],
@@ -22,6 +23,10 @@
       "assets/*": ["src/assets/*"]
     }
   },
-  "include": ["./src/**/*", "styled.d.ts", "server.js"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+  "include": ["./src/**/*", "styled.d.ts", "server.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
