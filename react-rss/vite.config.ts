@@ -6,7 +6,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths';
 import eslint from 'vite-plugin-eslint';
-import istanbul from 'vite-plugin-istanbul';
+// import istanbul from 'vite-plugin-istanbul';
 
 export default defineConfig({
   build: {
@@ -16,10 +16,10 @@ export default defineConfig({
     react(),
     tsconfigPaths(),
     eslint(),
-    istanbul({
-      cypress: true,
-      requireEnv: false,
-    }),
+    // istanbul({
+    //   cypress: true,
+    //   requireEnv: false,
+    // }),
   ],
   resolve: {
     alias: {
@@ -34,7 +34,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
     coverage: {
-      provider: 'istanbul',
+      provider: 'c8',
       all: true,
       reporter: ['text'],
     },

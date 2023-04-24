@@ -43,14 +43,10 @@ const createServer = async () => {
     }
   })
 
-  // return app
-  console.log(`listening on http://localhost:${PORT}`)
+  // eslint-disable-next-line no-console
+  console.log(`Server is running >>> http://localhost:${PORT}`)
   app.listen(PORT)
 }
 
 createServer()
-// .then((app) => {
-//   app.listen(PORT, () => {
-//     console.log(`Server is running >>> http://localhost:${PORT}`)
-//   })
-// })
+
