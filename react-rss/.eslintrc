@@ -4,7 +4,8 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:cypress/recommended"
   ],
   "rules": {
     "eqeqeq": 1,
@@ -47,7 +48,8 @@
   "globals": {
     "history": false,
     "document": true,
-    "JSX": true
+    "JSX": true,
+    "cy": true
   },
   "settings": {
     "react": {

@@ -14,7 +14,7 @@
     "strict": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "types": ["vitest/globals"],
+    "types": ["cypress"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*", "./dist/*", ""],
