@@ -5,7 +5,7 @@ import styles from './AboutUsPage.module.scss'
 
 const AboutUsPage: FC = () => (
   <Layout>
-    <div className={styles.content}>About Us Page</div>
+    <div className={styles.content} data-cy="aboutPage">About Us Page</div>
   </Layout>
 )
 
