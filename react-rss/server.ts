@@ -1,8 +1,8 @@
-import fs from 'fs'
-import path from 'path'
+import { createServer as createViteServer } from 'vite'
 import { fileURLToPath } from 'url'
 import express from 'express'
-import { createServer as createViteServer } from 'vite'
+import path from 'path'
+import fs from 'fs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const indexHTML = path.resolve(__dirname, 'index.html')
@@ -49,4 +49,3 @@ const createServer = async () => {
 }
 
 createServer()
-
