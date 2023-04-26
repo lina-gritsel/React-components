@@ -1,23 +1,12 @@
-import { useState, useEffect } from 'react'
-import { Character, fetchAllCharacters } from '../../../api'
+import { charactersAPI } from '../../../store/services/CharactersService'
 
-type UseFetchCharacters = (searchString: string) => {
-  characters: Character[]
-  isLoading: boolean
-}
+export const useFetchCharacters = (searchString: string) => {
+  const { data, isLoading, error } =
+    charactersAPI.useFetchAllCharactersQuery(searchString)
 
-export const useFetchCharacters: UseFetchCharacters = (searchString) => {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const characters = data?.results
 
-  useEffect(() => {
-    (async () => {
-      setIsLoading(true)
-      const { results } = await fetchAllCharacters(searchString)
-      setCharacters(results)
-      setIsLoading(false)
-    })()
-  }, [searchString])
+  if (error) return { characters: [], isLoading }
 
-  return { characters, isLoading }
+  return { characters, isLoading, error }
 }

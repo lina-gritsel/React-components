@@ -1,34 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
+
+import { useAppSelector } from '../../../store/hooks/redux'
+import { useActions } from '../../../store/ActionCreators'
 
 import { useFetchCharacters } from './useFetchCharacters'
 
 export const useHomePage = () => {
-  const savedSearchValue = localStorage.getItem('search') as string
+  const storeSearchValue = useAppSelector((state) => state?.search.searchValue)
 
-  const [searchString, setSearchString] = useState<string>(savedSearchValue)
-  const [submitedString, setSubmitedString] = useState<string>(savedSearchValue)
-  const { isLoading, characters } = useFetchCharacters(submitedString)
+  const { changeSearchValue } = useActions()
+
+  const [searchString, setSearchString] = useState<string>(storeSearchValue)
+  const { isLoading, characters } = useFetchCharacters(storeSearchValue)
 
   const onChangeSearch = (value: string) => {
     setSearchString(value)
   }
 
   const onSubmit = () => {
-    setSubmitedString(searchString)
-    localStorage.setItem('search', searchString)
+    changeSearchValue(searchString)
   }
-
-  const searchRef = useRef<string>()
-
-  useEffect(() => {
-    searchRef.current = searchString
-  }, [searchString])
-
-  useEffect(() => {
-    return () => {
-      localStorage.setItem('search', searchRef.current || '')
-    }
-  }, [])
 
   return {
     searchString,
@@ -38,5 +29,3 @@ export const useHomePage = () => {
     onSubmit,
   }
 }
-
-

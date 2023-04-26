@@ -1,8 +1,9 @@
 import { FC, useRef } from 'react'
 
-import closeIcon from '../../assets/images/close.png'
+import closeIcon from '@/assets/images/close.png'
+import { Character } from '@/api'
+
 import { useClickOutside } from '../../hooks'
-import { Character } from '../../api'
 
 import styles from './Modal.module.scss'
 

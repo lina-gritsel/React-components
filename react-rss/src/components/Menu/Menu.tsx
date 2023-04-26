@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { NavLink } from 'react-router-dom'
+
 import { MENU_ITEM } from './constants'
 
 import styles from './Menu.module.scss'

@@ -1,8 +1,8 @@
 import { FC } from 'react'
 
-import SearchInput from '../../components/SearchInput'
-import Layout from '../../components/Layout'
-import Modal from '../../components/Modal'
+import SearchInput from '@/components/SearchInput'
+import Layout from '@/components/Layout'
+import Modal from '@/components/Modal'
 
 import { useHomePage, useFetchCharacter } from './hooks'
 import MainOverlay from './components/MainOverlay'
@@ -11,8 +11,13 @@ import CardsList from './components/CardsList'
 import styles from './HomePage.module.scss'
 
 const HomePage: FC = () => {
-  const { searchString, onChangeSearch, isLoading, characters, onSubmit } =
-    useHomePage()
+  const {
+    searchString,
+    onChangeSearch,
+    isLoading,
+    characters,
+    onSubmit,
+  } = useHomePage()
 
   const { modalVisible, onCardClick, selectCharacter, closeModal } =
     useFetchCharacter()

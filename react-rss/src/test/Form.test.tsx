@@ -1,15 +1,20 @@
-import React from 'react'
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { render, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import FormPage from '../pages/FormsPage'
+import store from '../store/store'
+
+const storeApp = store()
 
 describe('Expected form in DOM', () => {
   it('Form created', async () => {
     const { getByTestId, getByRole } = render(
       <BrowserRouter>
-        <FormPage />
+        <Provider store={storeApp}>
+          <FormPage />
+        </Provider>
       </BrowserRouter>
     )
 

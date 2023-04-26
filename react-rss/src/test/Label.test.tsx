@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import Label from '../assets/icons/Label'
+import Label from '@/assets/icons/Label'
 
 describe('Loader', () => {
   it('renders Loader component', () => {

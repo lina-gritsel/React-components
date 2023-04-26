@@ -22,3 +22,9 @@
   height: 30px;
   text-align: center;
 }
+
+@media (max-width: 1340px) {
+  .input {
+    width: 380px;
+  }
+}

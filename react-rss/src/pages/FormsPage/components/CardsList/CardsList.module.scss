@@ -1,6 +1,6 @@
 .show {
   display: block;
-  padding-top: 30px;
+  padding: 30px 20px 0;
 }
 
 .hidden {
@@ -28,8 +28,10 @@
 }
 
 .card {
-  border-radius: 16px;
+  border-radius: 4px;
   background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12),
+    0px 2px 4px rgba(0, 0, 0, 0.14);
 }
 
 .cardWraper {
@@ -40,7 +42,14 @@
 
 .image {
   width: 100%;
-  height: 280px;
+  height: 230px;
+}
+
+.characterInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
 }
 
 .subtitle {

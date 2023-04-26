@@ -1,14 +1,18 @@
-.container {
+.wrapper {
   background-color: #0e0f37;
-  margin: 0 auto;
   position: sticky;
   top: 0;
-  z-index: 10;
   width: 100%;
-  padding: 0 60px;
+  z-index: 10;
+}
+
+.container {
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 20px;
 }
 
 .logo {

@@ -1,7 +1,8 @@
 import { FC } from 'react'
 
-import Loader from '../../../../components/Loader'
-import { Character } from '../../../../api'
+import Loader from '@/components/Loader'
+import { Character } from '@/api'
+
 import Card from '../Card'
 
 import styles from './CardsList.module.scss'
@@ -19,24 +20,23 @@ const CardsList: FC<CardsListProps> = ({
 }) => {
   return (
     <>
+      {isLoading && <Loader className={styles.loader} />}
+      {!isLoading && !characters?.length && <EmptyList />}
       {!isLoading && characters && (
         <div className={styles.cards}>
-          {characters.map(({ id, name, species, image, status }) => (
-            <div key={id}>
-              <Card
-                id={id}
-                name={name}
-                species={species}
-                image={image}
-                status={status}
-                onClick={onCardClick}
-              />
-            </div>
+          {characters?.map(({ id, name, species, image, status }) => (
+            <Card
+              key={id}
+              id={id}
+              name={name}
+              species={species}
+              image={image}
+              status={status}
+              onClick={onCardClick}
+            />
           ))}
         </div>
       )}
-      {!isLoading && !characters && <EmptyList />}
-      {isLoading && <Loader className={styles.loader} />}
     </>
   )
 }

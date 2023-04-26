@@ -1,5 +1,5 @@
 import { render, fireEvent,screen } from '@testing-library/react'
-import Input from '../components/SearchInput'
+import Input from '@/components/SearchInput'
 
 describe('Input component', () => {
   const testProps = {
