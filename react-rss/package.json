@@ -13,7 +13,7 @@
     "test": "vitest --coverage",
     "test:cypress": "cypress open",
     "test:e2e": "cypress run --e2e",
-    "coverage:e2e":"npx cypress run --e2e && npx nyc report --reporter=text-summary"
+    "coverage:e2e":"npx nyc report --reporter=text-summary"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.0.0",
