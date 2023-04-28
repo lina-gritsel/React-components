@@ -3,24 +3,22 @@
 }
 
 .container {
+  align-items: center;
   background-color: #0e0f37;
   border-radius: 4px;
   color: #fff;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   position: fixed;
   right: 50%;
   top: 50%;
   transform: translate(50%, -50%);
-  width: 320px;
   z-index: 2;
 }
 
 .image {
-  border-radius: 4px 4px 0 0;
+  border-radius: 4px 0 0 4px;
   height: 250px;
-  width: 100%;
 }
 
 .info {
@@ -36,10 +34,11 @@
 }
 
 .close {
-  margin: 10px;
+  background-color: #fff;
+  border-radius: 20%;
   position: absolute;
-  right: -17px;
-  top: -17px;
+  right: 0;
+  top: 0;
   width: 35px;
 }
 
