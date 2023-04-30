@@ -4,9 +4,23 @@
 import * as path from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tsconfigPaths from 'vite-tsconfig-paths';
+import eslint from 'vite-plugin-eslint';
+import istanbul from 'vite-plugin-istanbul';
 
 export default defineConfig({
-  plugins: [react()],
+  build: {
+    sourcemap: true,
+  },
+  plugins: [
+    react(),
+    tsconfigPaths(),
+    eslint(),
+    istanbul({
+      cypress: true,
+      requireEnv: false,
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -20,6 +34,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
     coverage: {
+      provider: 'c8',
       all: true,
       reporter: ['text'],
     },

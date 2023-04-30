@@ -1,10 +1,10 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type ReturnType = [(locked: boolean) => void]
 
 export const useLockedBody = (initialLocked = false): ReturnType => {
   const [locked, setLocked] = useState(initialLocked)
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!locked) {
       return
     }

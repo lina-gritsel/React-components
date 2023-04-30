@@ -6,7 +6,7 @@ import { addNewForm } from './reducers/forms'
 
 const actions = {
   addNewForm,
-  changeSearchValue
+  changeSearchValue,
 }
 
 export const useActions = () => {

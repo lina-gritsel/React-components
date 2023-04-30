@@ -6,8 +6,8 @@ import { charactersAPI } from './services/CharactersService'
 const store = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware)=>
-    getDefaultMiddleware().concat(charactersAPI.middleware)
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(charactersAPI.middleware),
   })
 }
 

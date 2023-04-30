@@ -1,7 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit'
+
+import { charactersAPI } from '../services/CharactersService'
 import searchSlice from './searchValue'
 import formsSlice from './forms'
-import { charactersAPI } from '../services/CharactersService'
 
 export const rootReducer = combineReducers({
   search: searchSlice,
